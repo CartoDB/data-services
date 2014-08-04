@@ -14,6 +14,13 @@ SELECT
 FROM
     ne_admin0_v3;
 
+-- insert ad0_a3  codes as synonyms with a rank = 2
+INSERT INTO admin0_synonyms (name, rank, adm0_a3) 
+SELECT 
+    country_endonym, 2,  adm0_a3
+FROM
+    wikipedia_countries_native_names;
+
 -- insert ad0_a3  codes as synonyms with a rank = 3
 INSERT INTO admin0_synonyms (name, rank, adm0_a3) 
 SELECT 
