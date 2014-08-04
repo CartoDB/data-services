@@ -13,7 +13,8 @@ CREATE OR REPLACE FUNCTION test_geocode_admin0_polygons(name text[])
           FROM ne_admin0_v3
           WHERE adm0_a3 = (
             SELECT adm0_a3 FROM admin0_synonyms
-            WHERE name_ = lower(regexp_replace(d.q, '[^a-zA-Z]', '', 'g'))  
+            WHERE name_ = 
+                lower(regexp_replace(d.q, '[^A-z\u00C0-\u00ff]+', '', 'g'))
             ORDER BY rank ASC LIMIT 1
           )
         ) geom
