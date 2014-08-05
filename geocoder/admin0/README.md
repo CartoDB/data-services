@@ -9,7 +9,7 @@ Accepts a list of terms. Terms are searched against the ```name_``` column in ``
 
 1. Upload fresh NaturalEarth data to ```ne_admin0_v3```. 
 2. Delete all rows in the ```admin0_synonyms``` table. 
-3. Ensure that all [indexes and triggers](https://github.com/CartoDB/data-services/wiki/Indexes-and-triggers) exist on these two tables.
+3. If fresh, add all sql/indexes.sql and sql/triggers.sql
 4. Upload the data/wikipedia_countries_native_names.csv table if it doesn't already exist
 5. Run the sql/subdivide_polygons.sql 
 6. Run the sql/build_synonym_table.sql
