@@ -1,3 +1,80 @@
+--- Usage
+
+--SELECT (geocode_admin1_polygons(Array['TX','Cuidad Real', 'sevilla'])).*
+
+--- Function
+
+CREATE OR REPLACE FUNCTION geocode_admin1_polygons(name text[])
+  RETURNS SETOF geocode_admin_v1 AS $$
+  DECLARE 
+    ret geocode_admin_v1%rowtype;
+  BEGIN
+  FOR ret IN
+    SELECT
+       q, geom, CASE WHEN geom IS NULL THEN FALSE ELSE TRUE END AS success
+    FROM (
+      SELECT 
+        q, (
+          SELECT the_geom 
+          FROM global_province_polygons
+          WHERE d.c = ANY (synonyms) 
+          -- To calculate frequency, I simply counted the number of users
+          -- we had signed up in each country. Countries with more users, 
+          -- we favor higher in the geocoder :)
+          ORDER BY frequency DESC LIMIT 1
+        ) geom
+      FROM (SELECT trim(replace(lower(unnest(name)),'.',' ')) c, unnest(name) q) d
+    ) v
+  LOOP 
+    RETURN NEXT ret;
+  END LOOP;
+  RETURN;
+END
+$$ LANGUAGE 'plpgsql' SECURITY DEFINER;
+Text array, country name
+
+--- Usage
+
+--- SELECT (geocode_admin1_polygons(Array['az', 'Texas'], 'Ecuador')).*
+
+--- Function
+CREATE OR REPLACE FUNCTION geocode_admin1_polygons(name text[], inputcountry text)
+  RETURNS SETOF geocode_admin_v1 AS $$
+  DECLARE 
+    ret geocode_admin_v1%rowtype;
+  BEGIN
+
+  FOR ret IN WITH 
+    p AS (SELECT r.c, r.q, (SELECT iso3 FROM country_decoder WHERE lower(inputcountry) = ANY (synonyms)) i FROM (SELECT  trim(replace(lower(unnest(name)),'.',' ')) c, unnest(name) q) r)
+    SELECT
+       q, geom, CASE WHEN geom IS NULL THEN FALSE ELSE TRUE END AS success
+    FROM (
+      SELECT 
+        q, (
+          SELECT the_geom 
+          FROM global_province_polygons
+          WHERE p.c = ANY (synonyms) 
+          AND iso3 = p.i
+          -- To calculate frequency, I simply counted the number of users
+          -- we had signed up in each country. Countries with more users, 
+          -- we favor higher in the geocoder :)
+          ORDER BY frequency DESC LIMIT 1
+        ) geom
+      FROM p) n
+    LOOP
+    RETURN NEXT ret;
+  END LOOP;
+  RETURN;
+END
+$$ LANGUAGE 'plpgsql' SECURITY DEFINER;
+Text array, country array
+
+--- Usage
+
+--- SELECT (geocode_admin1_polygons(Array['az', 'az'], Array['Ecuador', 'USA'])).*
+
+--- Function
+
 CREATE OR REPLACE FUNCTION geocode_admin1_polygons(names text[], country text[])
   RETURNS SETOF geocode_admin_country_v1 AS $$
   DECLARE 
