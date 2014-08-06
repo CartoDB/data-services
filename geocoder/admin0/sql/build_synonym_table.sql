@@ -1,5 +1,11 @@
 
 ---- ADMIN0_SYNONYMS ---
+--- ---
+--- NOTE ---
+--- insert order should be from lowest rank to highest ---
+--- this allows us to use table sort order instead of an explicit ORDER BY rank ---
+--- in searches and reduces search cost / time --- 
+--- ---
 -- insert data from ne_admin_0 into admin0_synonyms
 -- the name column from ne_10m_countries is assigned a rank of 0
 INSERT INTO admin0_synonyms (name, rank, adm0_a3)
