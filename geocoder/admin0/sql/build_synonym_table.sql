@@ -1,5 +1,9 @@
 
 ---- ADMIN0_SYNONYMS ---
+
+-- clear all existing data from the table --
+DELETE FROM admin0_synonyms;
+
 -- insert data from ne_admin_0 into admin0_synonyms
 -- the name column from ne_10m_countries is assigned a rank of 0
 INSERT INTO admin0_synonyms (name, rank, adm0_a3)
