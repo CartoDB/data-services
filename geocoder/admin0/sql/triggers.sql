@@ -1,7 +1,7 @@
 -- create trigger function. used in both admin1 and admin2 synonym tables
 CREATE OR REPLACE FUNCTION alpha_numeric_identifiers() RETURNS trigger AS $alpha_numeric_identifiers$
     BEGIN
-        NEW.name_ := lower(regexp_replace(NEW.name, '[^A-z\u00C0-\u00ff]+', '', 'g'));
+        NEW.name_ := lower(regexp_replace(NEW.name, '[^a-zA-Z\u00C0-\u00ff]+', '', 'g'));
         RETURN NEW;
     END;
 $alpha_numeric_identifiers$ LANGUAGE plpgsql;
