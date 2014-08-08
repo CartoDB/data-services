@@ -48,6 +48,8 @@ For use with the admin0_geocoder.
 | 5           | natural earth 10m countries | formal_en     | formal english       |
 | 6           | natural earth 10m countries | brk_name      | ?                    |
 | 7           | natural earth 10m countries | formal_fr     | formal french        |
+| 8           | natural earth 10m countries | iso_a2     | 2 digit country code        |
+| 9           | admin0_synonym_additions | n/a     | manually curated additions       |
 
 __notes:__ 
 
