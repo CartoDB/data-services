@@ -1,6 +1,6 @@
 --CREATE TYPE geocode_admin_v1 AS (q TEXT, geom GEOMETRY, success BOOLEAN);
 
-CREATE OR REPLACE FUNCTION test_geocode_admin0_polygons(name text[])
+CREATE OR REPLACE FUNCTION geocode_admin0_polygons(name text[])
   RETURNS SETOF geocode_admin_v1 AS $$
   DECLARE 
     ret geocode_admin_v1%rowtype;
