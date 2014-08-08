@@ -73,6 +73,15 @@ SELECT
 FROM
     ne_admin0_v3;
 
+-- insert manual additions with a rank = 9    
+INSERT INTO admin0_synonyms (name, rank, adm0_a3)
+SELECT
+    name, rank, adm0_a3
+FROM
+    admin0_synonym_additions
+WHERE
+    rank=9;
+
 -- remove all cases where name is NULL
 DELETE FROM admin0_synonyms WHERE name IS NULL;
 
