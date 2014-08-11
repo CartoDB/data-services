@@ -33,6 +33,30 @@ END
 $$ LANGUAGE 'plpgsql' SECURITY DEFINER;
 Text array, country name
 
+
+-- CREATE OR REPLACE FUNCTION test_geocode_admin1_polygons(name text[])
+--   RETURNS SETOF geocode_admin_v1 AS $$
+--   DECLARE 
+--     ret geocode_admin_v1%rowtype;
+--   BEGIN
+--   -- FOR ret IN
+--   RETURN QUERY
+--     SELECT 
+--       d.q, n.the_geom as geom, 
+--       CASE WHEN s.adm1_code IS NULL then FALSE ELSE TRUE END AS success 
+--       FROM (
+--         SELECT 
+--           q, lower(regexp_replace(q, '[^a-zA-Z\u00C0-\u00ff]+', '', 'g'))::text x 
+--         FROM (SELECT unnest(name) q) g
+--         ) d 
+--       LEFT OUTER JOIN 
+--         admin1_synonyms s ON name_ = d.x 
+--       LEFT OUTER JOIN 
+--         ne_admin1_v3 n ON s.adm1_code = n.adm1_code;
+-- END
+-- $$ LANGUAGE 'plpgsql' SECURITY DEFINER;
+
+
 --- Usage
 
 --- SELECT (geocode_admin1_polygons(Array['az', 'Texas'], 'Ecuador')).*
