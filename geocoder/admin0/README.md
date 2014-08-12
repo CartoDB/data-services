@@ -34,12 +34,17 @@ sql/subdivide_polygons.sql
 In order to add new entries manually for admin0, table [admin0_synonym_additions](https://geocoding.cartodb.com/tables/admin0_synonym_additions) has been created.
 
 The table contains the following columns to be populated:
+
 1. **adm0_a3** : ISO code for the region. Used to get the unique geometry for the region in terms of the synonym.
+
 2. **name**: Actually, the synonym you want to include for a specific region (identified ad adm0_a3).
+
 3. notes: Extra information as the source of the data. Use: 'data source: X'.
+
 4. rank: Use '9' for manually curated additions.
 
 The following query can be used:
+
 
 ````
 INSERT INTO admin0_synonym_additions (adm0_a3, name, notes, rank) VALUES ($iso3_code, $synonym, $notes, 9)
