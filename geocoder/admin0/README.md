@@ -50,7 +50,7 @@ The following query can be used:
 INSERT INTO admin0_synonym_additions (adm0_a3, name, notes, rank) VALUES ($iso3_code, $synonym, $notes, 9)
 ````
 
-**Note:** If you need a complete dataset to be included, please create a new issue in order to add it to the build script.
+**Note:** If you have a complete dataset of synonyms to be included, you will need to add it as part of the build script. If you need to add single entries for synonyms, they can be included in the `admin0_synonym_additions` table manually (or using the previously defined SQL query).
 
 ### Ranks
 
