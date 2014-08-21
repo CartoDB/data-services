@@ -1,4 +1,4 @@
----- ADMIN1 Geometry Table -----
+---- ADMIN1 DATA TABLE BUILD -----
 -------------------------------
 --- NOTE ---
 -- for countries that have admin1 regions we use data from qs_adm1_region
@@ -32,16 +32,25 @@ first_update AS (
         SELECT id FROM global_id WHERE source_id = qs_adm1_region.cartodb_id AND sourcetable ='qs_adm1_region'
          );
 
--- clear all existing data from the table 
+--- punch out ne_10m coastline from the following countries in quattro shapes admin1 data one at a time to not bog down the cpu
+update qs_adm1 set the_geom = ST_Intersection(the_geom, (SELECT the_geom FROM ne_10m_land)) WHERE qs_adm0_a3 = 'USA';--cartodb_id >= 0 AND cartodb_id < 20;
+update qs_adm1 set the_geom = ST_Intersection(the_geom, (SELECT the_geom FROM ne_10m_land)) WHERE qs_adm0_a3 = 'CAN';
+update qs_adm1 set the_geom = ST_Intersection(the_geom, (SELECT the_geom FROM ne_10m_land)) WHERE qs_adm0_a3 = 'MEX';
+update qs_adm1 set the_geom = ST_Intersection(the_geom, (SELECT the_geom FROM ne_10m_land)) WHERE qs_adm0_a3 = 'SWE';
+update qs_adm1_region set the_geom = ST_Intersection(the_geom, (SELECT the_geom FROM ne_10m_land)) WHERE qs_adm0_a3 = 'FIN';
+update qs_adm1 set the_geom = ST_Intersection(the_geom, (SELECT the_geom FROM ne_10m_land)) WHERE qs_adm0_a3 = 'HRV';
+update qs_adm1 set the_geom = ST_Intersection(the_geom, (SELECT the_geom FROM ne_10m_land)) WHERE qs_adm0_a3 = 'NOR';    
+
+--- clear all existing data from the table 
 DELETE FROM adm1;
 
--- insert data from quattro shapes adm1 where countries don't have Regions
+--- insert data from quattro shapes adm1 where countries don't have Regions
 INSERT INTO adm1 (the_geom, global_id)
     SELECT the_geom, global_id
     FROM qs_adm1
     WHERE  qs_adm0 NOT IN ('Belgium', 'Finland', 'France', 'Hungary', 'Italy', 'Serbia', 'Spain', 'United Kingdom');
 
--- insert data from quattro shapes adm1 regions
+--- insert data from quattro shapes adm1 regions
 INSERT INTO adm1 (the_geom, global_id)
   SELECT the_geom, global_id
   FROM qs_adm1_region;
