@@ -1,8 +1,6 @@
 --SELECT (geocode_postalcode_polygons(Array['10013','G9H','03782'], Array['USA', 'Canada', 'US'])).*
 
-
-
-CREATE OR REPLACE FUNCTION test_geocode_postalcode_polygons(code text[], inputcountries text[])
+CREATE OR REPLACE FUNCTION geocode_postalcode_polygons(code text[], inputcountries text[])
   RETURNS SETOF geocode_namedplace_country_v1 AS $$
   DECLARE 
     ret geocode_namedplace_country_v1%rowtype;
