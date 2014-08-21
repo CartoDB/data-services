@@ -17,13 +17,3 @@ French polygons - http://www.data.gouv.fr/dataset/fond-de-carte-des-codes-postau
 
 
 ### Preparation details
-
-## Admin0_synonyms
-
-
-### Ranks
-
-| rank number | origin data                 | origin column | description          |
-|-------------|-----------------------------|---------------|----------------------|
-
-__notes:__ 
