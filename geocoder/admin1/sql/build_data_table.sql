@@ -30,16 +30,22 @@ first_update AS (
     )
     UPDATE qs_adm1_region SET global_id = (
         SELECT id FROM global_id WHERE source_id = qs_adm1_region.cartodb_id AND sourcetable ='qs_adm1_region'
-         )
+         );
 
 -- clear all existing data from the table 
 DELETE FROM adm1;
 
 -- insert data from quattro shapes adm1 where countries don't have Regions
-INSERT INTO adm1 (the_geom, global_id,  )
-    SELECT
+INSERT INTO adm1 (the_geom, global_id)
+    SELECT (the_geom, global_id)
     FROM qs_adm1
-    WHERE  qs_adm0 NOT IN ('Belgium', 'Finland', 'France', 'Hungary', 'Italy', 'Serbia', 'Spain', 'United Kingdom')
+    WHERE  qs_adm0 NOT IN ('Belgium', 'Finland', 'France', 'Hungary', 'Italy', 'Serbia', 'Spain', 'United Kingdom');
+
+-- insert data from quattro shapes adm1 regions
+INSERT INTO adm1 (the_geom, global_id)
+  SELECT (the_geom, global_id)
+  FROM qs_adm1_region
+
 
 
 -- synonyms table = rank, isoCode, id, name, name_code
