@@ -28,15 +28,15 @@ WHERE
 --- add admin1 name from qs_adm1_region
 INSERT INTO admin1_synonyms_qs(name, rank, adm0_a3, global_id)
 SELECT
-    qs_a1, 0, qs_adm0_a3, global_id
+    qs_a1r, 0, qs_adm0_a3, global_id
 FROM
     qs_adm1_region;
 
 --- add province code from qs_adm1_region
 INSERT INTO admin1_synonyms_qs(name, rank, adm0_a3, global_id)
 SELECT
-    qs_a1_lc, 1, qs_adm0_a3, global_id
+    qs_a1r_lc, 1, qs_adm0_a3, global_id
 FROM
-    qs_adm1_regions;
+    qs_adm1_region;
 
 --- TO DO: add external synonyms
