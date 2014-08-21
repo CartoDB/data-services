@@ -32,11 +32,4 @@ SELECT
 FROM
     qs_adm1_region;
 
---- add province code from qs_adm1_region
-INSERT INTO admin1_synonyms_qs(name, rank, adm0_a3, global_id)
-SELECT
-    qs_a1r_lc, 1, qs_adm0_a3, global_id
-FROM
-    qs_adm1_region;
-
 --- TO DO: add external synonyms
