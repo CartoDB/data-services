@@ -25,9 +25,7 @@ Accepts a list of terms. Terms are searched against the ```name_``` column in ``
 
 ### Preparation details
 
-Users dislike the NaturalEarth aggregation of French regions into the mainland France polygon. We have done a minimal amount of subdivision. This can be done by executing,
-
-sql/subdivide_polygons.sql 
+Users dislike the NaturalEarth aggregation of French regions into the mainland France polygon. We have done a minimal amount of subdivision. This can be done by executing `sql/subdivide_polygons.sql`.
 
 ## Admin0_synonyms
 
@@ -39,9 +37,9 @@ The table contains the following columns to be populated:
 
 2. **name**: Actually, the synonym you want to include for a specific region (identified ad adm0_a3).
 
-3. notes: Extra information as the source of the data. Use: 'data source: X'.
+3. **notes:** Extra information as the source of the data. Use: 'data source: X'.
 
-4. rank: Use '9' for manually curated additions.
+4. **rank:** Use '9' for manually curated additions.
 
 The following query can be used:
 
