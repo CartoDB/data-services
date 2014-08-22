@@ -13,8 +13,8 @@ SELECT the_geom, 'FRA', id FROM codes_postaux;
 
 -- Insert UK zip codes 
 
-INSERT INTO postal_code_polygons (the_geom,adm0_a3,postal_code)
-SELECT the_geom, 'GBR', postalcode FROM uk_postcodes;
+--INSERT INTO postal_code_polygons (the_geom,adm0_a3,postal_code)
+--SELECT the_geom, 'GBR', postalcode FROM uk_postcodes;
 
 -- Insert Canada zip codes
 
