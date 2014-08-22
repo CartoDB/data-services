@@ -1,4 +1,4 @@
-Postal code geocoder
+Postal code geocoder (polygons)
 ===============
 
 ### Function
@@ -19,3 +19,7 @@ French polygons - http://www.data.gouv.fr/dataset/fond-de-carte-des-codes-postau
 
 
 ### Preparation details
+
+# Postal code geocoder (polygons)
+
+todo
