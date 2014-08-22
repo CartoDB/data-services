@@ -20,6 +20,6 @@ French polygons - http://www.data.gouv.fr/dataset/fond-de-carte-des-codes-postau
 
 ### Preparation details
 
-# Postal code geocoder (polygons)
+# Postal code geocoder (points)
 
 todo
