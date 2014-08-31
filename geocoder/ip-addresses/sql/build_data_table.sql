@@ -1,5 +1,5 @@
 
----- Postal Code Polygon table ---
+---- IP addresses table ---
 --- ---
 
 -- Clear table
