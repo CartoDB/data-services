@@ -2,7 +2,7 @@
 
 ### Function
 
-Accepts a list of terms. Terms are searched against the ```name_``` column in ```admin1_synonyms_qs```. The ```name_``` column is an automatically cleaned and populated column based on the raw values in ```name``` . The synonym table returns the proper global_id (based on rank values in table below). The global_id is then matched against the single row in the ```adm1``` table to return the correct polygon(s).
+Accepts a list of terms. Terms are searched against the ```name_``` column in ```admin1_synonyms_qs```. The ```name_``` column is an automatically cleaned and populated column based on the raw values in ```name``` . The synonym table returns the proper global_id (based on rank values in table below). The global_id is then matched against the single row in the **adm1** table to return the correct polygon(s).
 
 ### Creation steps
 
@@ -23,15 +23,17 @@ Accepts a list of terms. Terms are searched against the ```name_``` column in ``
 
 - Natural Earth admin1 alternate name spellings will be used as synonyms when the Quattro Shapes `qs_source` = 'Natural Earth'.
 
-## Admin1 Synonyms
+## Admin1 Geometry Table
+The table name is currently being called `adm1` and is built from a combination of data from Quattro Shapes: `qs_adm1` and `qs_adm1_region`. All countries that contain regional admin1 provinces use geometry from the `qs_adm1_region` table and not the `qs_adm1` table. This is an improvement made based on tickets/issues submitted by users when geocoding admin1 states / provinces.
+
+
+## Admin1 Synonyms Table
 
 The table contains the following columns to be populated:
 
 1. **adm0_a3** : ISO code for the region. Used to get the unique geometry for the region in terms of the synonym.
 
 2. **name**: Actually, the synonym you want to include for a specific region (identified ad adm0_a3).
-
-3. **notes:** Extra information as the source of the data. Use: 'data source: X'.
 
 4. **rank**: Rank of the synonym being matched to. 0 is highest.
 
