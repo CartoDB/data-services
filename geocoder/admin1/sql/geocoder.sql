@@ -28,7 +28,7 @@ CREATE OR REPLACE FUNCTION test_geocode_admin1_polygons(name text[], inputcountr
       FROM (
         SELECT 
           q, (
-            SELECT the_geom FROM qs_adm1 WHERE global_id = (
+            SELECT the_geom FROM adm1 WHERE global_id = (
               SELECT global_id
               FROM admin1_synonyms
               WHERE name_ =  lower(regexp_replace(d.q, '[^a-zA-Z\u00C0-\u00ff]+', '', 'g'))::text
@@ -50,7 +50,7 @@ CREATE OR REPLACE FUNCTION test_geocode_admin1_polygons(name text[], inputcountr
       FROM (
         SELECT 
           q, (
-            SELECT the_geom FROM qs_adm1 WHERE global_id = (
+            SELECT the_geom FROM adm1 WHERE global_id = (
               SELECT global_id
               FROM admin1_synonyms
               WHERE name_ =  lower(regexp_replace(d.q, '[^a-zA-Z\u00C0-\u00ff]+', '', 'g'))::text
