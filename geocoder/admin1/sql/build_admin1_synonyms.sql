@@ -104,16 +104,25 @@ WHERE adm1_code IN (
 DELETE FROM admin1_synonyms WHERE name IS NULL;
 
 -- remove all cases where a name is duplicated with a higher rank
-DELETE FROM admin1_synonyms 
+    DELETE FROM admin1_synonyms 
     WHERE cartodb_id IN (
         SELECT 
             cartodb_id 
         FROM 
             admin1_synonyms a 
         WHERE 
-            0 < (
+            1 < (
                 SELECT count(*) 
                 FROM admin1_synonyms 
                 WHERE name_ = a.name_ 
                   AND global_id = a.global_id 
-                  AND rank < a.rank));
+                  AND rank <= a.rank)
+            AND 
+            cartodb_id != (
+                SELECT 
+                min(cartodb_id) 
+                FROM admin1_synonyms 
+                WHERE name_ = a.name_ 
+                  AND global_id = a.global_id 
+                  AND rank = a.rank)
+            );
