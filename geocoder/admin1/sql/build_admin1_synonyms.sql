@@ -100,6 +100,46 @@ WHERE adm1_code IN (
     WHERE qs_source = 'Natural Earth'
 );
 
+-- add woe_label as rank = 6 where label strings are like 'name, iso3_adm0_code, adm0_name'
+INSERT INTO admin1_synonyms(name, rank, adm0_a3, global_id)
+    (
+      SELECT substring(woe_label from '#"%#",%,%' for '#'), 6, adm0_a3, 
+
+      (
+        SELECT qs_adm1.global_id FROM qs_adm1 
+        WHERE qs_source = 'Natural Earth' 
+        AND ne_admin1_v3.adm1_code = qs_a1_lc
+        )
+      FROM ne_admin1_v3 
+      WHERE array_length(string_to_array(woe_label, ','),1) = 3 
+      AND adm1_code IN 
+        (
+         SELECT qs_a1_lc 
+         FROM qs_adm1 
+         WHERE qs_source = 'Natural Earth'
+        )
+    );
+
+-- add woe_label as rank = 6 where label strings are like 'name'
+INSERT INTO admin1_synonyms(name, rank, adm0_a3, global_id)
+    (
+      SELECT woe_label, 6, adm0_a3, 
+
+      (
+        SELECT qs_adm1.global_id FROM qs_adm1 
+        WHERE qs_source = 'Natural Earth' 
+        AND ne_admin1_v3.adm1_code = qs_a1_lc
+        )
+      FROM ne_admin1_v3 
+      WHERE array_length(string_to_array(woe_label, ','),1) = 1
+      AND adm1_code IN 
+        (
+         SELECT qs_a1_lc 
+         FROM qs_adm1 
+         WHERE qs_source = 'Natural Earth'
+        )
+    );
+
 -- remove all cases where name is NULL
 DELETE FROM admin1_synonyms WHERE name IS NULL;
 

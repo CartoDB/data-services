@@ -49,5 +49,6 @@ The table contains the following columns to be populated:
 | 2 			| Natural Earth 			| name_alt | alternate spelling | 
 | 3				| Natural Earth				| abbrev   | abbreviation |
 | 4				| Natural Earth				| postal   | postal code  |
-| 5 			| Natural Earth 			| gn_name  | formal english name  | 					
+| 5 			| Natural Earth 			| gn_name  | formal english name  |
+| 6 			| Natural Earth 			| woe_label  | woe label name  | 					
 
