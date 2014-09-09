@@ -39,13 +39,13 @@ The table contains the following columns to be populated:
 
 3. **notes:** Extra information as the source of the data. Use: 'data source: X'.
 
-4. **rank:** Use '9' for manually curated additions.
+4. **rank:** Use '10' for manually curated additions.
 
 The following query can be used:
 
 
 ````
-INSERT INTO admin0_synonym_additions (adm0_a3, name, notes, rank) VALUES ($iso3_code, $synonym, $notes, 9)
+INSERT INTO admin0_synonym_additions (adm0_a3, name, notes, rank) VALUES ($iso3_code, $synonym, $notes, 10)
 ````
 
 **Note:** If you have a complete dataset of synonyms to be included, you will need to add it as part of the build script. If you need to add single entries for synonyms, they can be included in the `admin0_synonym_additions` table manually (or using the previously defined SQL query).
@@ -63,7 +63,9 @@ INSERT INTO admin0_synonym_additions (adm0_a3, name, notes, rank) VALUES ($iso3_
 | 6           | natural earth 10m countries | brk_name      | ?                    |
 | 7           | natural earth 10m countries | formal_fr     | formal french        |
 | 8           | natural earth 10m countries | iso_a2     | 2 digit country code        |
-| 9           | admin0_synonym_additions | n/a     | manually curated additions       |
+| 9           | natural earth 10m countries | subunit     | complete literal name       |
+| 10           | admin0_synonym_additions | n/a     | manually curated additions       |
+
 
 __notes:__ 
 
