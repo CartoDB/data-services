@@ -41,7 +41,7 @@ SELECT
     2, adm0_a3, 
         (
         SELECT qs_adm1.global_id FROM qs_adm1 
-        WHERE qs_source = 'Natural Earth' 
+        WHERE qs_source = 'Natural Earth' OR qs_adm0_a3 IN ('USA', 'UMI', 'VIR')
         AND ne_admin1_v3.adm1_code = qs_a1_lc
         )
 FROM
@@ -49,7 +49,7 @@ FROM
 WHERE adm1_code IN (
     SELECT qs_a1_lc 
     FROM qs_adm1 
-    WHERE qs_source = 'Natural Earth'
+    WHERE qs_source = 'Natural Earth' OR qs_adm0_a3 IN ('USA', 'UMI', 'VIR')
 );
 
 -- add the abbrev as a rank = 3
