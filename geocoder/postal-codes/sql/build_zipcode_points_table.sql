@@ -9,7 +9,7 @@ DELETE FROM zipcode_points;
 
 DELETE FROM zipcode_points;
 
-INSERT INTO zip_code_points (the_geom, zipcode, iso3) 
+INSERT INTO postal_code_points (the_geom, postal_code, adm0_a3) 
 SELECT the_geom, zipcode,
 		(
 		SELECT country_decoder.iso3 FROM country_decoder 
