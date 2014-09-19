@@ -1,6 +1,9 @@
 --CREATE TYPE available_services_v1 AS (q TEXT, adm0_a3 TEXT, postal_code_points BOOLEAN, postal_code_polygons BOOLEAN);
 
-CREATE OR REPLACE FUNCTION admin0_available_services(countries text[])
+--EXAMPLE
+-- SELECT (admin0_available_services(Array['United States', 'ESP'])).*
+
+CREATE OR REPLACE FUNCTION admin0_available_services(name text[])
   RETURNS SETOF available_services_v1 AS $$
   DECLARE 
     ret available_services_v1%rowtype;
