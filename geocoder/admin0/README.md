@@ -72,3 +72,12 @@ __notes:__
 - The column `adm0_a3` will be used as a unique identifier.
 - The ranks are somewhat arbitrarily organized and should be modified later based on our users use of the geocoder (will users more commonly geocode an adm0_a3 or abbreviation?) 
 - I also forgot to assign a `rank` of `2` to a synonym.
+
+# Admin0 Synonym Service
+
+If you need to look up the iso code for any list of countries without returning any geometries, you can use the endpoint defined in sql/synonym_service.sql. An example works like this,
+
+```sql
+SELECT (admin0_synonym_lookup(Array['United States', 'ESP'])).*
+```
+
