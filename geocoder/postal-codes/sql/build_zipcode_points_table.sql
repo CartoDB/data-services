@@ -23,4 +23,5 @@ FROM tmp_zipcode_points
 
 DROP TABLE tmp_zipcode_points;
 
-
+-- remove unusable rows
+DELETE FROM postal_code_points WHERE the_geom IS NULL;
