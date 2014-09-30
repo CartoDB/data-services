@@ -52,7 +52,7 @@ SELECT ST_Collect(geom), 'GLP', 'Guadeloupe'  FROM a WHERE ST_Intersects(geom, S
 -- Remove the Martinique and Mayotte from the FRA polygon
 
 WITH a AS (SELECT (ST_Dump(the_geom)).geom geom  FROM ne_admin0_v3 WHERE adm0_a3 = 'FRA')
-UPDATE ne_admin0_v3 SET the_geom = (SELECT ST_Union(geom) FROM a WHERE NOT ST_intersects(geom, (SELECT ST_Union(the_geom) FROM ne_admin0_v3 WHERE adm0_a3 IN ('MTQ', 'MYT', 'GLP'))))))) WHERE adm0_a3 = 'FRA';
+UPDATE ne_admin0_v3 SET the_geom = (SELECT ST_Union(geom) FROM a WHERE NOT ST_intersects(geom, (SELECT ST_Union(the_geom) FROM ne_admin0_v3 WHERE adm0_a3 IN ('MTQ', 'MYT', 'GLP')))) WHERE adm0_a3 = 'FRA';
 
 ---- Subdivide Norway into subregions ----
 -- Split Bouvet Island from Norway
