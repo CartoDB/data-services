@@ -16,6 +16,14 @@ INSERT INTO admin0_synonyms (name, rank, adm0_a3)
     SELECT name, 0, adm0_a3 
     FROM ne_admin0_v3;
 
+-- insert data from ne_admin_0 into admin0_synonyms
+-- the name column is assigned a rank of 0 for cases where adm0_a3 is not iso_a3
+
+INSERT INTO admin0_synonyms (name, rank, adm0_a3)
+    SELECT name, 0, iso_a3 
+    FROM ne_admin0_v3
+    WHERE adm0_a3 NOT LIKE iso_a3 AND iso_a3 NOT LIKE '-99';
+
 -- separate data from the name_alt column from ne_admin0_v3 using `|` as a delimiter 
 -- and insert into admin1_synonyms as new rows with a rank=1
 INSERT INTO admin0_synonyms (name, rank, adm0_a3) 
