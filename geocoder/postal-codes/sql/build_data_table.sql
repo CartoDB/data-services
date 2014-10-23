@@ -31,4 +31,8 @@ SELECT the_geom, 'AUS', name FROM doc;
 INSERT INTO postal_code_polygons (the_geom,adm0_a3,postal_code)
 SELECT the_geom, 'USA', zcta5ce10 FROM tl_2013_us_zcta510;
 
+-- Insert Mexico zip codes
+
+INSERT INTO postal_code_polygons (the_geom,adm0_a3,postal_code)
+SELECT the_geom, 'MEX', postal_cod FROM mx_codigo_postal;
 

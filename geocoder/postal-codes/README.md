@@ -3,7 +3,7 @@ Postal code geocoder (polygons)
 
 ### Function
 
-By following the next steps a table is populated with zipcodes from Australia, Canada, USA and France (identified by iso3) related with their spatial location in terms of polygons.
+By following the next steps a table is populated with zipcodes from Australia, Canada, USA, México and France (identified by iso3) related with their spatial location in terms of polygons.
 
 ### Creation steps
 
@@ -23,15 +23,20 @@ USA polygons - http://www2.census.gov/geo/tiger/TIGER2013/ZCTA5/tl_2013_us_zcta5
 
 French polygons - http://www.data.gouv.fr/dataset/fond-de-carte-des-codes-postaux
 
+Mexican polygons - http://c360.livemap.bbvacommerce360.com/tables/16/public/table
+
 
 ### Preparation details
 
 The names of the imported files are:
 
-- doc for Australia table
-- gfsa000a11a_e for Canada table
-- tl_2013_us_zcta510 for USA table
-- codes_postaux for France table
+- 'doc' for Australia table
+- 'gfsa000a11a_e' for Canada table
+- 'tl_2013_us_zcta510' for USA table
+- 'codes_postaux' for France table
+- 'mx_codigo_postal' for México table
+
+Remember that the table 'postal_code_coverage' needs to be updated whenever a new dataset for polygons is added for a country.
 
 # Postal code geocoder (points)
 
