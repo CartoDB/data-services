@@ -50,5 +50,7 @@ The table contains the following columns to be populated:
 | 3				| Natural Earth				| abbrev   | abbreviation |
 | 4				| Natural Earth				| postal   | postal code  |
 | 5 			| Natural Earth 			| gn_name  | formal english name  |
-| 6 			| Natural Earth 			| woe_label  | woe label name  | 					
+| 6 			| Natural Earth 			| woe_label  | woe label name  | 	
+| 7 			| TIGER 		 			| stusps  | Abbreviation (USA only)  | 	
+
 
