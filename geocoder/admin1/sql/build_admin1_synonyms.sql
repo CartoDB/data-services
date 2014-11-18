@@ -140,6 +140,14 @@ INSERT INTO admin1_synonyms(name, rank, adm0_a3, global_id)
         )
     );
 
+-- add woe_label as rank = 7 for US states
+INSERT INTO admin1_synonyms(name, rank, adm0_a3, global_id)
+        
+        SELECT stusps, 7, 'USA', qs_adm1.global_id 
+        FROM qs_adm1, tl_2014_us_state 
+        WHERE qs_adm1.qs_a1 = tl_2014_us_state.name;
+        
+
 -- remove all cases where name is NULL
 DELETE FROM admin1_synonyms WHERE name IS NULL;
 
