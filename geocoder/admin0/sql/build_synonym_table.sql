@@ -46,12 +46,13 @@ SELECT
 FROM
     ne_admin0_v3;
 
--- insert abbrv as name with a rank = 4
-INSERT INTO admin0_synonyms (name, rank,  adm0_a3) 
-SELECT 
-    abbrev, 4, adm0_a3
+    -- insert iso_a2 as name with a rank = 4    
+INSERT INTO admin0_synonyms (name, rank, adm0_a3)
+SELECT
+    iso_a2, 4, adm0_a3
 FROM
-    ne_admin0_v3;
+    ne_admin0_v3
+ WHERE iso_a2 NOT LIKE '-99';
 
 -- insert formal_en as name with a rank = 5
 INSERT INTO admin0_synonyms (name, rank,  adm0_a3) 
@@ -74,13 +75,12 @@ SELECT
 FROM
     ne_admin0_v3;
 
--- insert iso_a2 as name with a rank = 8    
-INSERT INTO admin0_synonyms (name, rank, adm0_a3)
-SELECT
-    iso_a2, 8, adm0_a3
+-- insert abbrv as name with a rank = 8
+INSERT INTO admin0_synonyms (name, rank,  adm0_a3) 
+SELECT 
+    abbrev, 8, adm0_a3
 FROM
-    ne_admin0_v3
- WHERE iso_a2 NOT LIKE '-99';
+    ne_admin0_v3;
 
 -- insert subunit as name with a rank = 9    
 INSERT INTO admin0_synonyms (name, rank, adm0_a3)
