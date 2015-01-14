@@ -58,11 +58,11 @@ INSERT INTO admin0_synonym_additions (adm0_a3, name, notes, rank) VALUES ($iso3_
 | 1           | natural earth 10m countries | name_alt      | alternate name       |
 | 2           | wiki country navive names   | country_endonym |   local variation     |
 | 3           | natural earth 10m countries | adm0_a3       | 3 digit country code |
-| 4           | natural earth 10m countries | abbrev        | abbreviation         |
+| 4           | natural earth 10m countries | iso_a2     | 2 digit country code        |
 | 5           | natural earth 10m countries | formal_en     | formal english       |
 | 6           | natural earth 10m countries | brk_name      | ?                    |
 | 7           | natural earth 10m countries | formal_fr     | formal french        |
-| 8           | natural earth 10m countries | iso_a2     | 2 digit country code        |
+| 8           | natural earth 10m countries | abbrev        | abbreviation         |
 | 9           | natural earth 10m countries | subunit     | complete literal name       |
 | 10           | admin0_synonym_additions | n/a     | manually curated additions       |
 
