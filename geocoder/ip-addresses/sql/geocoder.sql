@@ -1,3 +1,11 @@
+--- Usage
+
+-- SELECT geocode_ip(Array['1.0.16.0', '::ffff:1.0.16.0'])
+
+
+--- Function
+
+
 CREATE OR REPLACE FUNCTION geocode_ip(ip text[])
   RETURNS SETOF geocode_ip_v1 AS $$
   DECLARE 
