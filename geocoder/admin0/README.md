@@ -23,6 +23,8 @@ Accepts a list of terms. Terms are searched against the ```name_``` column in ``
 
 - native language spellings were gathered from http://en.wikipedia.org/wiki/List_of_countries_and_dependencies_and_their_capitals_in_native_languages and stored in data/wikipedia_countries_native_names.csv
 
+- ISO 3166-2 codes were gathered from http://en.wikipedia.org/wiki/ISO_3166-2 and stored in data/wikipedia_iso_3166_2.csv
+
 ### Preparation details
 
 Users dislike the NaturalEarth aggregation of French regions into the mainland France polygon. We have done a minimal amount of subdivision. This can be done by executing `sql/subdivide_polygons.sql`.
@@ -58,7 +60,7 @@ INSERT INTO admin0_synonym_additions (adm0_a3, name, notes, rank) VALUES ($iso3_
 | 1           | natural earth 10m countries | name_alt      | alternate name       |
 | 2           | wiki country navive names   | country_endonym |   local variation     |
 | 3           | natural earth 10m countries | adm0_a3       | 3 digit country code |
-| 4           | natural earth 10m countries | iso_a2     | 2 digit country code        |
+| 4           | wikipedia iso 3166 2 codes | iso_a2     | 2 digit country code        |
 | 5           | natural earth 10m countries | formal_en     | formal english       |
 | 6           | natural earth 10m countries | brk_name      | ?                    |
 | 7           | natural earth 10m countries | formal_fr     | formal french        |
