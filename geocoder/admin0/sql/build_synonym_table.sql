@@ -51,8 +51,7 @@ INSERT INTO admin0_synonyms (name, rank, adm0_a3)
 SELECT
     iso_a2, 4, adm0_a3
 FROM
-    ne_admin0_v3
- WHERE iso_a2 NOT LIKE '-99';
+    wikipedia_iso_3166_2;
 
 -- insert formal_en as name with a rank = 5
 INSERT INTO admin0_synonyms (name, rank,  adm0_a3) 
