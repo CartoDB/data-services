@@ -1,4 +1,4 @@
-CREATE FUNCTION public.metadata()
+CREATE FUNCTION public.cdb_metadata()
   RETURNS TABLE(
     name text,
     tabname text,
@@ -39,4 +39,4 @@ $$ LANGUAGE SQL;
 
 GRANT SELECT ON TABLE meta_dataset TO publicuser;
 GRANT SELECT ON TABLE meta_category TO publicuser;
-GRANT EXECUTE ON FUNCTION metadata() TO publicuser;
+GRANT EXECUTE ON FUNCTION cdb_metadata() TO publicuser;
