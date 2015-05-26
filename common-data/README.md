@@ -240,16 +240,6 @@ Data library
 
 **Sync table**: `true`
 
-#### Valencia
-**Description**: Geometries for the building footprints of Valencia.
-
-**Source**: [Valencia Datos Abiertos](http://www.valencia.es/ayuntamiento/datosabiertos.nsf/fCategoriaVistaAcc_busqueda?ReadForm&lang=1&nivel=2&seccion=1&Vista=vCategoriasAccTodas&Categoria=Sin_categoria&idapoyo=22ADF97C1FD223B5C1257C55003BD01F)
-
-**License**:
-
-**Table name**: manzanas_pob
-
-**Sync table**: `false`
 
 #### Valencia
 **Description**: Geometries for the building footprints of Valencia.
@@ -383,16 +373,6 @@ Data library
 
 **Sync table**: `false`
 
-#### Melbourne building footprints
-**Description**: Building footprints in the city of Melbourne.
-
-**Source**: [City of Melbourne](https://data.melbourne.vic.gov.au)
-
-**License**:
-
-**Table name**: buildingfootprints_melbourne
-
-**Sync table**: `false`
 
 #### Valencia Streets
 **Description**: The streets of Valencia, Spain.
@@ -732,14 +712,136 @@ Data library
 ***
 
 ### Building footprints
-#### Bronx
-**Description**: MapPLUTO building footprints of the Bronx district in New York.
+
+#### Chicago
+**Description**: Chicago building footprints.
+
+**Source**: [Chicago Open Data](https://data.cityofchicago.org/)
+
+**License**:
+
+**Table name**: chicago_building_footprints
+
+**Sync table**: `false`
+
+#### Melbourne building footprints
+**Description**: Building footprints in the city of Melbourne.
+
+**Source**: [City of Melbourne](https://data.melbourne.vic.gov.au)
+
+**License**:
+
+**Table name**: buildingfootprints_melbourne
+
+**Sync table**: `false`
+
+#### Valencia
+**Description**: Geometries for the building footprints of Valencia.
+
+**Source**: [Valencia Datos Abiertos](http://www.valencia.es/ayuntamiento/datosabiertos.nsf/fCategoriaVistaAcc_busqueda?ReadForm&lang=1&nivel=2&seccion=1&Vista=vCategoriasAccTodas&Categoria=Sin_categoria&idapoyo=22ADF97C1FD223B5C1257C55003BD01F)
+
+**License**:
+
+**Table name**: manzanas_pob
+
+**Sync table**: `false`
+
+#### Barcelona
+**Description**: Barcelona building footprints.
+
+**Source**: [CartoBCN](http://w20.bcn.cat/cartobcn/)
+
+**License**:
+
+**Table name**: parcelas_islas_barcelona
+
+**Sync table**: `false`
+
+#### Portland
+**Description**: Portland building footprints.
+
+**Source**: [Portland Open Data](http://www.civicapps.org/)
+
+**License**:
+
+**Table name**: portland_building_footprints_r
+
+**Sync table**: `false`
+
+#### San Francisco
+**Description**: San Francisco building footprints.
+
+**Source**: [SF Open Data Portal](https://data.sfgov.org/)
+
+**License**:
+
+**Table name**: sf_building_footprints
+
+**Sync table**: `false`
+
+#### NYC MapPLUTO - Bronx
+**Description**: MapPLUTO tax lot data for the Bronx (Bronx County, NY)
 
 **Source**: [NYC Planning](http://www.nyc.gov/html/dcp/home.html)
 
 **License**:
 
 **Table name**: bxmappluto
+
+**Sync table**: `false` 
+
+#### NYC MapPLUTO - Manhattan
+**Description**: MapPLUTO tax lot data for Manhattan (New York County, NY)
+
+**Source**: [NYC Planning](http://www.nyc.gov/html/dcp/home.html)
+
+**License**:
+
+**Table name**: mmappluto
+
+**Sync table**: `false` 
+
+#### NYC MapPLUTO - Brooklyn
+**Description**: MapPLUTO tax lot data for Brooklyn (New York County, NY)
+
+**Source**: [NYC Planning](http://www.nyc.gov/html/dcp/home.html)
+
+**License**:
+
+**Table name**: bkmappluto
+
+**Sync table**: `false` 
+
+#### NYC MapPLUTO - Staten Island
+**Description**: MapPLUTO tax lot data for Staten Island (New York County, NY)
+
+**Source**: [NYC Planning](http://www.nyc.gov/html/dcp/home.html)
+
+**License**:
+
+**Table name**: simappluto
+
+**Sync table**: `false` 
+
+#### NYC MapPLUTO - Queens
+**Description**: MapPLUTO tax lot data for Queens (New York County, NY)
+
+**Source**: [NYC Planning](http://www.nyc.gov/html/dcp/home.html)
+
+**License**:
+
+**Table name**: qnmappluto
+
+**Sync table**: `false` 
+
+#### Boston
+**Description**: Boston building footprints.
+
+**Source**: [MassGIS](http://www.mass.gov/anf/research-and-tech/it-serv-and-support/application-serv/office-of-geographic-information-massgis/)
+
+**License**:
+
+**Table name**: boston_footprints
 
 **Sync table**: `false` 
 
