@@ -1011,3 +1011,224 @@ Data library
 **Table name**: histcounties_1679_1729
 
 **Sync table**: `false`
+
+### US Census
+
+#### State Legislative District - Upper Chamber
+
+**Description**: Upper chamber districts in 2013.
+
+**Source**: [US Census](https://www.census.gov)
+
+**License**:
+
+**Table name**: cb_2013_sldu_500k
+
+**Sync table**: `false`
+
+#### Urban Areas
+
+**Description**: Geometries for the USA Urban areas /clusters.
+
+**Source**: [US Census](https://www.census.gov)
+
+**License**:
+
+**Table name**: cb_2013_us_ua10_500k
+
+**Sync table**: `false`
+
+#### Consolidated Cities
+
+**Description**: Geometries for the consolidated cities in the US.
+
+**Source**: [US Census](https://www.census.gov)
+
+**License**:
+
+**Table name**: cb_2013_concity_500k
+
+**Sync table**: `false`
+
+#### AIANNH Areas
+
+**Description**: American Indian, Alaska Native, and Native Hawaiian Areas.
+
+**Source**: [US Census](https://www.census.gov)
+
+**License**:
+
+**Table name**: cb_2013_us_aiannh_500k
+
+**Sync table**: `false`
+
+
+#### US Congressional districts
+
+**Description**: Geometries for all the congressional districts in the US.
+
+**Source**: [US Census](https://www.census.gov)
+
+**License**:
+
+**Table name**: tl_2014_us_cd114
+
+**Sync table**: `false`
+
+#### State Legislative District - Lower Chamber
+
+**Description**: Lower chamber districts in 2013.
+
+**Source**: [US Census](https://www.census.gov)
+
+**License**:
+
+**Table name**: cb_2013_sldl_500k
+
+**Sync table**: `false`
+
+#### US Census Tracts
+
+**Description**: US Census Tracts.
+
+**Source**: [US Census](https://www.census.gov)
+
+**License**:
+
+**Table name**: tl_2014_census_tracts
+
+**Sync table**: `false`
+
+#### US Census Tracts
+
+**Description**: Geometries for US census tracts
+
+**Source**: [US Census Data] (https://www.census.gov/geo/maps-data/data/tiger-data.html)
+
+**License**:
+
+**Table name**: tract_2010census_dp1
+
+**Sync table**: `false`
+
+
+#### Public use microdata area
+
+**Description**: Geometries for public use microdata areas in 2013.
+
+**Source**: [US Census](https://www.census.gov)
+
+**License**:
+
+**Table name**: cb_2013_puma10_500k
+
+**Sync table**: `false`
+
+#### US Block Groups
+
+**Description**: US Block Groups.
+
+**Source**: [US Census](https://www.census.gov)
+
+**License**:
+
+**Table name**: tl_2014_block_groups
+
+**Sync table**: `false`
+
+#### Places
+
+**Description**: Geometries for incorporated places (legal entities) and census designated places or CDPs (statistical entities) in 2013.
+
+**Source**: [US Census](https://www.census.gov)
+
+**License**:
+
+**Table name**: cb_2013_place_500k
+
+**Sync table**: `false`
+
+
+#### US Census Tracts, Simplified Version 
+
+**Description**: Simplified geometries for US census tracts 
+
+**Source**: [US Census](https://www.census.gov)
+
+**License**:
+
+**Table name**: tract_2010census_dp1_simple
+
+**Sync table**: `false`
+
+#### US Census Tracts, Simplified Version 
+
+**Description**: Simplified geometries for US census tracts 
+
+**Source**: [US Census](https://www.census.gov)
+
+**License**:
+
+**Table name**: tract_2010census_dp1_simple
+
+**Sync table**: `false`
+
+#### National Division
+
+**Description**: Geometries for the subdivisions of US regions.
+
+**Source**: [US Census](https://www.census.gov)
+
+**License**:
+
+**Table name**: cb_2013_us_division_5m
+
+**Sync table**: `false`
+
+#### County subdivisions
+
+**Description**:USA county subdivisions.
+
+**Source**: [US Census](https://www.census.gov)
+
+**License**:
+
+**Table name**: cb_2013_cousub_500k
+
+**Sync table**: `false`
+
+#### National Regions US
+
+**Description**: National Region (Northeast, Southeast, Midwest and West).
+
+**Source**: [US Census](https://www.census.gov)
+
+**License**:
+
+**Table name**: cb_2013_us_region_500k
+
+**Sync table**: `false`
+
+#### Metropolitan Statistical Areas
+
+**Description**: Polygons for Metropolitan Statistical Areas / Micropolitan Statistical Areas.
+
+**Source**: [US Census](https://www.census.gov)
+
+**License**:
+
+**Table name**: cb_2013_us_cbsa_5m
+
+**Sync table**: `false`
+
+#### Combined Statistical Areas
+
+**Description**: Combined Statistical Areas (CSAs) of the United States and Puerto Rico.
+
+**Source**: [US Census](https://www.census.gov)
+
+**License**:
+
+**Table name**: cb_2013_us_csa_500k
+
+**Sync table**: `false`
