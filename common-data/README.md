@@ -843,5 +843,171 @@ Data library
 
 **Table name**: boston_footprints
 
+***
+
+### Historic
+
+#### States in 1790
+**Description**: States and territories of the USA in 1790.
+
+**Source**: [NHGIS](https://www.nhgis.org)
+
+**License**:
+
+**Table name**: us_state_1790
+
 **Sync table**: `false` 
 
+#### States in 1800
+**Description**: States and territories of the USA in 1800.
+
+**Source**: [NHGIS](https://www.nhgis.org)
+
+**License**:
+
+**Table name**: us_state_1800
+
+**Sync table**: `false`
+
+#### States in 1810
+**Description**: States and territories of the USA in 1810.
+
+**Source**: [NHGIS](https://www.nhgis.org)
+
+**License**:
+
+**Table name**: us_state_1810
+
+**Sync table**: `false`
+
+#### States in 1820
+**Description**: States and territories of the USA in 1820.
+
+**Source**: [NHGIS](https://www.nhgis.org)
+
+**License**:
+
+**Table name**: us_state_1820
+
+**Sync table**: `false`
+
+#### States in 1830
+**Description**: States and territories of the USA in 1830.
+
+**Source**: [NHGIS](https://www.nhgis.org)
+
+**License**:
+
+**Table name**: us_state_1830
+
+**Sync table**: `false`
+
+#### States in 1840
+**Description**: States and territories of the USA in 1840.
+
+**Source**: [NHGIS](https://www.nhgis.org)
+
+**License**:
+
+**Table name**: us_state_1840
+
+**Sync table**: `false`
+
+#### States in 1860
+**Description**: States and territories of the USA in 1860.
+
+**Source**: [NHGIS](https://www.nhgis.org)
+
+**License**:
+
+**Table name**: us_state_1860
+
+**Sync table**: `false`
+
+#### States in 1870
+**Description**: States and territories of the USA in 1870.
+
+**Source**: [NHGIS](https://www.nhgis.org)
+
+**License**:
+
+**Table name**: us_state_1870
+
+**Sync table**: `false`
+
+#### States in 1880
+**Description**: States and territories of the USA in 1880.
+
+**Source**: [NHGIS](https://www.nhgis.org)
+
+**License**:
+
+**Table name**: us_state_1880
+
+**Sync table**: `false`
+
+#### US Counties, 1879-1929
+**Description**: Historical county lines in the United States, 1879-1929.
+
+**Source**: [The Newberry Library](http://publications.newberry.org/ahcbp/downloads/united_states.html)
+
+**License**:
+
+**Table name**: histcounties_1879_1929
+
+**Sync table**: `false`
+
+#### US Counties, 1779-1829
+**Description**: Historical county lines in the United States, 1779-1829.
+
+**Source**: [The Newberry Library](http://publications.newberry.org/ahcbp/downloads/united_states.html)
+
+**License**:
+
+**Table name**: histcounties_1779_1829
+
+**Sync table**: `false`
+
+#### US Counties, 1629-1679
+**Description**: Historical county lines in the United States, 1629-1679.
+
+**Source**: [The Newberry Library](http://publications.newberry.org/ahcbp/downloads/united_states.html)
+
+**License**:
+
+**Table name**: histcounties_1629_1679
+
+**Sync table**: `false`
+
+#### US Counties, 1979-Present
+**Description**: Historical county lines in the United States, 1979-Present.
+
+**Source**: [The Newberry Library](http://publications.newberry.org/ahcbp/downloads/united_states.html)
+
+**License**:
+
+**Table name**: histcounties_1979_present
+
+**Sync table**: `false`
+
+#### US Counties, 1929-1979
+**Description**: Historical county lines in the United States, 1929-1979.
+
+**Source**: [The Newberry Library](http://publications.newberry.org/ahcbp/downloads/united_states.html)
+
+**License**:
+
+**Table name**: histcounties_1929_1979
+
+**Sync table**: `false`
+
+#### US Counties 1679-1729
+**Description**: Historical county lines in the United States, 1679-1729.
+
+**Source**: [The Newberry Library](http://publications.newberry.org/ahcbp/downloads/united_states.html)
+
+**License**:
+
+**Table name**: histcounties_1679_1729
+
+**Sync table**: `false`
