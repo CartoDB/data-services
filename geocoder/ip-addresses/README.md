@@ -1,19 +1,23 @@
-IP address geocoder
-===============
+### IP Addresses - Points
 
-### Function
+##### Parameters
 
-### Creation steps
+| name           | type    | optional? |
+| -------------- |:-------:| ---------:|
+| IP query array  | text[]  | false     |
 
-1. Upload a new dataset to the geocoder table, call it latest_ip_address_locations
-2. Run the sql/build_data_table script to update the table
+##### Current coverage
 
-### Data Sources
+Global
 
-GeoLite2 open source database [Created by MaxMind](http://www.maxmind.com) - 
-http://dev.maxmind.com/geoip/geoip2/geolite2/ Download the CSV [Geolite2 City](http://geolite.maxmind.com/download/geoip/database/GeoLite2-City-CSV.zip)
+#### Example request
 
-### Preparation details
+```sql
+SELECT (geocode_ip(Array['1.0.16.0', '::ffff:1.0.16.0', 'not an IP'])).*
+```
 
+#### Links
 
+[See it on the api](http://geocoding.cartodb.com/api/v2/sql?q=SELECT%20(geocode_ip(Array[%271.0.16.0%27,%20%27::ffff:1.0.16.0%27,%20%27not%20an%20IP%27])).*)
 
+See plpgsql in geocoder.sql

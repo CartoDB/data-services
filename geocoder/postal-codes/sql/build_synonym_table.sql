@@ -1,3 +1,0 @@
-
----- Postal Code (polygons) synonyms ---
---- ---
