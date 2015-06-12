@@ -7,11 +7,11 @@ BIH,Bosnia & Herzegovina,,10
 BRN,Brunei Darussalam,data source: openmundi,10
 CHN,China (PRC),,10
 CIV,Cote d'Ivoire,data source: world bank,10
-COD,Democratic Republic of the Congo,,10
 COD,Congo DR,data source: openmundi,10
 COD,Democratic Republic of Congo,,10
-COD,Democratic republic of the Congo,,10
+COD,Democratic Republic of the Congo,,10
 COD,"Congo, Dem. Rep.",data source: world bank,10
+COD,Democratic republic of the Congo,,10
 COG,The Republic of the Congo,,10
 COG,"Congo, Rep.",data source: world bank,10
 COG,Congo (CG),,10
@@ -38,14 +38,15 @@ PCN,Pitcairn,data source: openmundi,10
 PRK,"Korea, Dem. Rep.",data source: world bank,10
 PSX,State of Palestine,,10
 REU,Réunion,,10
-SDS,SSD,,10
 SDS,South Sudan,data source: world bank,10
+SDS,SSD,,10
 SGS,South Georgia and the South Sandwich Islands,data source: openmundi,10
 SPM,Sant Pierre & Miquelon,,10
 STP,Sao Tome,,10
 SVK,Slovak Rep,,10
 SXM,Sint Maarten (Dutch),data source: openmundi,10
 TCA,Turks and Caicos,,10
+TCD,TD,,10
 TTO,Trinidad & Tobago,,10
 VAT,Vatican City,data source: openmundi,10
 VCT,Sant Vincent and the Grenadines,,10
