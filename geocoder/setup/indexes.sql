@@ -18,3 +18,7 @@ CREATE UNIQUE INDEX idx_postal_code_polygons_a3_code ON postal_code_polygons (ad
 CREATE INDEX idx_global_cities_points_limited_a ON global_cities_points_limited (lowername, iso2)
 CREATE INDEX idx_global_cities_points_limited_admin1 ON global_cities_points_limited (admin1)
 CREATE INDEX idx_global_cities_points_limited_geoname_id ON global_cities_points_limited (geoname_id)
+
+CREATE INDEX idx_global_cities_alternates_limited_admin1 ON global_cities_alternates_limited (admin1)
+CREATE INDEX idx_global_cities_alternates_limited_admin1_geonameid ON global_cities_alternates_limited (admin1_geonameid)
+CREATE INDEX idx_global_cities_alternates_limited_lowername ON global_cities_alternates_limited (lowername)
