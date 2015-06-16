@@ -16,7 +16,7 @@ DELETE FROM global_cities_points_limited;
 -- it assumes that the source is called "allcountries"
 INSERT INTO global_cities_points_limited (the_geom, admin1, admin2, admin3, admin4, altnames, asciiname, cc2, featclass, featcode, geoname_id, gtopo30, iso2, lowername, name, population)
     SELECT the_geom, admin1, admin2, admin3, admin4, altnames, asciiname, cc2, featclass, featcode, geonameid::int, gtopo30, country, lower(name) as lowername, name, population
-    FROM points_cities
+    FROM allcountries
     WHERE featcode = '';
 
 -- insert data from source table (allcountries) to the table
