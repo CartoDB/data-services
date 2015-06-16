@@ -19,7 +19,7 @@ Accepts a list of terms. Terms are searched against the ```name_``` column in ``
 
 (see the wiki page: [Geocoder Data Sources #admin0-countries](https://github.com/CartoDB/data-services/wiki/Geocoder-Datasources#admin0-countries))
 
-- natural earth data: ne_10m_admin_0_countries (version 3.0) which is currently stored in Geocoding.CartoDB as ne_admin0_v3
+- natural earth data: ne_10m_admin_0_countries (version 3.0) which is currently stored in Geocoding.CartoDB as ne_admin0_v3. This is stored in data/ne_10m_admin_0_countries.zip
 
 - native language spellings were gathered from http://en.wikipedia.org/wiki/List_of_countries_and_dependencies_and_their_capitals_in_native_languages and stored in data/wikipedia_countries_native_names.csv
 
