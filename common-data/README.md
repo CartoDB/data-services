@@ -753,7 +753,7 @@ Data library
 
 **License**:
 
-**Table name**: parcelas_islas_barcelona
+**Table name**: barcelona_building_footprints
 
 **Sync table**: `false`
 
