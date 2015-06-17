@@ -797,7 +797,7 @@ Data library
 
 **License**:
 
-**Table name**: mmappluto
+**Table name**: mnmappluto
 
 **Sync table**: `false` 
 
