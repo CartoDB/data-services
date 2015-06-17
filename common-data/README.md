@@ -779,6 +779,17 @@ Data library
 
 **Sync table**: `false`
 
+#### NYC MapPLUTO - All NY
+**Description**: MapPLUTO tax lot data for New York.
+
+**Source**: [NYC Planning](http://www.nyc.gov/html/dcp/home.html)
+
+**License**:
+
+**Table name**: nycpluto_all
+
+**Sync table**: `false` 
+
 #### NYC MapPLUTO - Bronx
 **Description**: MapPLUTO tax lot data for the Bronx (Bronx County, NY)
 
