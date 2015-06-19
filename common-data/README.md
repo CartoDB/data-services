@@ -263,6 +263,62 @@ Data library
 
 **Sync table**: `false`
 
+#### Chicago Community Areas
+**Description**: Community area boundaries in the city of Chicago.
+
+**Source**: [City of Chicago](http://www.cityofchicago.org/)
+
+**License**:
+
+**Table name**: commareas_chicago
+
+**Sync table**: `false`
+
+#### Chicago Bike Routes
+**Description**: Bike routes in the city of Chicago.
+
+**Source**: [City of Chicago](http://www.cityofchicago.org/)
+
+**License**:
+
+**Table name**: chicago_bike_routes
+
+**Sync table**: `false`
+
+#### Los Angeles Bus Stops
+**Description**: L.A. county bus stops from Metro.
+
+**Source**: [LA City Data](https://data.lacity.org)
+
+**License**:
+
+**Table name**: busstops_losangeles
+
+**Sync table**: `false`
+
+#### Los Angeles Streets
+**Description**: Street centerlines in the city of Los Angeles created by the Bureau of Engineering.
+
+**Source**: [LA Bureau of Engineering](https://data.lacity.org)
+
+**License**:
+
+**Table name**: street_centerline_losangeles
+
+**Sync table**: `false`
+
+#### Los Angeles Neighborhood Councils
+**Description**: Neighborhood Council boundaries in the City of Los Angeles created by the Bureau of Engineering.
+
+**Source**: [LA Bureau of Engineering](https://data.lacity.org)
+
+**License**:
+
+**Table name**: neighborhood_councils_losangeles
+
+**Sync table**: `false`
+
+
 #### Timezones
 **Description**: Includes 24+ timezones with local offsets.
 
