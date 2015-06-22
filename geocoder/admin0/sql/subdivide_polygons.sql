@@ -98,11 +98,6 @@ WITH a AS (SELECT (ST_Dump(the_geom)).geom geom,adm0_a3  FROM ne_admin0_v3 WHERE
 
 SELECT geom, 'CXR', 'Christmas Island'  FROM a WHERE ST_Intersects(geom, ST_Buffer(CDB_LatLNg(-10.50, 105.60), 1));
 
--- Remove the Christmas Island and Cocos Islands from the IOA polygon
-
-WITH a AS (SELECT (ST_Dump(the_geom)).geom geom  FROM ne_admin0_v3 WHERE adm0_a3 = 'IOA')
-UPDATE ne_admin0_v3 SET the_geom = (SELECT ST_Union(geom) FROM a WHERE NOT ST_intersects(geom, (SELECT ST_Union(the_geom) FROM ne_admin0_v3 WHERE adm0_a3 IN ('CXR', 'CCK')))) WHERE adm0_a3 = 'IOA';
-
 
 ---- Subdivide Netherlands into subregions ----
 -- Split Bonaire (Sint Eustatius and Saba) from Norway
