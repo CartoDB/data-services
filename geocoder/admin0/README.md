@@ -7,7 +7,7 @@ Accepts a list of terms. Terms are searched against the ```name_``` column in ``
 
 ### Creation steps
 
-1. Upload fresh NaturalEarth data to ```ne_admin0_v3```. 
+1. Upload fresh NaturalEarth data to ```ne_admin0_v3```.  The source file creates a table with the name `ne_10m_admin0_countries`.
 2. Delete all rows in the ```admin0_synonyms``` table. 
 3. If fresh, add all sql/indexes.sql and sql/triggers.sql
 4. Upload the data/wikipedia_countries_native_names.csv table if it doesn't already exist
@@ -83,3 +83,5 @@ If you need to look up the iso code for any list of countries without returning 
 SELECT (admin0_synonym_lookup(Array['United States', 'ESP'])).*
 ```
 
+# Historic
+* [22/06/2015]: Removes code that provokes an empty geometry for `IOA`, which was being stored as a null geometry. [PR 144](https://github.com/CartoDB/data-services/pull/144)
