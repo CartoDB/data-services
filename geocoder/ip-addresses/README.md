@@ -32,11 +32,9 @@ SELECT geocode_ip(Array['1.0.16.0', '::ffff:1.0.16.0'])
 
 # Data Sources
 
-GeoLite2 open source database [Created by MaxMind](http://www.maxmind.com) - 
-http://dev.maxmind.com/geoip/geoip2/geolite2/ Download the CSV [Geolite2 City](http://geolite.maxmind.com/download/geoip/database/GeoLite2-City-CSV.zip)
-
-# Preparation details
-This section doesn't require special processing.
+* GeoLite2 open source database [Created by MaxMind](http://www.maxmind.com) - 
+http://dev.maxmind.com/geoip/geoip2/geolite2/ 
+    Download the CSV [Geolite2 City](http://geolite.maxmind.com/download/geoip/database/GeoLite2-City-CSV.zip)
 
 # Testing
 In order to test the data and the functions created under the script avaialble in this folder, you will need to run `bash test.sh` from `test/data` and `test/functions`.
