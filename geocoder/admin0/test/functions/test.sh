@@ -9,7 +9,6 @@
 
 SQL_API_ROUTE="*****"
 API_KEY="****"
-
 OK=0
 PARTIALOK=0
 
