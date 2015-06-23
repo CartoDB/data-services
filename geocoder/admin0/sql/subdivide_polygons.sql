@@ -5,7 +5,7 @@ INSERT INTO ne_admin0_v3 (the_geom, adm0_a3, name)
 
 WITH a AS (SELECT (ST_Dump(the_geom)).geom geom,adm0_a3  FROM ne_admin0_v3 WHERE ST_Intersects(the_geom, CDB_LatLNg(4, -53)))
 
-SELECT geom, 'GUF', 'French Guiane'  FROM a WHERE ST_Intersects(geom, ST_Buffer(CDB_LatLNg(4, -53), 8));
+SELECT ST_Collect(geom), 'GUF', 'French Guiane'  FROM a WHERE ST_Intersects(geom, ST_Buffer(CDB_LatLNg(4, -53), 8));
 
 -- Split Corse from France
 INSERT INTO ne_admin0_v3 (the_geom, adm0_a3, name)
@@ -61,7 +61,7 @@ INSERT INTO ne_admin0_v3 (the_geom, adm0_a3, name)
 
 WITH a AS (SELECT (ST_Dump(the_geom)).geom geom,adm0_a3  FROM ne_admin0_v3 WHERE ST_Intersects(the_geom, CDB_LatLNg(-54.45, 3.37)))
 
-SELECT geom, 'BVT', 'Bouvet Island'  FROM a WHERE ST_Intersects(geom, ST_Buffer(CDB_LatLNg(-54.45, 3.37), 2));
+SELECT ST_Collect(geom), 'BVT', 'Bouvet Island'  FROM a WHERE ST_Intersects(geom, ST_Buffer(CDB_LatLNg(-54.45, 3.37), 2));
 
 -- Remove the Bouvet Island from the NOR polygon
 
@@ -96,13 +96,7 @@ INSERT INTO ne_admin0_v3 (the_geom, adm0_a3, name)
 
 WITH a AS (SELECT (ST_Dump(the_geom)).geom geom,adm0_a3  FROM ne_admin0_v3 WHERE ST_Intersects(the_geom, CDB_LatLNg(-10.50, 105.60)))
 
-SELECT geom, 'CXR', 'Christmas Island'  FROM a WHERE ST_Intersects(geom, ST_Buffer(CDB_LatLNg(-10.50, 105.60), 1));
-
--- Remove the Christmas Island and Cocos Islands from the IOA polygon
-
-WITH a AS (SELECT (ST_Dump(the_geom)).geom geom  FROM ne_admin0_v3 WHERE adm0_a3 = 'IOA')
-UPDATE ne_admin0_v3 SET the_geom = (SELECT ST_Union(geom) FROM a WHERE NOT ST_intersects(geom, (SELECT ST_Union(the_geom) FROM ne_admin0_v3 WHERE adm0_a3 IN ('CXR', 'CCK')))) WHERE adm0_a3 = 'IOA';
-
+SELECT ST_Collect(geom), 'CXR', 'Christmas Island'  FROM a WHERE ST_Intersects(geom, ST_Buffer(CDB_LatLNg(-10.50, 105.60), 1));
 
 ---- Subdivide Netherlands into subregions ----
 -- Split Bonaire (Sint Eustatius and Saba) from Norway
