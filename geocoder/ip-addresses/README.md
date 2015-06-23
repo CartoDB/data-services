@@ -8,9 +8,10 @@ SELECT geocode_ip(Array['1.0.16.0', '::ffff:1.0.16.0'])
 `````
 
 # Creation steps
-
-1. Upload a new dataset to the geocoder table, call it `latest_ip_address_locations`
-2. Run the `sql/build_data_table` script to update the table
+1. Obtain the file from http://geolite.maxmind.com/download/geoip/database/GeoLite2-City-CSV.zip
+2. Uncompress it and upload the `GeoLite2-City-Blocks-IPv4.csv` file
+3. Rename the uploaded table as `latest_ip_address_locations`
+4. Run the `sql/build_data_table` script to update the table
 
 # Data Sources
 
