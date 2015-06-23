@@ -41,7 +41,7 @@ In order to test the data and the functions created under the script avaialble i
 
 # Historic:
 * [23/06/2015]: 
-  * Updates `README.md`
+  * Updates `README.md`: adds testing and table structure sections. Updates creation steps.
   * Adding test structure for IP addresses geocoder
 
 
