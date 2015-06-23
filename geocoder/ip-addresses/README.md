@@ -3,6 +3,10 @@ IP address geocoder
 
 # Function
 
+````
+SELECT geocode_ip(Array['1.0.16.0', '::ffff:1.0.16.0'])
+`````
+
 # Creation steps
 
 1. Upload a new dataset to the geocoder table, call it `latest_ip_address_locations`
@@ -21,7 +25,7 @@ In order to test the data and the functions created under the script avaialble i
 
 # Historic:
 * [23/06/2015]: 
-  * Updates `README.md``
+  * Updates `README.md`
   * Adding test structure for IP addresses geocoder
 
 
