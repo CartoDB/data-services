@@ -144,6 +144,32 @@ Indexes:
     "the_geom_4e1a2710_110a_11e4_b0ba_7054d21a95e5" gist (the_geom)
 ````
 
+# Related functions
+
+* geocode_admin0_polygons
+
+```
+ Schema |          Name           |    Result data type    | Argument data types |  Type  
+--------+-------------------------+------------------------+---------------------+--------
+ public | geocode_admin0_polygons | SETOF geocode_admin_v1 | name text[]         | normal
+```
+
+* admin0_synonym_lookup
+
+````
+ Schema |         Name          |    Result data type     | Argument data types |  Type  
+--------+-----------------------+-------------------------+---------------------+--------
+ public | admin0_synonym_lookup | SETOF synonym_lookup_v1 | name text[]         | normal
+````
+
+* [admin0_available_services](https://github.com/CartoDB/data-services/blob/master/geocoder/available-services/sql/services.sql) - available in `geocoder/available-services`
+
+````
+ Schema |           Name            |      Result data type       | Argument data types |  Type  
+--------+---------------------------+-----------------------------+---------------------+--------
+ public | admin0_available_services | SETOF available_services_v1 | name text[]         | normal
+````
+
 
 # Data Sources
 
@@ -223,6 +249,7 @@ In order to test the data and the functions created under the script avaialble i
 * [24/06/2015]: 
   * Added table structure and index information
   * Adds known issues section
+  * [Adds](https://github.com/CartoDB/data-services/pull/149/) `admin0_synonym_lookup` function 
 * [23/06/2015]: 
   * Change of SQL code in `subdivide_polygons.sql` in order to create all of them with ST_Collect, which makes uniform the geometry types: ST_MultiPolygon
   * Uploaded basic tests for administrative regions of level 0 geocoder
