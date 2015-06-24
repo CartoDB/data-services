@@ -7,6 +7,12 @@ Named places geocoder
 SELECT (geocode_namedplace(Array['sunapee', 'sunapeeee', 'New York City'], 'USA')).*
 `````
 
+# Creation steps
+1. Upload the allCountries and alternateNames tables
+2. Generate the `global_cities_points_limited` and `global_cities_alternates_limited` tables
+3. Run the `sql/build_data_table.sql` script to build the `global_cities_points_limited` table
+
+
 # Tables
 
 ### global_cities_points_limited
@@ -84,14 +90,27 @@ Indexes:
     "idx_global_cities_alternates_limited_admin1_geonameid" btree (admin1_geonameid)
     "idx_global_cities_alternates_limited_lowername" btree (lowername)
 `````
+# Related functions
 
+### geocode_namedplace 
 
-# Creation steps
-1. Upload the allCountries and alternateNames tables
-2. Generate the `global_cities_points_limited` and `global_cities_alternates_limited` tables
-3. Run the `sql/build_data_table.sql` script to build the `global_cities_points_limited` table
-
-**Note**: The generation script for `global_cities_alternates_limited` is missing.
+````
+ Schema |        Name        |          Result data type           |                Argument data types                 |  Type  
+--------+--------------------+-------------------------------------+----------------------------------------------------+--------
+ public | geocode_namedplace | SETOF geocode_namedplace_v1         | places text[]                                      | normal
+ public | geocode_namedplace | SETOF geocode_admin1_country_v1     | places text[], admin1s text, inputcountry text     | normal
+ public | geocode_namedplace | SETOF geocode_admin1_country_v1     | places text[], admin1s text[], inputcountry text   | normal
+ public | geocode_namedplace | SETOF geocode_admin1_country_v1     | places text[], admin1s text[], inputcountry text[] | normal
+ public | geocode_namedplace | SETOF geocode_namedplace_country_v1 | places text[], country text[]                      | normal
+ public | geocode_namedplace | SETOF geocode_admin_country_v1      | places text[], inputcountry text                   | normal
+ ````
+ 
+### geocode_namedplace_country 
+````
+ Schema |            Name            |          Result data type           |      Argument data types      |  Type  
+--------+----------------------------+-------------------------------------+-------------------------------+--------
+ public | geocode_namedplace_country | SETOF geocode_namedplace_country_v1 | places text[], country text[] | normal
+ ````
 
 # Data Sources
 
@@ -104,10 +123,12 @@ In order to test the data and the functions created under the script avaialble i
 * Admin1 column with null rows doesn't return a result: https://github.com/CartoDB/data-services/issues/147
 * The geocoding function is using a deprecated table: `admin1_decoder` instead of the new `admin1_synonyms`. Related issue: https://github.com/CartoDB/data-services/issues/148
 * The name of the countries added in a column are not being sanitized https://github.com/CartoDB/cartodb/issues/3392
+* The generation script for `global_cities_alternates_limited` is missing.
 
 # Historic:
 * [24/06/2015]:
   * Added section "Known issues" 
+  * Added table, functions and indexes information
 * [23/06/2015]: 
   * `README.md` file generated
   * Added structure for `/test`
