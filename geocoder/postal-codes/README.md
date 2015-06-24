@@ -2,7 +2,7 @@ Postal code geocoder
 ===============
 
 This section is divided in geocoding postal codes as points or as polygons. Each option has its own sources and its own functions which are  described below.
-# Polygons
+# Postal code geocoder: Polygons
 ## Function
 
 By following the next steps a table is populated with zipcodes from Australia, Canada, USA and France (identified by iso3) related with their spatial location in terms of polygons.
