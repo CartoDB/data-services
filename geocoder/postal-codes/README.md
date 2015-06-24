@@ -152,3 +152,4 @@ Import the file ignoring step 2.
 # Historic:
 * [24/06/2015]:
   * Updated readme.md: added information about tables, function, indexes and the known issues section. 
+  * Review and [upload functions](https://github.com/CartoDB/data-services/pull/152)
