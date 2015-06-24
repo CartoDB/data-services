@@ -154,7 +154,7 @@ Indexes:
  public | geocode_admin0_polygons | SETOF geocode_admin_v1 | name text[]         | normal
 ```
 
-* admin0_synonym_lookup
+* admin0_synonym_lookup - Related with admin0 synonym service, see below
 
 ````
  Schema |         Name          |    Result data type     | Argument data types |  Type  
