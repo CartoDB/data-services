@@ -139,8 +139,23 @@ Indexes:
 `````
 
 # Functions
-##
+## test_geocode_admin1_polygons
+````
+ Schema |             Name             |        Result data type        |      Argument data types       |  Type  
+--------+------------------------------+--------------------------------+--------------------------------+--------
+ public | test_geocode_admin1_polygons | SETOF geocode_admin_country_v1 | names text[], country text[]   | normal
+ public | test_geocode_admin1_polygons | SETOF geocode_admin_v1         | name text[]                    | normal
+ public | test_geocode_admin1_polygons | SETOF geocode_admin_country_v1 | name text[], inputcountry text | normal
+ ````
 
+## geocode_admin1_polygons
+````
+ Schema |          Name           |        Result data type        |      Argument data types       |  Type  
+--------+-------------------------+--------------------------------+--------------------------------+--------
+ public | geocode_admin1_polygons | SETOF geocode_admin_country_v1 | names text[], country text[]   | normal
+ public | geocode_admin1_polygons | SETOF geocode_admin_v1         | name text[]                    | normal
+ public | geocode_admin1_polygons | SETOF geocode_admin_v1         | name text[], inputcountry text | normal
+ ````
 
 
 # Data Sources
