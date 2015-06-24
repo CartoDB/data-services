@@ -202,3 +202,4 @@ The table contains the following columns to be populated:
 # Historic:
 * [24/06/2015]:
   * Updated Readme: add information for tables, functions, indexes and known issues section
+  * Reviewed functions and [uploaded the ones in production](https://github.com/CartoDB/data-services/pull/151)
