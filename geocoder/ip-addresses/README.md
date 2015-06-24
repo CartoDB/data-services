@@ -7,7 +7,19 @@ IP address geocoder
 SELECT geocode_ip(Array['1.0.16.0', '::ffff:1.0.16.0'])
 `````
 
-# Source table structure
+# Creation steps
+1. Create the `ip_address_locations` table
+2. Obtain the file from http://geolite.maxmind.com/download/geoip/database/GeoLite2-City-CSV.zip
+3. Uncompress it and upload the `GeoLite2-City-Blocks-IPv4.csv` file
+4. Rename the uploaded table as `latest_ip_address_locations`
+5. Run the `sql/build_data_table` script to update the table
+
+# Tables
+
+### ip_address_locations
+This table, obtained from GeoLite and curated with `sql/build_data_table` contains a list of IP addresses and their location.
+
+#### Table structure
 
 ````
 
@@ -22,13 +34,15 @@ SELECT geocode_ip(Array['1.0.16.0', '::ffff:1.0.16.0'])
  the_geom_webmercator | geometry(Geometry,3857)  |                                                                           | main   
 ````
 
+#### Current indexes
 
-# Creation steps
-1. Create the `ip_address_locations` table
-2. Obtain the file from http://geolite.maxmind.com/download/geoip/database/GeoLite2-City-CSV.zip
-3. Uncompress it and upload the `GeoLite2-City-Blocks-IPv4.csv` file
-4. Rename the uploaded table as `latest_ip_address_locations`
-5. Run the `sql/build_data_table` script to update the table
+````
+Indexes:
+    "geolite2_city_blocks_pkey" PRIMARY KEY, btree (cartodb_id)
+    "geolite2_city_blocks_the_geom_idx" gist (the_geom)
+    "geolite2_city_blocks_the_geom_webmercator_idx" gist (the_geom_webmercator)
+    "idx_ip_address_locations_start" btree (network_start_ip)
+````
 
 # Data Sources
 
@@ -39,9 +53,15 @@ http://dev.maxmind.com/geoip/geoip2/geolite2/
 # Testing
 In order to test the data and the functions created under the script avaialble in this folder, you will need to run `bash test.sh` from `test/data` and `test/functions`.
 
+# Known issues
+* IPv6 addresses support? 
+
 # Historic:
+* [24/06/2015]: 
+  * Update readme.md: Adds Known issues section
+  * Supervised function available in `geocoder.sql`
 * [23/06/2015]: 
-  * Updates `README.md`: adds testing and table structure sections. Updates creation steps.
+  * Updates `README.md`: adds testing and table structure sections. Updates creation steps
   * Adding test structure for IP addresses geocoder
 
 
