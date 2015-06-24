@@ -1,4 +1,4 @@
-Admin0 Geocoder
+Administrative regions geocoder - Level 0
 ===============
 
 # Function
