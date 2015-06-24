@@ -9,7 +9,7 @@ SELECT (geocode_namedplace(Array['sunapee', 'sunapeeee', 'New York City'], 'USA'
 
 # Tables
 
-### global_cities_points_limited**
+### global_cities_points_limited
 
 #### Table structure
 ````
@@ -52,7 +52,7 @@ Indexes:
     "points_cities_le_the_geom_webmercator_idx" gist (the_geom_webmercator)
 ````
 
-### global_cities_alternates_limited**
+### global_cities_alternates_limited
 #### Table structure
 ````
                                                                  Table "public.global_cities_alternates_limited"
