@@ -55,3 +55,4 @@ Indexes:
 # Historic
 * [24/06/2015]:
   * Updated readme.md: Add table/function information and known issues section. 
+  * Reviewed function `admin0_available_services` in `services.sql`
