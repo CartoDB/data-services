@@ -73,6 +73,7 @@ In order to test the data and the functions created under the script avaialble i
 
 # Known issues
 * Admin1 column with null rows doesn't return a result: https://github.com/CartoDB/data-services/issues/147
+* The geocoding function is using a deprecated table: `admin1_decoder` instead of the new `admin1_synonyms`. Related issue: https://github.com/CartoDB/data-services/issues/148
 
 # Historic:
 * [24/06/2015]:
