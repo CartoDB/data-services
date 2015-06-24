@@ -162,3 +162,5 @@ INSERT INTO global_cities_points_limited (the_geom, admin1, admin2, admin3, admi
     FROM allcountries
     WHERE featcode = 'STLMT';
 
+-- edits source name for New York: New York City in order to give priority to the result
+UPDATE global_cities_points_limited SET (name, lowername) = ('New York', 'new york') WHERE geoname_id = 5128581;
