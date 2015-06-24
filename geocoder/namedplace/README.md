@@ -129,6 +129,7 @@ In order to test the data and the functions created under the script avaialble i
 * [24/06/2015]:
   * Added section "Known issues" 
   * Added table, functions and indexes information
+  * Reviewed functions in the sql file. [Added this one](https://github.com/CartoDB/data-services/pull/150)
 * [23/06/2015]: 
   * `README.md` file generated
   * Added structure for `/test`
