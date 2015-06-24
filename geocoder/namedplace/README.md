@@ -71,7 +71,12 @@ SELECT (geocode_namedplace(Array['sunapee', 'sunapeeee', 'New York City'], 'USA'
 # Testing
 In order to test the data and the functions created under the script avaialble in this folder, you will need to run `bash test.sh` from `test/data` and `test/functions`.
 
+# Known issues
+* Admin1 column with null rows doesn't return a result: https://github.com/CartoDB/data-services/issues/147
+
 # Historic:
+* [24/06/2015]:
+  * Added section "Known issues" 
 * [23/06/2015]: 
   * `README.md` file generated
   * Added structure for `/test`
