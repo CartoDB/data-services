@@ -294,3 +294,31 @@ AS $function$
   RETURN;
 END
 $function$
+
+-- geocode_namedplace_country --
+CREATE OR REPLACE FUNCTION public.geocode_namedplace_country(places text[], country text[])
+ RETURNS SETOF geocode_namedplace_country_v1
+ LANGUAGE plpgsql
+ IMMUTABLE SECURITY DEFINER
+AS $function$
+DECLARE 
+    ret geocode_namedplace_country_v1%rowtype;
+    iso TEXT[];
+    i INT; 
+    fails INT[];
+  BEGIN
+
+  SELECT array_agg((SELECT iso2 FROM country_decoder WHERE lower(r.c) = ANY (synonyms))) i FROM (SELECT unnest(country)::text AS c) r INTO iso;
+
+  FOR i IN 1 .. array_upper(places, 1) LOOP
+
+    SELECT q, c, (SELECT gp.the_geom AS geom FROM global_cities_points gp  WHERE gp.lowername = lower(x.q) AND gp.iso2 = x.i ORDER BY population DESC LIMIT 1), TRUE as success FROM (SELECT unnest(places) q, unnest(iso) i, unnest(country) c) x INTO ret;
+    IF ret.geom IS NOT NULL THEN
+      RETURN NEXT ret;
+    ELSE
+      fails := array_append(fails, i);
+    END IF;
+  END LOOP;
+  RETURN;
+END
+$function$
