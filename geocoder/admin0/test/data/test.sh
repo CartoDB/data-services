@@ -9,7 +9,11 @@ function test_geocoding_quality_admin0() {
     sql 'SELECT count(*) FROM ne_admin0_v3' should 267
 
     # checks the type of the geometries
-    sql "SELECT ST_GeometryType(the_geom) FROM ne_admin0_v3 WHERE adm0_a3 NOT IN ('CXR', 'BVT', 'GUF')" should ST_MultiPolygon
+    sql "SELECT ST_GeometryType(the_geom) FROM ne_admin0_v3" should ST_MultiPolygon
+
+    # checks that the synonym table includes at least two rows per region: ISO2 code and name
+    sql "WITH q AS (SELECT adm0_a3 FROM admin0_synonyms group by adm0_a3 having count(*) < 2) SELECT count(*) FROM q" should 0
+
 
     # checks that the centroid of a countrie intersects with its desirable bounding box
     sql "SELECT ST_Intersects(ST_GeomFromText('POLYGON((-70.0624080069999 12.417669989,-70.0624080069999 12.6321475280001,-69.8768204419999 12.6321475280001,-69.8768204419999 12.417669989,-70.0624080069999 12.417669989))', 4326), ST_Centroid(the_geom)) FROM ne_admin0_v3 where adm0_a3 = 'ABW'" should true
@@ -280,7 +284,6 @@ function test_geocoding_quality_admin0() {
     sql "SELECT ST_Intersects(ST_GeomFromText('POLYGON((21.9798775630001 -18.0692318719999,21.9798775630001 -8.1941240429999,33.674202515 -8.1941240429999,33.674202515 -18.0692318719999,21.9798775630001 -18.0692318719999))', 4326), ST_Centroid(the_geom)) FROM ne_admin0_v3 where adm0_a3 = 'ZMB'" should true
     sql "SELECT ST_Intersects(ST_GeomFromText('POLYGON((25.219369751 -22.3973397829999,25.219369751 -15.6148080449999,33.0427681890002 -15.6148080449999,33.0427681890002 -22.3973397829999,25.219369751 -22.3973397829999))', 4326), ST_Centroid(the_geom)) FROM ne_admin0_v3 where adm0_a3 = 'ZWE'" should true
 
-    # checks that the synonym table includes at least two rows per region: ISO3 code and name
 }
 
 
