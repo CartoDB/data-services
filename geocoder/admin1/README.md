@@ -163,6 +163,9 @@ Indexes:
 (see the wiki page: [Geocoder Data Sources #admin1-states-provinces](https://github.com/CartoDB/data-services/wiki/Geocoder-Datasources#admin1-statesprovinces))
 
 - Quattro Shapes admin1 and admin1 region polygons are being used for geometry. Users dislike natural earth's small admin1 units in countries like Spain, Italy and France so we have replaced these smaller units with their parent regions. 
+  - Quattro Shapes admin1: http://static.quattroshapes.com/qs_adm1.zip
+  - Quattro Shapes admin1 regions: http://static.quattroshapes.com/qs_adm1_region.zip
+  - Natural Earth Data admin1 states provinces: http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_1_states_provinces.zip
 
 - Natural Earth admin1 alternate name spellings will be used as synonyms when the Quattro Shapes `qs_source` = 'Natural Earth'.
 
