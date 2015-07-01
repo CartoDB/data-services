@@ -813,6 +813,28 @@ Data library
 
 **Sync table**: `false`
 
+#### Distritos de Barcelona
+**Description**: Geometries for each one of the districts in Barcelona.
+
+**Source**: [CartoBCN](http://w20.bcn.cat/cartobcn/)
+
+**License**:
+
+**Table name**: districtes_barcelona
+
+**Sync table**: `false`
+
+#### Barrios de Barcelona
+**Description**: Geometries for Barcelona neighborhoods.
+
+**Source**: [CartoBCN](http://w20.bcn.cat/cartobcn/)
+
+**License**:
+
+**Table name**: barris_barcelona
+
+**Sync table**: `false`
+
 #### Portland
 **Description**: Portland building footprints.
 
