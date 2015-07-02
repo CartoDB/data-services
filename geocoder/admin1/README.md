@@ -148,16 +148,6 @@ Indexes:
  public | test_geocode_admin1_polygons | SETOF geocode_admin_country_v1 | name text[], inputcountry text | normal
  ````
 
-## geocode_admin1_polygons
-````
- Schema |          Name           |        Result data type        |      Argument data types       |  Type  
---------+-------------------------+--------------------------------+--------------------------------+--------
- public | geocode_admin1_polygons | SETOF geocode_admin_country_v1 | names text[], country text[]   | normal
- public | geocode_admin1_polygons | SETOF geocode_admin_v1         | name text[]                    | normal
- public | geocode_admin1_polygons | SETOF geocode_admin_v1         | name text[], inputcountry text | normal
- ````
-
-
 # Data Sources
 
 (see the wiki page: [Geocoder Data Sources #admin1-states-provinces](https://github.com/CartoDB/data-services/wiki/Geocoder-Datasources#admin1-statesprovinces))
@@ -199,9 +189,33 @@ The table contains the following columns to be populated:
 | 6 			| Natural Earth 			| woe_label  | woe label name  | 	
 | 7 			| TIGER 		 			| stusps  | Abbreviation (USA only)  | 	
 
+# Deprecated ADM1 geocoder
+## Source table:   
+- Natural Earth Data admin1 states provinces: http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_1_states_provinces.zip which can be replaced by the version without large lakes: http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_1_states_provinces_lakes.zip
+
+## Tables:
+- global_province_polygons
+## Generation steps:
+1. Upload Natural Earth Data admin1 states provinces 
+2. Rename `adm0_a3` by `iso3`, add columns `frequency` [number] (To calculate frequency, I simply counted the number of users we had signed up in each country. Countries with more users, we favor higher in the geocoder :)) and `synonyms` [string[]]  
+3. In order to fill the `synonyms` column, you can run the following query:
+`UPDATE tablename SET synonyms = Array[lower(woe_name), lower(name), lower(gns_name), lower(gn_name), lower(gn_a1_code), lower(code_hasc), lower(adm1_code), lower(adm1_cod_1), lower(postal)]`
+4. Rename table to `global_province_polygons`
+
+## Functions:
+### geocode_admin1_polygons
+````
+ Schema |          Name           |        Result data type        |      Argument data types       |  Type  
+--------+-------------------------+--------------------------------+--------------------------------+--------
+ public | geocode_admin1_polygons | SETOF geocode_admin_country_v1 | names text[], country text[]   | normal
+ public | geocode_admin1_polygons | SETOF geocode_admin_v1         | name text[]                    | normal
+ public | geocode_admin1_polygons | SETOF geocode_admin_v1         | name text[], inputcountry text | normal
+ ````
+
+
 # Known issues
 * `admin1_decoder` table which is meant to be depreacted is being used in other geocoders, as namedplaces
-* All the information in this README.md doesn't contain the actual status of the CartoDB geocoder, which is using the table `global_province_polygons` but not the ones documented above.
+* All the information in this README.md doesn't contain the actual status of the CartoDB geocoder, which is using the table `global_province_polygons` documented in the deprecated ADM1 geocoder section.
 
 # Historic:
 * [24/06/2015]:
