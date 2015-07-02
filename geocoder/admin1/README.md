@@ -201,6 +201,7 @@ The table contains the following columns to be populated:
 
 # Known issues
 * `admin1_decoder` table which is meant to be depreacted is being used in other geocoders, as namedplaces
+* All the information in this README.md doesn't contain the actual status of the CartoDB geocoder, which is using the table `global_province_polygons` but not the ones documented above.
 
 # Historic:
 * [24/06/2015]:
