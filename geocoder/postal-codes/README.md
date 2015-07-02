@@ -146,10 +146,25 @@ Import the file ignoring step 2.
 
 * All countries points [GeoNames](www.geonames.org) - http://download.geonames.org/export/zip/allCountries.zip
 
+# Geocoder coverage map
+![Map](https://camo.githubusercontent.com/483eae203445096ffa8bf0fe3d92a99fd9367a01/68747470733a2f2f646c2e64726f70626f7875736572636f6e74656e742e636f6d2f752f323837393330382f53637265656e25323053686f74253230323031352d30362d3239253230617425323031342e30332e34342e706e67)
 # Known issues:
 * The name of the countries added in a column are not being sanitized https://github.com/CartoDB/cartodb/issues/3392
 
+# Known deficiencies of the service
+* For the USA polygon zipcode service, Zipcode Tabulation Areas (ZCTA) are being used which [don't correspond to actual zipcode regions](http://web.archive.org/web/20050209030255/http://www.manifold.net/cases/zip_codes/zip_codes.html).
+* Regarding the point geocoder service, being offered from GeoNames data: we've detected that the accuracy for a big section of zipcodes is not as good as intended, as GeoNames interpolates zipcode-populated place information. As an example, in the case of Madrid, Spain, all the zipcodes belonging to the city are geocoded in the centroid of the city itself. 
+  This issue can be spotted easily by comparing interesecting zipcode points:
+  `SELECT the_geom, the_geom_webmercator, COUNT(*), adm0_a3 FROM postal_code_points GROUP BY the_geom, the_geom_webmercator, adm0_a3 HAVING COUNT(*) > 1 order by count(*)`
+
+  In this case, we conclude that most affected countries are Portugal, Mexico, Spain, Netherlands, Czech Republic or Slovakia, meanwhile Brazil doesn't show intersecting values.
+  
+  The visual result of intersecting zipcodes is demonstrated in the following figure:
+  ![Duplicates](https://camo.githubusercontent.com/1dbd4874830b0654b2fc2e11cd2a650d498f6bc9/68747470733a2f2f646c2e64726f70626f7875736572636f6e74656e742e636f6d2f752f323837393330382f53637265656e25323053686f74253230323031352d30362d3239253230617425323031322e35362e30332e706e67)
+
 # Historic:
+* [02/07/2015]:
+  * Adds known deficiencies and coverage map 
 * [24/06/2015]:
   * Updated readme.md: added information about tables, function, indexes and the known issues section. 
   * Review and [upload functions](https://github.com/CartoDB/data-services/pull/152)
