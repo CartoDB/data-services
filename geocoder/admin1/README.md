@@ -195,6 +195,7 @@ The table contains the following columns to be populated:
 
 ## Tables:
 - global_province_polygons
+
 ## Generation steps:
 1. Upload Natural Earth Data admin1 states provinces 
 2. Rename `adm0_a3` by `iso3`, add columns `frequency` [number] (To calculate frequency, I simply counted the number of users we had signed up in each country. Countries with more users, we favor higher in the geocoder :)) and `synonyms` [string[]]  
