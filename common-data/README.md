@@ -174,6 +174,17 @@ Data library
 
 **Sync table**: `true`
 
+#### Pakistan districts
+**Description**: Geometries for districts in Pakistan.
+
+**Source**: [Pakistan Data Portal](http://data.org.pk/)
+
+**License**:
+
+**Table name**: pakistan_districts
+
+**Sync table**: `false`
+
 #### World airports
 **Description**: Major airports in the world.
 
