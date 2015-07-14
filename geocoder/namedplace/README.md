@@ -152,8 +152,12 @@ In order to test the data and the functions created under the script avaialble i
 * The geocoding function is using a deprecated table: `admin1_decoder` instead of the new `admin1_synonyms`. Related issue: https://github.com/CartoDB/data-services/issues/148
 * The name of the countries added in a column are not being sanitized https://github.com/CartoDB/cartodb/issues/3392
 * The generation script for `global_cities_alternates_limited` is missing.
+* Needs a better approach for synonyms and normalisation
 
 # Historic:
+* [14/07/2015]:
+  * Updated README: Known issues
+  * Added tests
 * [24/06/2015]:
   * Added section "Known issues" 
   * Added table, functions and indexes information
