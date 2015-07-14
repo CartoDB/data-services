@@ -10,11 +10,13 @@ function test_geocoding_functions_admin1() {
     sql "SELECT (geocode_admin1_polygons(Array['Null Island'])).success" should false
     sql "SELECT (geocode_admin1_polygons(Array['Null Island'])).geom is null" should true
 
+    # check that the returned geometry is a polygon
+    sql "SELECT ST_GeometryType((geocode_admin1_polygons(Array['Barcelona'])).geom)" should ST_MultiPolygon
+
+
 }
 
 function test_geocoding_functions_admin1_usa() {
-    #Checks count of american states
-
     #Checks american states
     sql "SELECT ST_Intersects(ST_GeomFromText('POLYGON((-117.215350385412 41.9995402214041,-117.215350385412 48.9925145470544,-111.050238080323 48.9925145470544,-111.050238080323 41.9995402214041,-117.215350385412 41.9995402214041))', 4326), ST_Centroid((geocode_admin1_polygons(Array['Idaho'])).geom))" should true
     sql "SELECT ST_Intersects(ST_GeomFromText('POLYGON((-79.7630066354479 40.4994345620001,-79.7630066354479 45.0101219690002,-71.8574112619999 45.0101219690002,-71.8574112619999 40.4994345620001,-79.7630066354479 40.4994345620001))', 4326), ST_Centroid((geocode_admin1_polygons(Array['New York'])).geom))" should true
@@ -68,8 +70,6 @@ function test_geocoding_functions_admin1_usa() {
     sql "SELECT ST_Intersects(ST_GeomFromText('POLYGON((-80.5202331974041 39.7210490101037,-80.5202331974041 42.2685127634337,-74.6985535096368 42.2685127634337,-74.6985535096368 39.7210490101037,-80.5202331974041 39.7210490101037))', 4326), ST_Centroid((geocode_admin1_polygons(Array['Pennsylvania'])).geom))" should true
 }
 function test_geocoding_functions_admin1_france() {
-    #Checks count of France departments
-
 	#Checks France departments
     sql "SELECT ST_Intersects(ST_GeomFromText('POLYGON((-61.228830533 14.4081078150001,-61.228830533 14.876898505,-60.8104141919999 14.876898505,-60.8104141919999 14.4081078150001,-61.228830533 14.4081078150001))', 4326), ST_Centroid((geocode_admin1_polygons(Array['Martinique'])).geom))" should true
     sql "SELECT ST_Intersects(ST_GeomFromText('POLYGON((45.0424910820001 -12.9891903629999,45.0424910820001 -12.6472307269999,45.2908634770001 -12.6472307269999,45.2908634770001 -12.9891903629999,45.0424910820001 -12.9891903629999))', 4326), ST_Centroid((geocode_admin1_polygons(Array['Mayotte'])).geom))" should true
@@ -198,8 +198,6 @@ function test_geocoding_functions_admin1_germany() {
 
 }
 function test_geocoding_functions_admin1_spain() {
-    #Checks count of Spanish provinces
-
     #Checks Spanish provinces
     sql "SELECT ST_Intersects(ST_GeomFromText('POLYGON((-3.44502967028305 43.0206203083805,-3.44502967028305 43.452500718,-2.40678374228841 43.452500718,-2.40678374228841 43.0206203083805,-3.44502967028305 43.0206203083805))', 4326), ST_Centroid((geocode_admin1_polygons(Array['Bizkaia'])).geom))" should true
     sql "SELECT ST_Intersects(ST_GeomFromText('POLYGON((-8.34228593234988 41.8059506230001,-8.34228593234988 42.5784535436961,-6.73570736330419 42.5784535436961,-6.73570736330419 41.8059506230001,-8.34228593234988 41.8059506230001))', 4326), ST_Centroid((geocode_admin1_polygons(Array['Orense'])).geom))" should true

@@ -6,6 +6,7 @@
 function test_geocoding_quality_admin1_usa() {
     #Checks count of american states
     sql "SELECT count(*) from global_province_polygons where gu_a3 = 'USA'" should 51
+    sql "SELECT count(*) FROM admin1_decoder where iso2 = 'US'" should 51
 
     #Checks american states
     sql "SELECT ST_Intersects(ST_GeomFromText('POLYGON((-117.215350385412 41.9995402214041,-117.215350385412 48.9925145470544,-111.050238080323 48.9925145470544,-111.050238080323 41.9995402214041,-117.215350385412 41.9995402214041))', 4326), ST_Centroid(the_geom)) FROM global_province_polygons where name = 'Idaho' and admin = 'United States of America'" should true
