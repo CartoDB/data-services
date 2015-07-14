@@ -57,6 +57,8 @@ In order to test the data and the functions created under the script avaialble i
 * IPv6 addresses support? 
 
 # Historic:
+* [14/07/2015]:
+  * Added tests 
 * [24/06/2015]: 
   * Update readme.md: Adds Known issues section
   * Supervised function available in `geocoder.sql`
