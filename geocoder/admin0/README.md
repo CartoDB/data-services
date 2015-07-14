@@ -246,6 +246,8 @@ In order to test the data and the functions created under the script avaialble i
 # Known issues
 
 # Historic
+* [14/07/2015]:
+  * Added tests 
 * [03/07/2015]:
   * Added "U.S. Virgin Islands" (normalised) as synonym of VIR 
 * [24/06/2015]: 
