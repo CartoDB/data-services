@@ -1,57 +1,57 @@
 adm0_a3,name,notes,rank
-ALD,ALA,,10
-ATF,French Southern Territories,data source: openmundi,10
-ATG,Antigua & Barbuda,,10
-BHS,"Bahamas, The",data source: world bank,10
-BIH,Bosnia & Herzegovina,,10
-BRN,Brunei Darussalam,data source: openmundi,10
-CHN,China (PRC),,10
-CIV,Cote d'Ivoire,data source: world bank,10
-COD,Congo DR,data source: openmundi,10
-COD,Democratic Republic of Congo,,10
-COD,Democratic Republic of the Congo,,10
-COD,"Congo, Dem. Rep.",data source: world bank,10
-COD,Democratic republic of the Congo,,10
+TCA,Turks and Caicos,,10
 COG,The Republic of the Congo,,10
-COG,"Congo, Rep.",data source: world bank,10
-COG,Congo (CG),,10
-EGY,"Egypt, Arab Rep.",data source: world bank,10
-FLK,Malvinas,,10
-GIN,Equatorial Guinea,data source: world bank,10
-GMB,"Gambia, The",data source: world bank,10
-GUF,French Guiana,,10
-HKG,"Hong Kong SAR, China",data source: world bank,10
-IRN,"Iran, Islamic Rep.",data source: world bank,10
-KOR,"Korea, Rep.",data source: world bank,10
-LAO,Lao PDR,data source: world bank,10
-LCA,Sant Lucia,,10
-LCA,St. Lucia,,10
-LVA,Latvian Rep,,10
-LVA,Latvian Republic,,10
-MAF,Saint Martin (French),data source: openmundi,10
-MEX,Méjico,,10
-MKD,"Former Yugoslav Republic of Macedonia, the",,10
-MNP,Northern Marianas,,10
-NFK,Norfolk Islands,,10
-NOR,NO,,10
-PCN,Pitcairn,data source: openmundi,10
-PRK,"Korea, Dem. Rep.",data source: world bank,10
+SPM,Sant Pierre & Miquelon,,10
+VCT,Sant Vincent and the Grenadines,,10
 PSX,State of Palestine,,10
 REU,Réunion,,10
-SDS,South Sudan,data source: world bank,10
-SDS,SSD,,10
-SGS,South Georgia and the South Sandwich Islands,data source: openmundi,10
-SPM,Sant Pierre & Miquelon,,10
-STP,Sao Tome,,10
-SVK,Slovak Rep,,10
-SXM,Sint Maarten (Dutch),data source: openmundi,10
-TCA,Turks and Caicos,,10
-TCD,TD,,10
-TTO,Trinidad & Tobago,,10
-VAT,Vatican City,data source: openmundi,10
-VCT,Sant Vincent and the Grenadines,,10
-VEN,"Venezuela, RB",data source: world bank,10
-VGB,Virgin Islands (British),data source: openmundi,10
+GUF,French Guiana,,10
+ALD,ALA,,10
 VIR,Virgin Islands (US),data source: openmundi,10
-VIR, U.S. Virgin Islands,,10
+SXM,Sint Maarten (Dutch),data source: openmundi,10
+MAF,Saint Martin (French),data source: openmundi,10
+ATF,French Southern Territories,data source: openmundi,10
+BHS,"Bahamas, The",data source: world bank,10
+COD,"Congo, Dem. Rep.",data source: world bank,10
+COG,"Congo, Rep.",data source: world bank,10
+CIV,Cote d'Ivoire,data source: world bank,10
+EGY,"Egypt, Arab Rep.",data source: world bank,10
+GMB,"Gambia, The",data source: world bank,10
+HKG,"Hong Kong SAR, China",data source: world bank,10
+IRN,"Iran, Islamic Rep.",data source: world bank,10
+PRK,"Korea, Dem. Rep.",data source: world bank,10
+KOR,"Korea, Rep.",data source: world bank,10
+LAO,Lao PDR,data source: world bank,10
+SDS,South Sudan,data source: world bank,10
+VEN,"Venezuela, RB",data source: world bank,10
 YEM,"Yemen, Rep.",data source: world bank,10
+MEX,Méjico,,10
+BRN,Brunei Darussalam,data source: openmundi,10
+COD,Congo DR,data source: openmundi,10
+VGB,Virgin Islands (British),data source: openmundi,10
+PCN,Pitcairn,data source: openmundi,10
+VAT,Vatican City,data source: openmundi,10
+MKD,"Former Yugoslav Republic of Macedonia, the",,10
+SGS,South Georgia and the South Sandwich Islands,data source: openmundi,10
+NOR,NO,,10
+LCA,St. Lucia,,10
+LCA,Sant Lucia,,10
+COD,Democratic republic of the Congo,,10
+FLK,Malvinas,,10
+NFK,Norfolk Islands,,10
+MNP,Northern Marianas,,10
+COD,Democratic Republic of the Congo,,10
+CHN,China (PRC),,10
+COD,Democratic Republic of Congo,,10
+SDS,SSD,,10
+TCD,TD,,10
+ATG,Antigua & Barbuda,,10
+LVA,Latvian Rep,,10
+VIR,U.S. Virgin Islands,,10
+LVA,Latvian Republic,,10
+SVK,Slovak Rep,,10
+VIR,Virgin Islands,,10
+COG,Congo (CG),,10
+TTO,Trinidad & Tobago,,10
+BIH,Bosnia & Herzegovina,,10
+STP,Sao Tome,,10
