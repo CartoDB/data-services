@@ -141,6 +141,17 @@ Data library
 
 ### Cultural datasets
 
+#### Pakistan settlements
+**Description**: Points for Pakistani villages and settlements.
+
+**Source**: [Humanitarian Response](http://www.humanitarianresponse.info/)
+
+**License**:
+
+**Table name**: pakistan_settlements
+
+**Sync table**: `false`
+
 #### Urban areas
 **Description**: Areas of human habitation.
 
