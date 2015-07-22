@@ -252,17 +252,6 @@ Data library
 **Sync table**: `true`
 
 
-#### Valencia
-**Description**: Geometries for the building footprints of Valencia.
-
-**Source**: [Valencia Datos Abiertos](http://www.valencia.es/ayuntamiento/datosabiertos.nsf/fCategoriaVistaAcc_busqueda?ReadForm&lang=1&nivel=2&seccion=1&Vista=vCategoriasAccTodas&Categoria=Sin_categoria&idapoyo=22ADF97C1FD223B5C1257C55003BD01F)
-
-**License**:
-
-**Table name**: manzanas_pob
-
-**Sync table**: `false`
-
 #### USA airports
 **Description**: All the airports in the United States.
 
@@ -510,6 +499,29 @@ Data library
 ***
 
 ### Administrative regions 
+
+#### Tajikistan districts
+**Description**: Geometries for the districts (nohiya) in Tajikistan.
+
+**Source**: [United Nations TJK](http://www.untj.org/)
+
+**License**:
+
+**Table name**: districts_tajikistan
+
+**Sync table**: `false`
+
+#### Tajikistan jamoats
+**Description**: Geometries for jamoats (village-level self-governing units) in Tajikistan.
+
+**Source**: [United Nations TJK](http://www.untj.org/)
+
+**License**:
+
+**Table name**: jamoat_tajikistan
+
+**Sync table**: `false`
+
 #### Spanish comarcas
 **Description**: Geometries, identifiers and names for these Spanish regions.
 
