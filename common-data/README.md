@@ -6,6 +6,7 @@ Data library
 * [Building footprints](building-footprints)
 * [Administrative regions](administrative-regions)
 * [Historic](historic)
+* [US Census](us-census)
 
 ## Datasets available in the library
 
@@ -1077,165 +1078,222 @@ Data library
 
 **Source**: [NHGIS](https://www.nhgis.org)
 
-**License**:
+**License**: Free to use. Publications and research reports based on the database must cite it appropriately.
 
 **Table name**: us_state_1790
 
 **Sync table**: `false` 
+
+**Source URL**: File needs to be asked at https://data2.nhgis.org
+
 
 #### States in 1800
 **Description**: States and territories of the USA in 1800.
 
 **Source**: [NHGIS](https://www.nhgis.org)
 
-**License**:
+**License**: Free to use. Publications and research reports based on the database must cite it appropriately.
 
 **Table name**: us_state_1800
 
 **Sync table**: `false`
+
+**Source URL**: File needs to be asked at https://data2.nhgis.org
+
 
 #### States in 1810
 **Description**: States and territories of the USA in 1810.
 
 **Source**: [NHGIS](https://www.nhgis.org)
 
-**License**:
+**License**: Free to use. Publications and research reports based on the database must cite it appropriately.
 
 **Table name**: us_state_1810
 
 **Sync table**: `false`
+
+**Source URL**: File needs to be asked at https://data2.nhgis.org
+
 
 #### States in 1820
 **Description**: States and territories of the USA in 1820.
 
 **Source**: [NHGIS](https://www.nhgis.org)
 
-**License**:
+**License**: Free to use. Publications and research reports based on the database must cite it appropriately.
 
 **Table name**: us_state_1820
 
 **Sync table**: `false`
+
+**Source URL**: File needs to be asked at https://data2.nhgis.org
+
 
 #### States in 1830
 **Description**: States and territories of the USA in 1830.
 
 **Source**: [NHGIS](https://www.nhgis.org)
 
-**License**:
+**License**: Free to use. Publications and research reports based on the database must cite it appropriately.
 
 **Table name**: us_state_1830
 
 **Sync table**: `false`
+
+**Source URL**: File needs to be asked at https://data2.nhgis.org
+
 
 #### States in 1840
 **Description**: States and territories of the USA in 1840.
 
 **Source**: [NHGIS](https://www.nhgis.org)
 
-**License**:
+**License**: Free to use. Publications and research reports based on the database must cite it appropriately.
 
 **Table name**: us_state_1840
 
 **Sync table**: `false`
+
+**Source URL**: File needs to be asked at https://data2.nhgis.org
+
+
+#### States in 1850
+**Description**: States and territories of the USA in 1840.
+
+**Source**: [NHGIS](https://www.nhgis.org)
+
+**License**: Free to use. Publications and research reports based on the database must cite it appropriately.
+
+**Table name**: us_state_1850
+
+**Sync table**: `false`
+
+**Source URL**: File needs to be asked at https://data2.nhgis.org
 
 #### States in 1860
 **Description**: States and territories of the USA in 1860.
 
 **Source**: [NHGIS](https://www.nhgis.org)
 
-**License**:
+**License**: Free to use. Publications and research reports based on the database must cite it appropriately.
 
 **Table name**: us_state_1860
 
 **Sync table**: `false`
+
+**Source URL**: File needs to be asked at https://data2.nhgis.org
+
 
 #### States in 1870
 **Description**: States and territories of the USA in 1870.
 
 **Source**: [NHGIS](https://www.nhgis.org)
 
-**License**:
+**License**: Free to use. Publications and research reports based on the database must cite it appropriately.
 
 **Table name**: us_state_1870
 
 **Sync table**: `false`
+
+**Source URL**: File needs to be asked at https://data2.nhgis.org
+
 
 #### States in 1880
 **Description**: States and territories of the USA in 1880.
 
 **Source**: [NHGIS](https://www.nhgis.org)
 
-**License**:
+**License**: Free to use. Publications and research reports based on the database must cite it appropriately.
 
 **Table name**: us_state_1880
 
 **Sync table**: `false`
+
+**Source URL**: File needs to be asked at https://data2.nhgis.org
+
 
 #### US Counties, 1879-1929
 **Description**: Historical county lines in the United States, 1879-1929.
 
 **Source**: [The Newberry Library](http://publications.newberry.org/ahcbp/downloads/united_states.html)
 
-**License**:
+**License**: CC-BY-NC-SA
 
 **Table name**: histcounties_1879_1929
 
 **Sync table**: `false`
+
+**Source URL**: http://publications.newberry.org/ahcbp/downloads/kmz/US_HistCounties_Gen05_KMZ.zip
 
 #### US Counties, 1779-1829
 **Description**: Historical county lines in the United States, 1779-1829.
 
 **Source**: [The Newberry Library](http://publications.newberry.org/ahcbp/downloads/united_states.html)
 
-**License**:
+**License**: CC-BY-NC-SA
 
 **Table name**: histcounties_1779_1829
 
 **Sync table**: `false`
+
+**Source URL**: http://publications.newberry.org/ahcbp/downloads/kmz/US_HistCounties_Gen05_KMZ.zip
+
 
 #### US Counties, 1629-1679
 **Description**: Historical county lines in the United States, 1629-1679.
 
 **Source**: [The Newberry Library](http://publications.newberry.org/ahcbp/downloads/united_states.html)
 
-**License**:
+**License**: CC-BY-NC-SA
 
 **Table name**: histcounties_1629_1679
 
 **Sync table**: `false`
+
+**Source URL**: http://publications.newberry.org/ahcbp/downloads/kmz/US_HistCounties_Gen05_KMZ.zip
+
 
 #### US Counties, 1979-Present
 **Description**: Historical county lines in the United States, 1979-Present.
 
 **Source**: [The Newberry Library](http://publications.newberry.org/ahcbp/downloads/united_states.html)
 
-**License**:
+**License**: CC-BY-NC-SA
 
 **Table name**: histcounties_1979_present
 
 **Sync table**: `false`
+
+**Source URL**: http://publications.newberry.org/ahcbp/downloads/kmz/US_HistCounties_Gen05_KMZ.zip
+
 
 #### US Counties, 1929-1979
 **Description**: Historical county lines in the United States, 1929-1979.
 
 **Source**: [The Newberry Library](http://publications.newberry.org/ahcbp/downloads/united_states.html)
 
-**License**:
+**License**: CC-BY-NC-SA
 
 **Table name**: histcounties_1929_1979
 
 **Sync table**: `false`
+
+**Source URL**: http://publications.newberry.org/ahcbp/downloads/kmz/US_HistCounties_Gen05_KMZ.zip
+
 
 #### US Counties 1679-1729
 **Description**: Historical county lines in the United States, 1679-1729.
 
 **Source**: [The Newberry Library](http://publications.newberry.org/ahcbp/downloads/united_states.html)
 
-**License**:
+**License**: CC-BY-NC-SA
 
 **Table name**: histcounties_1679_1729
 
 **Sync table**: `false`
+
+**Source URL**: http://publications.newberry.org/ahcbp/downloads/kmz/US_HistCounties_Gen05_KMZ.zip
+
 
 ### US Census
 
@@ -1251,6 +1309,8 @@ Data library
 
 **Sync table**: `false`
 
+**Source URL**: sldu files from ftp://ftp2.census.gov/geo/tiger/GENZ2013/
+
 #### Urban Areas
 
 **Description**: Geometries for the USA Urban areas /clusters.
@@ -1262,6 +1322,8 @@ Data library
 **Table name**: cb_2013_us_ua10_500k
 
 **Sync table**: `false`
+
+**Source URL**: ftp://ftp2.census.gov/geo/tiger/GENZ2013/cb_2013_us_ua10_500k.kmz
 
 #### Consolidated Cities
 
@@ -1275,6 +1337,8 @@ Data library
 
 **Sync table**: `false`
 
+**Source URL**: concity files from ftp://ftp2.census.gov/geo/tiger/GENZ2013/
+
 #### AIANNH Areas
 
 **Description**: American Indian, Alaska Native, and Native Hawaiian Areas.
@@ -1286,6 +1350,8 @@ Data library
 **Table name**: cb_2013_us_aiannh_500k
 
 **Sync table**: `false`
+
+**Source URL**: ftp://ftp2.census.gov/geo/tiger/GENZ2013/cb_2013_us_aiannh_500k.zip
 
 
 #### US Congressional districts
@@ -1300,6 +1366,9 @@ Data library
 
 **Sync table**: `false`
 
+**Source URL**: ftp://ftp2.census.gov/geo/tiger/TIGER2014/CD/tl_2014_us_cd114.zip
+
+
 #### State Legislative District - Lower Chamber
 
 **Description**: Lower chamber districts in 2013.
@@ -1311,6 +1380,8 @@ Data library
 **Table name**: cb_2013_sldl_500k
 
 **Sync table**: `false`
+
+**Source URL**: sldl files from ftp://ftp2.census.gov/geo/tiger/GENZ2013/
 
 #### US Census Tracts
 
@@ -1324,6 +1395,8 @@ Data library
 
 **Sync table**: `false`
 
+**Source URL**: ftp://ftp2.census.gov/geo/tiger/TIGER2014/TRACT/
+
 #### US Census Tracts
 
 **Description**: Geometries for US census tracts
@@ -1335,6 +1408,8 @@ Data library
 **Table name**: tract_2010census_dp1
 
 **Sync table**: `false`
+
+**Source URL**: http://www2.census.gov/geo/tiger/TIGER2010DP1/Tract_2010Census_DP1.zip
 
 
 #### Public use microdata area
@@ -1349,6 +1424,8 @@ Data library
 
 **Sync table**: `false`
 
+**Source URL**: puma files from ftp://ftp2.census.gov/geo/tiger/GENZ2013/
+
 #### US Block Groups
 
 **Description**: US Block Groups.
@@ -1360,6 +1437,8 @@ Data library
 **Table name**: tl_2014_block_groups
 
 **Sync table**: `false`
+
+**Source URL**: ftp://ftp2.census.gov/geo/tiger/TIGER2014/BG/
 
 #### Places
 
@@ -1373,6 +1452,7 @@ Data library
 
 **Sync table**: `false`
 
+**Source URL**: place files from ftp://ftp2.census.gov/geo/tiger/GENZ2013/
 
 #### US Census Tracts, Simplified Version 
 
@@ -1386,17 +1466,7 @@ Data library
 
 **Sync table**: `false`
 
-#### US Census Tracts, Simplified Version 
-
-**Description**: Simplified geometries for US census tracts 
-
-**Source**: [US Census](https://www.census.gov)
-
-**License**: Public domain: https://ask.census.gov/faq.php?id=5000&faqId=537
-
-**Table name**: tract_2010census_dp1_simple
-
-**Sync table**: `false`
+**Source URL**: http://www2.census.gov/geo/tiger/TIGER2010DP1/Tract_2010Census_DP1.zip
 
 #### National Division
 
@@ -1410,6 +1480,8 @@ Data library
 
 **Sync table**: `false`
 
+**Source URL**: ftp://ftp2.census.gov/geo/tiger/GENZ2013/cb_2013_us_division_500k.zip
+
 #### County subdivisions
 
 **Description**:USA county subdivisions.
@@ -1421,6 +1493,8 @@ Data library
 **Table name**: cb_2013_cousub_500k
 
 **Sync table**: `false`
+
+**Source URL**: cousub files from ftp://ftp2.census.gov/geo/tiger/GENZ2013/
 
 #### National Regions US
 
@@ -1434,6 +1508,8 @@ Data library
 
 **Sync table**: `false`
 
+**Source URL**: ftp://ftp2.census.gov/geo/tiger/GENZ2013/cb_2013_us_region_500k.zip
+
 #### Metropolitan Statistical Areas
 
 **Description**: Polygons for Metropolitan Statistical Areas / Micropolitan Statistical Areas.
@@ -1446,6 +1522,8 @@ Data library
 
 **Sync table**: `false`
 
+**Source URL**: ftp://ftp2.census.gov/geo/tiger/GENZ2013/cb_2013_us_cbsa_500k.zip
+
 #### Combined Statistical Areas
 
 **Description**: Combined Statistical Areas (CSAs) of the United States and Puerto Rico.
@@ -1457,3 +1535,5 @@ Data library
 **Table name**: cb_2013_us_csa_500k
 
 **Sync table**: `false`
+
+**Source URL**: ftp://ftp2.census.gov/geo/tiger/GENZ2013/cb_2013_us_csa_500k.zip
