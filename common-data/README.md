@@ -449,35 +449,39 @@ Data library
 
 **Source**: [NYC Open Data](https://data.cityofnewyork.us/)
 
-**License**:
+**License**: Public use. License not specified.
 
 **Table name**: ny_community_districts
 
 **Sync table**: `false`
 
-**Source URL**: 
+**Source URL**: https://data.cityofnewyork.us/City-Government/Community-Districts/yfnk-k7r4
 
 #### Major streets in Chicago
 **Description**: Geometries for the major streets in Chicago.
 
 **Source**: [Chicago Open Data](https://data.cityofchicago.org/)
 
-**License**:
+**License**: Public use. License not specified.
 
 **Table name**: chicago_major_streets
 
 **Sync table**: `false`
+
+**Source URL**: https://data.cityofchicago.org/Transportation/Major-Streets/ueqs-5wr6
 
 #### NYC School Districts
 **Description**: Boundaries of school districts in New York City.
 
 **Source**: [NYC Open Data](https://data.cityofnewyork.us/)
 
-**License**:
+**License**: Public use. License not specified.
 
 **Table name**: nyc_school_districts
 
 **Sync table**: `false`
+
+**Source URL**: https://data.cityofnewyork.us/Education/School-Districts/r8nu-ymqj
 
 #### T3chFest at Twitter
 **Description**: Twitter sample data about how the world tweeted about T3chFest.
@@ -495,11 +499,13 @@ Data library
 
 **Source**: [DataSF](https://data.sfgov.org)
 
-**License**:
+**License**: CC-0
 
 **Table name**: sf_planning_neighborhoods
 
 **Sync table**: `false`
+
+**Source URL**: https://data.sfgov.org/Geographic-Locations-and-Boundaries/Neighborhood-Groups-Map/qc6m-r4ih?
 
 #### San Francisco Streets
 **Description**: Lines for all the streets in San Francisco.
@@ -518,66 +524,78 @@ Data library
 
 **Source**: [Valencia Datos Abiertos](http://www.valencia.es/ayuntamiento/datosabiertos.nsf/fCategoriaVistaAcc_busqueda?ReadForm&lang=1&nivel=2&seccion=1&Vista=vCategoriasAccTodas&Categoria=Sin_categoria&idapoyo=22ADF97C1FD223B5C1257C55003BD01F)
 
-**License**:
+**License**: CC-BY
 
 **Table name**: ejes_calle
 
 **Sync table**: `false`
+
+**Source URL**: http://www.valencia.es/ayuntamiento/datosabiertos.nsf/resultadoCapas/F73D698EB7981850C1257C70003E4F0A?OpenDocument&lang=1&nivel=2&seccion=1&bdorigen=&idapoyo=22ADF97C1FD223B5C1257C55003BD01F
 
 #### Distritos de Barcelona
 **Description**: Geometries for each one of the districts in Barcelona.
 
 **Source**: [CartoBCN](http://w20.bcn.cat/cartobcn/)
 
-**License**:
+**License**: CC-BY
 
 **Table name**: districtes_barcelona
 
 **Sync table**: `false`
+
+**Source URL**: http://w20.bcn.cat/cartobcn/getFile.ashx?t=bdd&f=87764208024986
 
 #### Barrios de Barcelona
 **Description**: Geometries for Barcelona neighborhoods.
 
 **Source**: [CartoBCN](http://w20.bcn.cat/cartobcn/)
 
-**License**:
+**License**: CC-BY
 
 **Table name**: barris_barcelona
 
 **Sync table**: `false`
+
+**Source URL**: http://w20.bcn.cat/cartobcn/getFile.ashx?t=bdd&f=96752208350719
 
 #### Barrios de Madrid
 **Description**: Geometries for the Madrid city neighborhoods.
 
 **Source**: [Madrid Datos Abiertos](http://datos.madrid.es/)
 
-**License**:
+**License**: http://datos.madrid.es/portal/site/egob/menuitem.619dfa2990e56405bb8d69f6ecd08a0c/?vgnextoid=b4c412b9ace9f310VgnVCM100000171f5a0aRCRD
 
 **Table name**: barrios
 
 **Sync table**: `false`
+
+**Source URL**: http://datos.madrid.es/egob/catalogo/200078-10-distritos-barrios.zip
 
 #### Railroads
 **Description**: Railroads in the world.
 
 **Source**: [Natural Earth Data](http://naturalearthdata.com)
 
-**License**:
+**License**: Public domain
 
 **Table name**: ne_10m_railroads
 
 **Sync table**: `false` (File is truncated in GitHub. Sync disabled to avoid errors)
+
+**Source URL**: http://www.naturalearthdata.com/download/10m/cultural/ne_10m_railroads.zip
 
 #### Roads
 **Description**: Roads in the world.
 
 **Source**: [Natural Earth Data](http://naturalearthdata.com)
 
-**License**:
+**License**: Public domain
 
 **Table name**: ne_10m_roads
 
-**Sync table**: `true`
+**Sync table**: `false`
+
+**Source URL**: http://www.naturalearthdata.com/download/10m/cultural/ne_10m_roads.zip
 
 ***
 
@@ -594,6 +612,8 @@ Data library
 
 **Sync table**: `false`
 
+**Source URL**: http://geocommons.com/overlays/13846
+
 #### Tajikistan jamoats
 **Description**: Geometries for jamoats (village-level self-governing units) in Tajikistan.
 
@@ -604,6 +624,9 @@ Data library
 **Table name**: jamoat_tajikistan
 
 **Sync table**: `false`
+
+**Source URL**: http://geocommons.com/overlays/13849
+
 
 #### Spanish comarcas
 **Description**: Geometries, identifiers and names for these Spanish regions.
@@ -633,29 +656,33 @@ Data library
 
 **Source**: [Berlin Open Data](http://daten.berlin.de/)
 
-**License**:
+**License**: CC-BY
 
 **Table name**: lor_bezirksregionen_berlin
 
 **Sync table**: `false`
+
+**Source URL**: http://daten.berlin.de/datensaetze/rbs-bezirke-dezember-2014
 
 #### Berlin districts
 **Description**: Polygon geometries for all the districts in Berlin.
 
 **Source**: [Berlin Open Data](http://daten.berlin.de/)
 
-**License**:
+**License**: CC-BY
 
 **Table name**: berlin_ortsteile
 
 **Sync table**: `false`
+
+**Source URL**: http://daten.berlin.de/datensaetze/rbs-ortsteile-dezember-2014
 
 #### UK administrative regions
 **Description**: Contains geometries for UK districts, counties, boroughs...
 
 **Source**: [Natural Earth Data](http://naturalearthdata.com)
 
-**License**:
+**License**: Public domain
 
 **Table name**: uk_administrative_regions
 
@@ -677,7 +704,7 @@ Data library
 
 **Source**: 
 
-**License**:
+**License**: Public domain
 
 **Table name**: continents
 
@@ -688,11 +715,13 @@ Data library
 
 **Source**: [City of Melbourne](https://data.melbourne.vic.gov.au)
 
-**License**:
+**License**: CC-BY
 
 **Table name**: post_code_areas_melbourne
 
 **Sync table**: `false` 
+
+**Source URL**: https://data.melbourne.vic.gov.au/Property-Planning/Post-Code-Areas/m7yp-p495
 
 #### England regions
 **Description**: Regions of England.
@@ -733,7 +762,7 @@ Data library
 
 **Source**: [Natural Earth Data](http://naturalearthdata.com)
 
-**License**:
+**License**: Public domain
 
 **Table name**: france_admin1_metro
 
@@ -766,7 +795,7 @@ Data library
 
 **Source**: [Natural Earth Data](http://naturalearthdata.com)
 
-**License**:
+**License**: Public domain
 
 **Table name**: ne_50m_admin_1_states
 
@@ -777,7 +806,7 @@ Data library
 
 **Source**: [US Census](https://www.census.gov)
 
-**License**:
+**License**: Public domain
 
 **Table name**: cb_2013_us_county_500k
 
@@ -799,7 +828,7 @@ Data library
 
 **Source**: [Natural Earth Data](http://naturalearthdata.com)
 
-**License**:
+**License**: Public domain
 
 **Table name**: asia_adm0
 
@@ -843,7 +872,7 @@ Data library
 
 **Source**: [Natural Earth Data](http://naturalearthdata.com)
 
-**License**:
+**License**: Public domain
 
 **Table name**: european_countries
 
@@ -876,7 +905,7 @@ Data library
 
 **Source**: [Natural Earth Data](http://naturalearthdata.com)
 
-**License**:
+**License**: Public domain
 
 **Table name**: ireland_counties
 
@@ -1216,7 +1245,7 @@ Data library
 
 **Source**: [US Census](https://www.census.gov)
 
-**License**:
+**License**: Public domain: https://ask.census.gov/faq.php?id=5000&faqId=537
 
 **Table name**: cb_2013_sldu_500k
 
@@ -1228,7 +1257,7 @@ Data library
 
 **Source**: [US Census](https://www.census.gov)
 
-**License**:
+**License**: Public domain: https://ask.census.gov/faq.php?id=5000&faqId=537
 
 **Table name**: cb_2013_us_ua10_500k
 
@@ -1240,7 +1269,7 @@ Data library
 
 **Source**: [US Census](https://www.census.gov)
 
-**License**:
+**License**: Public domain: https://ask.census.gov/faq.php?id=5000&faqId=537
 
 **Table name**: cb_2013_concity_500k
 
@@ -1252,7 +1281,7 @@ Data library
 
 **Source**: [US Census](https://www.census.gov)
 
-**License**:
+**License**: Public domain: https://ask.census.gov/faq.php?id=5000&faqId=537
 
 **Table name**: cb_2013_us_aiannh_500k
 
@@ -1265,7 +1294,7 @@ Data library
 
 **Source**: [US Census](https://www.census.gov)
 
-**License**:
+**License**: Public domain: https://ask.census.gov/faq.php?id=5000&faqId=537
 
 **Table name**: tl_2014_us_cd114
 
@@ -1277,7 +1306,7 @@ Data library
 
 **Source**: [US Census](https://www.census.gov)
 
-**License**:
+**License**: Public domain: https://ask.census.gov/faq.php?id=5000&faqId=537
 
 **Table name**: cb_2013_sldl_500k
 
@@ -1289,7 +1318,7 @@ Data library
 
 **Source**: [US Census](https://www.census.gov)
 
-**License**:
+**License**: Public domain: https://ask.census.gov/faq.php?id=5000&faqId=537
 
 **Table name**: tl_2014_census_tracts
 
@@ -1301,7 +1330,7 @@ Data library
 
 **Source**: [US Census Data] (https://www.census.gov/geo/maps-data/data/tiger-data.html)
 
-**License**:
+**License**: Public domain: https://ask.census.gov/faq.php?id=5000&faqId=537
 
 **Table name**: tract_2010census_dp1
 
@@ -1314,7 +1343,7 @@ Data library
 
 **Source**: [US Census](https://www.census.gov)
 
-**License**:
+**License**: Public domain: https://ask.census.gov/faq.php?id=5000&faqId=537
 
 **Table name**: cb_2013_puma10_500k
 
@@ -1326,7 +1355,7 @@ Data library
 
 **Source**: [US Census](https://www.census.gov)
 
-**License**:
+**License**: Public domain: https://ask.census.gov/faq.php?id=5000&faqId=537
 
 **Table name**: tl_2014_block_groups
 
@@ -1338,7 +1367,7 @@ Data library
 
 **Source**: [US Census](https://www.census.gov)
 
-**License**:
+**License**: Public domain: https://ask.census.gov/faq.php?id=5000&faqId=537
 
 **Table name**: cb_2013_place_500k
 
@@ -1351,7 +1380,7 @@ Data library
 
 **Source**: [US Census](https://www.census.gov)
 
-**License**:
+**License**: Public domain: https://ask.census.gov/faq.php?id=5000&faqId=537
 
 **Table name**: tract_2010census_dp1_simple
 
@@ -1363,7 +1392,7 @@ Data library
 
 **Source**: [US Census](https://www.census.gov)
 
-**License**:
+**License**: Public domain: https://ask.census.gov/faq.php?id=5000&faqId=537
 
 **Table name**: tract_2010census_dp1_simple
 
@@ -1375,7 +1404,7 @@ Data library
 
 **Source**: [US Census](https://www.census.gov)
 
-**License**:
+**License**: Public domain: https://ask.census.gov/faq.php?id=5000&faqId=537
 
 **Table name**: cb_2013_us_division_5m
 
@@ -1387,7 +1416,7 @@ Data library
 
 **Source**: [US Census](https://www.census.gov)
 
-**License**:
+**License**: Public domain: https://ask.census.gov/faq.php?id=5000&faqId=537
 
 **Table name**: cb_2013_cousub_500k
 
@@ -1399,7 +1428,7 @@ Data library
 
 **Source**: [US Census](https://www.census.gov)
 
-**License**:
+**License**: Public domain: https://ask.census.gov/faq.php?id=5000&faqId=537
 
 **Table name**: cb_2013_us_region_500k
 
@@ -1411,7 +1440,7 @@ Data library
 
 **Source**: [US Census](https://www.census.gov)
 
-**License**:
+**License**: Public domain: https://ask.census.gov/faq.php?id=5000&faqId=537
 
 **Table name**: cb_2013_us_cbsa_5m
 
@@ -1423,7 +1452,7 @@ Data library
 
 **Source**: [US Census](https://www.census.gov)
 
-**License**:
+**License**: Public domain: https://ask.census.gov/faq.php?id=5000&faqId=537
 
 **Table name**: cb_2013_us_csa_500k
 
