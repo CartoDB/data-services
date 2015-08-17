@@ -1,12 +1,12 @@
 Data library 
 ====
 
-* [Physical datasets](physical-datasets)
-* [Cultural datasets](cultural-datasets)
-* [Building footprints](building-footprints)
-* [Administrative regions](administrative-regions)
-* [Historic](historic)
-* [US Census](us-census)
+* [Physical datasets](#physical-datasets)
+* [Cultural datasets](#cultural-datasets)
+* [Building footprints](#building-footprints)
+* [Administrative regions](#administrative-regions)
+* [Historic](#historic)
+* [US Census](#us-census)
 
 ## Datasets available in the library
 
