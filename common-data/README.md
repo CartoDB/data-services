@@ -147,11 +147,13 @@ Data library
 
 **Source**: [NOAA's NCDC](http://www.ncdc.noaa.gov/stormevents/)
 
-**License**:
+**License**: License not specified.
 
 **Table name**: stormevents_locations_2014
 
 **Sync table**: `false`
+
+**Source URL**: http://www1.ncdc.noaa.gov/pub/data/swdi/stormevents/csvfiles/StormEvents_locations-ftp_v1.0_d2014_c20150701.csv.gz
 
 #### Realtime US streamflow stations
 **Description**: Locations of +4,000 stream gaging stations and streamflow information.
@@ -487,7 +489,7 @@ Data library
 #### T3chFest at Twitter
 **Description**: Twitter sample data about how the world tweeted about T3chFest.
 
-**Source**: 
+**Source**: GNIP Datasource
 
 **License**:
 
@@ -513,12 +515,13 @@ Data library
 
 **Source**: [DataSF](https://data.sfgov.org)
 
-**License**:
+**License**: CC-0
 
 **Table name**: sf_stclines
 
 **Sync table**: `false`
 
+**Source URL**: https://data.sfgov.org/Geographic-Locations-and-Boundaries/Streets-of-San-Francisco-Zipped-Shapefile-Format-/wbm8-ratb
 
 #### Valencia Streets
 **Description**: The streets of Valencia, Spain.
@@ -647,11 +650,13 @@ Data library
 
 **Source**: [MAGRAMA](http://www.magrama.gob.es/es/)
 
-**License**:
+**License**: Esta información se puede usar de modo libre y gratuito siempre que se mencione al Ministerio de Agricultura, 
 
 **Table name**: comarcas
 
 **Sync table**: `false` 
+
+**Source URL**: http://www.magrama.gob.es/es/cartografia-y-sig/ide/descargas/
 
 
 #### Spanish provinces
@@ -659,11 +664,13 @@ Data library
 
 **Source**: [MAGRAMA](http://www.magrama.gob.es/es/)
 
-**License**:
+**License**: Esta información se puede usar de modo libre y gratuito siempre que se mencione al Ministerio de Agricultura, 
 
 **Table name**: spanish_adm2_provinces
 
 **Sync table**: `false`
+
+**Source URL**: http://www.magrama.gob.es/es/cartografia-y-sig/ide/descargas/
 
 #### Berlin districts regions
 **Description**: Geometries for the regions of the districts (bezirksregionen) in Berlin.
@@ -710,11 +717,14 @@ Data library
 
 **Source**: [MAGRAMA](http://www.magrama.gob.es/es/)
 
-**License**:
+**License**: Esta información se puede usar de modo libre y gratuito siempre que se mencione al Ministerio de Agricultura, 
 
 **Table name**: spain_adm1_ccaa
 
 **Sync table**: `false`
+
+**Source URL**: http://www.magrama.gob.es/es/cartografia-y-sig/ide/descargas/
+
 
 #### Continents
 **Description**: Geometries for continents.
@@ -768,11 +778,13 @@ Data library
 
 **Source**: [Nixta's Null Island](https://github.com/nixta/null-island)
 
-**License**:
+**License**: License not specified.
 
 **Table name**: null_island_geo_proc
 
 **Sync table**: `false` 
+
+**Source URL**: https://github.com/nixta/null-island/blob/master/GeoJSON/null-island.geo.json
 
 #### Regions of Metropolitan France
 **Description**: Geometries for the 22 regions in the Metropolitan France.
@@ -792,7 +804,7 @@ Data library
 
 **Source**: [Natural Earth Data](http://naturalearthdata.com)
 
-**License**:
+**License**: Public domain
 
 **Table name**: world_borders
 
@@ -804,13 +816,15 @@ Data library
 #### New York counties
 **Description**: All the New York counties.
 
-**Source**: 
+**Source**: [US Census](https://www.census.gov)
 
-**License**:
+**License**: Public domain
 
 **Table name**: counties_ny
 
 **Sync table**: `false` 
+
+**Source URL**: ftp://ftp2.census.gov/geo/tiger/GENZ2013/cb_2013_36_county_within_ua_500k.zip
 
 #### USA states
 **Description**: All the states of the United States of America.
@@ -836,16 +850,20 @@ Data library
 
 **Sync table**: `false` 
 
+**Source URL**: county files from ftp://ftp2.census.gov/geo/tiger/GENZ2013/
+
 #### African countries
 **Description**: All countries within the african continent.
 
 **Source**: [Disruptive Geo](http://www.disruptivegeo.com/)
 
-**License**:
+**License**: CC BY-NC
 
 **Table name**: africa_adm0
 
 **Sync table**: `false` 
+
+**Source URL**: http://www.disruptivegeo.com/tag/data/
 
 #### Asian countries
 **Description**: All countries in Asia.
@@ -872,6 +890,9 @@ Data library
 
 **Sync table**: `false` 
 
+**Source URL**: http://www.disruptivegeo.com/tag/data/
+
+
 #### North American countries
 **Description**: All countries in North America.
 
@@ -883,6 +904,9 @@ Data library
 
 **Sync table**: `false` 
 
+**Source URL**: http://www.disruptivegeo.com/tag/data/
+
+
 #### Oceania countries
 **Description**: All countries in Oceania.
 
@@ -893,6 +917,9 @@ Data library
 **Table name**: oceania_adm0
 
 **Sync table**: `false` 
+
+**Source URL**: http://www.disruptivegeo.com/tag/data/
+
 
 #### European countries
 **Description**: European countries geometries.
