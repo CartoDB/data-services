@@ -16,110 +16,130 @@ Data library
 
 **Source**: [Natural Earth Data](http://naturalearthdata.com)
 
-**License**:
+**License**: [Public domain](https://github.com/nvkelso/natural-earth-vector/blob/master/LICENSE.md)
 
 **Table name**: ne_50m_rivers_lake_centerlines
 
-**Sync table**: `true`
+**Sync table**: `false`
+
+**Source URL**: http://www.naturalearthdata.com/download/50m/physical/ne_50m_rivers_lake_centerlines.zip
 
 #### Ocean
 **Description**: Oceanic region.
 
 **Source**: [Natural Earth Data](http://naturalearthdata.com)
 
-**License**:
+**License**: [Public domain](https://github.com/nvkelso/natural-earth-vector/blob/master/LICENSE.md)
 
 **Table name**: ne_50m_ocean
 
-**Sync table**: `true`
+**Sync table**: `false`
+
+**Source URL**: http://www.naturalearthdata.com/download/50m/physical/ne_50m_ocean.zip
 
 #### Land
 **Description**: Land region.
 
 **Source**: [Natural Earth Data](http://naturalearthdata.com)
 
-**License**:
+**License**: [Public domain](https://github.com/nvkelso/natural-earth-vector/blob/master/LICENSE.md)
 
 **Table name**: ne_50m_land
 
-**Sync table**: `true`
+**Sync table**: `false`
+
+**Source URL**: http://www.naturalearthdata.com/download/50m/physical/ne_50m_land.zip
 
 #### Glaciers
 **Description**: Glaciers and recently de-glaciated areas.
 
 **Source**: [Natural Earth Data](http://naturalearthdata.com)
 
-**License**:
+**License**: [Public domain](https://github.com/nvkelso/natural-earth-vector/blob/master/LICENSE.md)
 
 **Table name**: ne_glaciated_areas
 
 **Sync table**: `false`
+
+**Source URL**: http://www.naturalearthdata.com/download/50m/physical/ne_50m_glaciated_areas.zip
 
 #### Reefs
 **Description**: Coral reefs and atolls.
 
 **Source**: [Natural Earth Data](http://naturalearthdata.com)
 
-**License**:
+**License**: [Public domain](https://github.com/nvkelso/natural-earth-vector/blob/master/LICENSE.md)
 
 **Table name**: ne_10m_reefs
 
-**Sync table**: `true`
+**Sync table**: `false`
+
+**Source URL**: http://www.naturalearthdata.com/download/10m/physical/ne_10m_reefs.zip
 
 #### Coastlines
 **Description**: Lines around the world coasts.
 
 **Source**: [Natural Earth Data](http://naturalearthdata.com)
 
-**License**:
+**License**: [Public domain](https://github.com/nvkelso/natural-earth-vector/blob/master/LICENSE.md)
 
 **Table name**: ne_110m_coastline
 
-**Sync table**: `true`
+**Sync table**: `false`
+
+**Source URL**: http://www.naturalearthdata.com/download/110m/physical/ne_110m_coastline.zip
 
 #### Lakes
 **Description**: Natural and artificial lakes.
 
 **Source**: [Natural Earth Data](http://naturalearthdata.com)
 
-**License**:
+**License**: [Public domain](https://github.com/nvkelso/natural-earth-vector/blob/master/LICENSE.md)
 
 **Table name**: ne_50m_lakes
 
-**Sync table**: `true`
+**Sync table**: `false`
+
+**Source URL**: http://www.naturalearthdata.com/download/50m/physical/ne_50m_lakes.zip
 
 #### Boundaries of the US National Parks 
 **Description**: National Parks Boundaries.
 
 **Source**: [Data.gov](https://catalog.data.gov/dataset/national-park-boundariesf0a4c)
 
-**License**:
+**License**: No license information was provided.
 
 **Table name**: nps_boundary
 
 **Sync table**: `false`
+
+**Source URL**: http://gstore.unm.edu/apps/rgis/datasets/7bbe8af5-029b-4adf-b06c-134f0dd57226/nps_boundary.derived.kml
 
 #### SF Elevation Contours
 **Description**: Elevation contours with a five-foot interval for SF mainland and Treasure Island/Yerba Island.
 
 **Source**: [DataSF](https://data.sfgov.org)
 
-**License**:
+**License**: CC 0 (ZERO)
 
 **Table name**: phys_contours_sf
 
 **Sync table**: `false`
+
+**Source URL**: https://data.sfgov.org/Geographic-Locations-and-Boundaries/Elevation-Contours-Zipped-Shapefile-Format-/x467-4ghd
 
 #### US realtime earthquakes
 **Description**: Earthquakes in the last day, updated every hour.
 
 **Source**: [U.S. Geological Survey](http://www.usgs.gov/)
 
-**License**:
+**License**: Public domain
 
 **Table name**: all_day
 
 **Sync table**: `true`
+
+**Source URL**: http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.csv
 
 #### Storm events 2014
 **Description**: Storm event locations in the U.S. 2014.
@@ -130,18 +150,20 @@ Data library
 
 **Table name**: stormevents_locations_2014
 
-**Sync table**: `true`
+**Sync table**: `false`
 
 #### Realtime US streamflow stations
 **Description**: Locations of +4,000 stream gaging stations and streamflow information.
 
 **Source**:  [National Atlas](http://nationalatlas.gov/)
 
-**License**:
+**License**: Public domain
 
 **Table name**: realstx
 
 **Sync table**: `true`
+
+**Source URL**: http://water.usgs.gov/waterwatch/realstx/realstx_shp.tgz 
 
 ***
 
@@ -150,101 +172,119 @@ Data library
 #### Pakistan settlements
 **Description**: Points for Pakistani villages and settlements.
 
-**Source**: [Humanitarian Response](http://www.humanitarianresponse.info/)
+**Source**: [NGA Gazetter](http://geonames.nga.mil/)
 
-**License**:
+**License**: There are no licensing requirements or restrictions in place for the use of the GNS data. 
 
 **Table name**: pakistan_settlements
 
 **Sync table**: `false`
+
+**Source URL**: https://www.humanitarianresponse.info/en/operations/pakistan/dataset/pakistan-admin-level-6-boundaries
 
 #### Urban areas
 **Description**: Areas of human habitation.
 
 **Source**: [Natural Earth Data](http://naturalearthdata.com)
 
-**License**:
+**License**: Public domain
 
 **Table name**: ne_50m_urban_areas
 
-**Sync table**: `true`
+**Sync table**: `false`
+
+**Source URL**: http://www.naturalearthdata.com/download/50m/cultural/ne_50m_urban_areas.zip
 
 #### Populated places
 **Description**: Most populated places.
 
 **Source**: [Natural Earth Data](http://naturalearthdata.com)
 
-**License**:
+**License**: Public domain
 
 **Table name**: ne_10m_populated_places_simple
 
-**Sync table**: `true`
+**Sync table**: `false`
+
+**Source URL**: http://www.naturalearthdata.com/download/50m/cultural/ne_50m_populated_places.zip
 
 #### International seaports
 **Description**: Seaports in the world.
 
 **Source**: [Natural Earth Data](http://naturalearthdata.com)
 
-**License**:
+**License**: Public domain
 
 **Table name**: ne_10m_ports
 
-**Sync table**: `true`
+**Sync table**: `false`
+
+**Source URL**: http://www.naturalearthdata.com/download/10m/cultural/ne_10m_ports.zip
 
 #### Pakistan districts
 **Description**: Geometries for districts in Pakistan.
 
 **Source**: [Pakistan Data Portal](http://data.org.pk/)
 
-**License**:
+**License**: License not specified
 
 **Table name**: pakistan_districts
 
 **Sync table**: `false`
+
+**Source URL**: http://data.org.pk/dataset/shapefile-pakistan-districts-edited
 
 #### World airports
 **Description**: Major airports in the world.
 
 **Source**: [Natural Earth Data](http://naturalearthdata.com)
 
-**License**:
+**License**: Public domain
 
 **Table name**: ne_10m_airports
 
-**Sync table**: `true`
+**Sync table**: `false`
+
+**Source URL**: http://www.naturalearthdata.com/download/10m/cultural/ne_10m_airports.zip
 
 #### New York: Areas of interest
 **Description**: Areas of interest labels as depicted in New York: A City of Neighborhoods.
 
 **Source**: [NYC Open Data](https://nycopendata.socrata.com/)
 
-**License**:
+**License**: Public domain
 
 **Table name**: areas_of_interest_newyork
 
 **Sync table**: `false`
+
+**Source URL**: https://data.cityofnewyork.us/Health/Areas-of-Interest-GIS/mzbd-kucq
 
 #### Melbourne Streets
 **Description**: Lines and names for the streets in the city of Melbourne.
 
 **Source**: [City of Melbourne](https://data.melbourne.vic.gov.au)
 
-**License**:
+**License**: CC BY
 
 **Table name**: street_name_labels_melbourne
 
 **Sync table**: `false`
+
+**Source URL**: https://data.melbourne.vic.gov.au/Transport-Movement/Street-Name-Labels/2x56-ai8r
 
 #### Bicycle routes: New York
 **Description**: Bicycle routes around New York state.
 
 **Source**: [NYSDOT](https://www.dot.ny.gov/display/programs/bicycle)
 
-**License**:
+**License**: Public use. License not specified
 
 **Table name**: bikeroutes_ny
 
 **Sync table**: `false`
+
+**Source URL**: https://data.cityofnewyork.us/Transportation/Bike-Routes/umu5-zyd3
 
 #### SF Zoning Districts
 **Description**: Geometries for the zoning districts in San Francisco.
