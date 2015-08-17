@@ -572,6 +572,19 @@ Data library
 
 **Source URL**: http://datos.madrid.es/egob/catalogo/200078-10-distritos-barrios.zip
 
+#### Madrid districts
+**Description**: District geometries for Madrid city.
+
+**Source**: [Ayuntamiento de Madrid](http://datos.madrid.es/)
+
+**License**: http://datos.madrid.es/portal/site/egob/menuitem.619dfa2990e56405bb8d69f6ecd08a0c/?vgnextoid=b4c412b9ace9f310VgnVCM100000171f5a0aRCRD
+
+**Table name**: distritos
+
+**Sync table**: `false` 
+
+**Source URL**: http://datos.madrid.es/egob/catalogo/200078-10-distritos-barrios.zip
+
 #### Railroads
 **Description**: Railroads in the world.
 
@@ -689,6 +702,9 @@ Data library
 
 **Sync table**: `false`
 
+**Source URL**: http://www.naturalearthdata.com/download/50m/cultural/ne_10m_admin_1_states_provinces.zip
+
+
 #### Autonomous communities of Spain
 **Description**: Geometries for autonomous communities and cities in Spain.
 
@@ -769,16 +785,21 @@ Data library
 
 **Sync table**: `false` 
 
+**Source URL**: http://www.naturalearthdata.com/download/50m/cultural/ne_10m_admin_1_states_provinces.zip
+
 #### World borders
 **Description**: World countries borders.
 
-**Source**: 
+**Source**: [Natural Earth Data](http://naturalearthdata.com)
 
 **License**:
 
 **Table name**: world_borders
 
 **Sync table**: `false` 
+
+**Source URL**: http://www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_countries.zip
+
 
 #### New York counties
 **Description**: All the New York counties.
@@ -801,6 +822,8 @@ Data library
 **Table name**: ne_50m_admin_1_states
 
 **Sync table**: `false` (Custom dataset from NE 50m_admin1)
+
+**Source URL**: http://www.naturalearthdata.com/download/50m/cultural/ne_10m_admin_1_states_provinces.zip
 
 #### USA counties
 **Description**: All USA counties and their information.
@@ -834,6 +857,9 @@ Data library
 **Table name**: asia_adm0
 
 **Sync table**: `false` 
+
+**Source URL**: http://www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_countries.zip
+
 
 #### South American countries
 **Description**: All countries in South America.
@@ -879,6 +905,8 @@ Data library
 
 **Sync table**: `false` 
 
+**Source URL**: http://www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_countries.zip
+
 #### Departments of France
 **Description**: Geometries for the 96 departments of France.
 
@@ -912,16 +940,7 @@ Data library
 
 **Sync table**: `false` 
 
-#### Madrid districts
-**Description**: District geometries for Madrid city.
-
-**Source**: [Ayuntamiento de Madrid](http://datos.madrid.es/)
-
-**License**:
-
-**Table name**: distritos
-
-**Sync table**: `false` 
+**Source URL**: http://www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_1_states_provinces.zip
 
 ***
 
@@ -932,67 +951,78 @@ Data library
 
 **Source**: [Chicago Open Data](https://data.cityofchicago.org/)
 
-**License**:
+**License**: Public use. License not specified.
 
 **Table name**: chicago_building_footprints
 
 **Sync table**: `false`
+
+**Source URL**: https://data.cityofchicago.org/Buildings/Building-Footprints-current-/hz9b-7nh8
 
 #### Melbourne building footprints
 **Description**: Building footprints in the city of Melbourne.
 
 **Source**: [City of Melbourne](https://data.melbourne.vic.gov.au)
 
-**License**:
+**License**: CC-BY
 
 **Table name**: buildingfootprints_melbourne
 
 **Sync table**: `false`
+
+**Source URL**: https://data.melbourne.vic.gov.au/Property-Planning/Building-Foot-Prints/qe9w-cym8
 
 #### Valencia
 **Description**: Geometries for the building footprints of Valencia.
 
 **Source**: [Valencia Datos Abiertos](http://www.valencia.es/ayuntamiento/datosabiertos.nsf/fCategoriaVistaAcc_busqueda?ReadForm&lang=1&nivel=2&seccion=1&Vista=vCategoriasAccTodas&Categoria=Sin_categoria&idapoyo=22ADF97C1FD223B5C1257C55003BD01F)
 
-**License**:
+**License**: CC-BY
 
 **Table name**: manzanas_pob
 
 **Sync table**: `false`
+
+**Source URL**: http://www.valencia.es/ayuntamiento/datosabiertos.nsf/resultadoCapas/CEDA87AE53977EDCC1257C70003E4FC8?OpenDocument&lang=1&nivel=2&seccion=1&bdorigen=&idapoyo=22ADF97C1FD223B5C1257C55003BD01F
 
 #### Barcelona
 **Description**: Barcelona building footprints.
 
 **Source**: [CartoBCN](http://w20.bcn.cat/cartobcn/)
 
-**License**:
+**License**: CC-BY
 
 **Table name**: barcelona_building_footprints
 
 **Sync table**: `false`
 
+**Source URL**: http://w20.bcn.cat/cartobcn/getFile.ashx?t=bdd&f=95202215594451
 
 #### Portland
 **Description**: Portland building footprints.
 
 **Source**: [Portland Open Data](http://www.civicapps.org/)
 
-**License**:
+**License**: License not specified.
 
 **Table name**: portland_building_footprints_r
 
 **Sync table**: `false`
+
+**Source URL**: http://www.civicapps.org/datasets/building-footprints-portland
 
 #### San Francisco
 **Description**: San Francisco building footprints.
 
 **Source**: [SF Open Data Portal](https://data.sfgov.org/)
 
-**License**:
+**License**: CC-0
 
 **Table name**: sf_building_footprints
 
 **Sync table**: `false`
+
+**Source URL**: https://data.sfgov.org/Geographic-Locations-and-Boundaries/Building-Footprints-Zipped-Shapefile-Format-/jezr-5bxm
 
 #### NYC MapPLUTO - All NY
 **Description**: MapPLUTO tax lot data for New York.
@@ -1005,6 +1035,8 @@ Data library
 
 **Sync table**: `false` 
 
+**Source URL**: Combination of http://www.nyc.gov/html/dcp/html/bytes/dwn_pluto_mappluto.shtml
+
 #### NYC MapPLUTO - Bronx
 **Description**: MapPLUTO tax lot data for the Bronx (Bronx County, NY)
 
@@ -1015,6 +1047,8 @@ Data library
 **Table name**: bxmappluto
 
 **Sync table**: `false` 
+
+**Source URL**: http://www.nyc.gov/html/dcp/download/bytes/bx_mappluto_15v1.zip
 
 #### NYC MapPLUTO - Manhattan
 **Description**: MapPLUTO tax lot data for Manhattan (New York County, NY)
@@ -1027,6 +1061,9 @@ Data library
 
 **Sync table**: `false` 
 
+**Source URL**: http://www.nyc.gov/html/dcp/download/bytes/mn_mappluto_15v1.zip
+
+
 #### NYC MapPLUTO - Brooklyn
 **Description**: MapPLUTO tax lot data for Brooklyn (New York County, NY)
 
@@ -1037,6 +1074,9 @@ Data library
 **Table name**: bkmappluto
 
 **Sync table**: `false` 
+
+**Source URL**: http://www.nyc.gov/html/dcp/download/bytes/bk_mappluto_15v1.zip
+
 
 #### NYC MapPLUTO - Staten Island
 **Description**: MapPLUTO tax lot data for Staten Island (New York County, NY)
@@ -1049,6 +1089,8 @@ Data library
 
 **Sync table**: `false` 
 
+**Source URL**: http://www.nyc.gov/html/dcp/download/bytes/si_mappluto_15v1.zip
+
 #### NYC MapPLUTO - Queens
 **Description**: MapPLUTO tax lot data for Queens (New York County, NY)
 
@@ -1060,14 +1102,21 @@ Data library
 
 **Sync table**: `false` 
 
+**Source URL**: http://www.nyc.gov/html/dcp/download/bytes/qn_mappluto_15v1.zip
+
+
 #### Boston
 **Description**: Boston building footprints.
 
 **Source**: [MassGIS](http://www.mass.gov/anf/research-and-tech/it-serv-and-support/application-serv/office-of-geographic-information-massgis/)
 
-**License**:
+**License**: License not specified.
 
 **Table name**: boston_footprints
+
+**Sync table**: `false` 
+
+**Source URL**: http://www.mass.gov/anf/research-and-tech/it-serv-and-support/application-serv/office-of-geographic-information-massgis/datalayers/structures.html
 
 ***
 
