@@ -291,16 +291,18 @@ Data library
 
 **Source**: [DataSF](https://data.sfgov.org)
 
-**License**:
+**License**: CC 0 (ZERO)
 
 **Table name**: zoning_districts_sf
 
 **Sync table**: `false`
 
+**Source URL**: https://data.sfgov.org/Geographic-Locations-and-Boundaries/Zoning-Districts/mici-sct2
+
 #### GDELT Hourly
 **Description**: GDELT media mentions, updated hourly.
 
-**Source**: [GDELT API](http://data.gdeltproject.org/cartodb/GDELTGKG-CARTODB-HOURLY.geojson.zip)
+**Source**: [GDELT Project](http://gdeltproject.org/)
 
 **License**:
 
@@ -308,72 +310,86 @@ Data library
 
 **Sync table**: `true`
 
+**Source URL**: http://data.gdeltproject.org/cartodb/GDELTGKG-CARTODB-HOURLY.geojson.zip
+
 
 #### USA airports
 **Description**: All the airports in the United States.
 
-**Source**: [National Atlas](http://http://nationalatlas.gov/)
+**Source**: [National Atlas](http://nationalatlas.gov/)
 
-**License**:
+**License**: Public use. No license specified.
 
 **Table name**: usa_airports
 
 **Sync table**: `false`
+
+**Source URL**: http://dds.cr.usgs.gov/pub/data/nationalatlas/airp_usa.shp_nt00898.tar.gz
 
 #### Chicago Community Areas
 **Description**: Community area boundaries in the city of Chicago.
 
 **Source**: [City of Chicago](http://www.cityofchicago.org/)
 
-**License**:
+**License**: Public use. License not specified.
 
 **Table name**: commareas_chicago
 
 **Sync table**: `false`
+
+**Source URL**: https://data.cityofchicago.org/Facilities-Geographic-Boundaries/Boundaries-Community-Areas-current-/cauq-8yn6
 
 #### Chicago Bike Routes
 **Description**: Bike routes in the city of Chicago.
 
 **Source**: [City of Chicago](http://www.cityofchicago.org/)
 
-**License**:
+**License**: Public use. License not specified.
 
 **Table name**: chicago_bike_routes
 
 **Sync table**: `false`
+
+**Source URL**: https://data.cityofchicago.org/Transportation/Bike-Routes/3w5d-sru8
 
 #### Los Angeles Bus Stops
 **Description**: L.A. county bus stops from Metro.
 
 **Source**: [LA City Data](https://data.lacity.org)
 
-**License**:
+**License**: Public use. License not specified.
 
 **Table name**: busstops_losangeles
 
 **Sync table**: `false`
+
+**Source URL**: https://data.lacity.org/A-Livable-and-Sustainable-City/Location-of-Los-Angeles-County-Metro-Bus-Stops/k4d7-ww42
 
 #### Los Angeles Streets
 **Description**: Street centerlines in the city of Los Angeles created by the Bureau of Engineering.
 
 **Source**: [LA Bureau of Engineering](https://data.lacity.org)
 
-**License**:
+**License**: Public use. License not specified.
 
 **Table name**: street_centerline_losangeles
 
 **Sync table**: `false`
+
+**Source URL**: https://data.lacity.org/A-Livable-and-Sustainable-City/Street-Centerline/7j4e-nn4z
 
 #### Los Angeles Neighborhood Councils
 **Description**: Neighborhood Council boundaries in the City of Los Angeles created by the Bureau of Engineering.
 
 **Source**: [LA Bureau of Engineering](https://data.lacity.org)
 
-**License**:
+**License**: Public use. License not specified.
 
 **Table name**: neighborhood_councils_losangeles
 
 **Sync table**: `false`
+
+**Source URL**: https://data.lacity.org/A-Well-Run-City/Neighborhood-Councils-Certified-/fu65-dz2f
 
 
 #### Timezones
@@ -381,44 +397,52 @@ Data library
 
 **Source**: [Natural Earth Data](http://naturalearthdata.com)
 
-**License**:
+**License**: Public domain
 
 **Table name**: ne_10m_time_zones
 
 **Sync table**: `true`
+
+**Source URL**: http://www.naturalearthdata.com/download/10m/cultural/ne_10m_time_zones.zip
 
 #### Local storm reports
 **Description**: Local storm reports last 24 hours, updated every hour.
 
 **Source**: [IEM Data](https://mesonet.agron.iastate.edu/)
 
-**License**:
+**License**: License not specified.
 
 **Table name**: lsr_24hour
 
 **Sync table**: `true`
+
+**Source URL**: https://mesonet.agron.iastate.edu/data/gis/shape/4326/us/lsr_24hour.zip
 
 #### Weather warnings & advisories
 **Description**: Real-time U.S. weather warnings & advisories, updated every hour.
 
 **Source**: [IEM Data](https://mesonet.agron.iastate.edu/)
 
-**License**:
+**License**: License not specified.
 
 **Table name**: current_ww
 
 **Sync table**: `true`
 
+**Source URL**: https://mesonet.agron.iastate.edu/data/gis/shape/4326/us/current_ww.zip
+
 #### NYC Subways
 **Description**: All the NYC Subways.
 
-**Source**: 
+**Source**: [NYC Open Data](https://data.cityofnewyork.us/)
 
-**License**:
+**License**: Public use. License not specified.
 
 **Table name**: nyc_subway_entrance
 
 **Sync table**: `false`
+
+**Source URL**: https://data.cityofnewyork.us/Transportation/Subway-Entrances/drex-xx56
 
 #### NYC Community Districts
 **Description**: Boundaries of the community districts in NYC.
@@ -430,6 +454,8 @@ Data library
 **Table name**: ny_community_districts
 
 **Sync table**: `false`
+
+**Source URL**: 
 
 #### Major streets in Chicago
 **Description**: Geometries for the major streets in Chicago.
