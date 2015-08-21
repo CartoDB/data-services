@@ -15,6 +15,8 @@ $$ LANGUAGE 'plpgsql' SECURITY DEFINER;
 --- Helper functions ---
 
 -- admin0_synonym_lookup
+--CREATE TYPE synonym_lookup_v1 AS (q TEXT, s TEXT);
+
 CREATE OR REPLACE FUNCTION admin0_synonym_lookup(name text[])
  RETURNS SETOF synonym_lookup_v1 AS $$
  DECLARE
