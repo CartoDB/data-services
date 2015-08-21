@@ -53,6 +53,36 @@ Indexes:
     "idx_admin0_synonyms_rank" btree (rank)
 ````
 
+#### admin0_synonym_additions
+
+This table stores manually added synonyms.
+
+##### Table stucture
+````
+                                                                 Table "public.admin0_synonym_additions"
+        Column        |           Type           |                              Modifiers                               | Storage  | Stats target | Description 
+----------------------+--------------------------+----------------------------------------------------------------------+----------+--------------+-------------
+  name                 | text                     |                                                                                 | extended |              | 
+ adm0_a3              | text                     |                                                                                 | extended |              | 
+ rank                 | double precision         |                                                                                 | plain    |              | 
+ notes                | text                     |                                                                                 | extended |              | 
+ the_geom             | geometry(Geometry,4326)  |                                                                                 | main     |              | 
+ cartodb_id           | integer                  | not null default nextval('world_bank_admin0_synonyms_cartodb_id_seq'::regclass) | plain    |              | 
+ created_at           | timestamp with time zone | not null default now()                                                          | plain    |              | 
+ updated_at           | timestamp with time zone | not null default now()                                                          | plain    |              | 
+ the_geom_webmercator | geometry(Geometry,3857)  |                                                                                 | main     |              | 
+
+````
+
+##### Current indexes
+````
+Indexes:
+    "world_bank_admin0_synonyms_pkey" PRIMARY KEY, btree (cartodb_id)
+    "world_bank_admin0_synonyms_cartodb_id_key" UNIQUE CONSTRAINT, btree (cartodb_id)
+    "world_bank_admin0_synonyms_the_geom_idx" gist (the_geom)
+    "world_bank_admin0_synonyms_the_geom_webmercator_idx" gist (the_geom_webmercator)
+````
+
 #### ne_admin0_v3
 
 This table stores the geometries. It's obtained from Natural Earth Data and curated afterwards with `sql/subdivide_polygons.sql`.
