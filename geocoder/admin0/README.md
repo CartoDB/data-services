@@ -8,12 +8,13 @@ Accepts a list of terms. Terms are searched against the ```name_``` column in ``
 # Creation steps
 
 1. Upload fresh NaturalEarth data to ```ne_admin0_v3```.  The source file creates a table with the name `ne_10m_admin0_countries`.
-2. Delete all rows in the ```admin0_synonyms``` table. 
+2. Create tables `admin0_synonyms` and `admin0_synonym_additions`
 3. If fresh, add all `sql/indexes.sql` and `sql/triggers.sql`
 4. Upload the `data/wikipedia_countries_native_names.csv` table if it doesn't already exist
-5. Run the `sql/subdivide_polygons.sql` 
-6. Run the `sql/build_synonym_table.sql`
-7. If needed, load or replace the function with `sql/geocoder.sql`
+5. Upload the `data/wikipedia_iso_3166_2` table if it doesn't already exist
+6. Run the `sql/subdivide_polygons.sql` 
+8. Run the `sql/build_synonym_table.sql`
+8. If needed, load or replace the function with `sql/geocoder.sql`
 
 # Tables
 #### admin0_synonyms
