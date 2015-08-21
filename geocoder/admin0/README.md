@@ -13,8 +13,8 @@ Accepts a list of terms. Terms are searched against the ```name_``` column in ``
 4. Upload the `data/wikipedia_countries_native_names.csv` table if it doesn't already exist
 5. Upload the `data/wikipedia_iso_3166_2` table if it doesn't already exist
 6. Run the `sql/subdivide_polygons.sql` 
-8. Run the `sql/build_synonym_table.sql`
-8. If needed, load or replace the function with `sql/geocoder.sql`
+7. Run the `sql/build_synonym_table.sql`
+8. If needed, load or replace the function with `sql/geocoder.sql`. Don't forget to create the types: `geocode_admin_v1` and `synonym_lookup_v1`
 
 # Tables
 #### admin0_synonyms
