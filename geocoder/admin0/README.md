@@ -247,6 +247,8 @@ In order to test the data and the functions created under the script avaialble i
 # Known issues
 
 # Historic
+* [21/08/2015]:
+  * Edited creation steps with missing instructions
 * [16/07/2015]:
   * Fixed manual addition synonyms table, which related Equatorial Guinea (GNQ) with Guinea (GIN) 
 * [14/07/2015]:
