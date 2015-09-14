@@ -277,6 +277,8 @@ In order to test the data and the functions created under the script avaialble i
 # Known issues
 
 # Historic
+* [14/09/2015]:
+  * Added new COD synonym
 * [21/08/2015]:
   * Edited creation steps with missing instructions
 * [16/07/2015]:
