@@ -74,7 +74,7 @@ INSERT INTO ne_admin0_v3 (the_geom, adm0_a3, name)
 
 WITH a AS (SELECT (ST_Dump(the_geom)).geom geom,adm0_a3  FROM ne_admin0_v3)
 
-SELECT ST_Collect(geom), 'SJM', 'Svalbard and Jan Mayen' FROM a WHERE ST_Intersects(geom, ST_MakeEnvelope(8, 90, 30, 75, 4326));
+SELECT ST_Collect(geom), 'SJM', 'Svalbard and Jan Mayen' FROM a WHERE ST_Intersects(geom, ST_MakeEnvelope(-10, 70, 2, 75, 4326)) OR ST_Intersects(geom, ST_MakeEnvelope(8, 90, 40, 74, 4326));
 
 -- Split Svalbard from region NOR
 
