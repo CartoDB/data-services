@@ -277,6 +277,8 @@ In order to test the data and the functions created under the script avaialble i
 # Known issues
 
 # Historic
+* [28/09/2015]:
+  * Fixes Svalbard and Jan Mayen separation: https://github.com/CartoDB/data-services/issues/165 
 * [14/09/2015]:
   * Added new COD synonym
 * [21/08/2015]:
