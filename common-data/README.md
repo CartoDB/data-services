@@ -172,6 +172,19 @@ Data library
 
 ### Cultural datasets
 
+#### Canada Road Network
+**Description**: Representation of Canada's road network, containing information such as street names, types, directions and address ranges.
+
+**Source**: [Government of Canada](http://open.canada.ca/)
+
+**License**: Open Government License
+
+**Table name**: lrnf000r14a_e
+
+**Sync table**: `false`
+
+**Source URL**: http://open.canada.ca/data/en/dataset/14f7810f-a625-4872-a1ba-9b86a6c8a2b4
+
 #### Pakistan settlements
 **Description**: Points for Pakistani villages and settlements.
 
@@ -617,6 +630,32 @@ Data library
 ***
 
 ### Administrative regions 
+
+#### Canada Economic Regions 2006
+**Description**: Geometries for the Canadian economic regions - 2006 Census.
+
+**Source**: [Government of Canada](http://open.canada.ca/)
+
+**License**: Open Government License
+
+**Table name**: ger_000b06a_e
+
+**Sync table**: `false`
+
+**Source URL**: http://open.canada.ca/data/en/dataset/acab23c0-8936-4a8c-a1ef-13bc619390a1
+
+#### Canada Province and Territory Boundaries 2006
+**Description**: Geometries for the Canadian province and territory boundaries - 2006 Census.
+
+**Source**: [Government of Canada](http://open.canada.ca/)
+
+**License**: Open Government License
+
+**Table name**: gpr_000b06a_e
+
+**Sync table**: `false`
+
+**Source URL**: http://open.canada.ca/data/en/dataset/1644b63b-c84b-4407-ae3a-9a8bb7573f58
 
 #### Canada Census Metropolitan Area and Agglomeration 2006
 **Description**: Canadian Census Metropolitan Area and Census Agglomeration boundaries.
