@@ -618,6 +618,18 @@ Data library
 
 ### Administrative regions 
 
+#### Canada Census Metropolitan Area and Agglomeration 2006
+**Description**: Canadian Census Metropolitan Area and Census Agglomeration boundaries.
+
+**Source**: [Government of Canada](http://open.canada.ca/)
+
+**License**: Open Government License
+
+**Table name**: gcma000b06a_eng
+
+**Sync table**: `false`
+
+**Source URL**: http://open.canada.ca/data/en/dataset/01c121d2-a4a3-4905-a2c9-691566ec42a8
 
 #### Canada Population Centre 2011
 **Description**: Canadian areas area with a population of at least 1,000 and a density of 400 or more people per square kilometre.
