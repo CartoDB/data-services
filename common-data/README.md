@@ -618,6 +618,20 @@ Data library
 
 ### Administrative regions 
 
+
+#### Canada Population Centre 2011
+**Description**: Canadian areas area with a population of at least 1,000 and a density of 400 or more people per square kilometre.
+
+**Source**: [Government of Canada](http://open.canada.ca/)
+
+**License**: Open Government License
+
+**Table name**: gpc_000a11a_eng
+
+**Sync table**: `false`
+
+**Source URL**: http://open.canada.ca/data/en/dataset/48f544ed-e578-436c-8460-eacb64e61a9d
+
 #### Canada Census Subdivision 2015
 **Description**: Census subdivisions in Canada, including the coastal water area.
 
