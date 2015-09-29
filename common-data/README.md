@@ -618,6 +618,19 @@ Data library
 
 ### Administrative regions 
 
+#### Canada Census Subdivision 2015
+**Description**: Census subdivisions in Canada, including the coastal water area.
+
+**Source**: [Government of Canada](http://open.canada.ca/)
+
+**License**: Open Government License
+
+**Table name**: lcsd000a15a_eng
+
+**Sync table**: `false`
+
+**Source URL**: http://open.canada.ca/data/en/dataset/e5d97c5d-a08a-4b0b-9cc7-2153660f7c29
+
 #### Tajikistan districts
 **Description**: Geometries for the districts (nohiya) in Tajikistan.
 
@@ -807,6 +820,19 @@ Data library
 **License**: Public domain
 
 **Table name**: world_borders
+
+**Sync table**: `false` 
+
+**Source URL**: http://www.naturalearthdata.com/download/10m/cultural/ne_100m_admin_0_countries.zip
+
+#### World borders (High definition)
+**Description**: World countries borders (High definition).
+
+**Source**: [Natural Earth Data](http://naturalearthdata.com)
+
+**License**: Public domain
+
+**Table name**: world_borders_hd
 
 **Sync table**: `false` 
 
