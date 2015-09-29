@@ -217,6 +217,7 @@ The table contains the following columns to be populated:
 # Known issues
 * `admin1_decoder` table which is meant to be depreacted is being used in other geocoders, as namedplaces
 * All the information in this README.md doesn't contain the actual status of the CartoDB geocoder, which is using the table `global_province_polygons` documented in the deprecated ADM1 geocoder section.
+* In Italy, provinces are being shown instead of ADMIN1 regions. The same happened with Spain, which is manually fixed.
 
 # Historic:
 * [14/07/2015]:
