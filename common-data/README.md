@@ -172,6 +172,19 @@ Data library
 
 ### Cultural datasets
 
+#### Montreal Roads
+**Description**: Geometries for the road network in Montreal, Canada.
+
+**Source**: [Government of Canada](http://open.canada.ca/)
+
+**License**: Open Government License
+
+**Table name**: montreal_road_network
+
+**Sync table**: `false`
+
+**Source URL**: http://open.canada.ca/data/en/dataset/14f7810f-a625-4872-a1ba-9b86a6c8a2b4
+
 #### Canada Road Network
 **Description**: Representation of Canada's road network, containing information such as street names, types, directions and address ranges.
 
