@@ -201,6 +201,10 @@ Indexes:
  public | admin0_available_services | SETOF available_services_v1 | name text[]         | normal
 ````
 
+# Response data types
+* geocode_admin_v1
+* available_services_v1
+* synonym_lookup_v1
 
 # Data Sources
 
@@ -280,6 +284,8 @@ For country boundaries, we use the data provided by Natural Earth Data. The whol
 # Known issues
 
 # Historic
+* [06/10/2015]:
+  * Added information for response types
 * [28/09/2015]:
   * Fixes Svalbard and Jan Mayen separation: https://github.com/CartoDB/data-services/issues/165 
 * [14/09/2015]:
