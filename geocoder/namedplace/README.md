@@ -113,6 +113,10 @@ Indexes:
 --------+----------------------------+-------------------------------------+-------------------------------+--------
  public | geocode_namedplace_country | SETOF geocode_namedplace_country_v1 | places text[], country text[] | normal
  ````
+# Response data types
+* geocode_namedplace_country_v1:
+  `CREATE TYPE geocode_namedplace_country_v1 AS (q TEXT, c TEXT, geom GEOMETRY, success BOOLEAN);`
+
 
 # Data Sources
 
@@ -155,6 +159,8 @@ In order to test the data and the functions created under the script avaialble i
 * Needs a better approach for synonyms and normalisation
 
 # Historic:
+* [08/10/2015]:
+  * Added response data types 
 * [14/07/2015]:
   * Updated README: Known issues
   * Added tests
