@@ -148,6 +148,10 @@ Indexes:
  public | test_geocode_admin1_polygons | SETOF geocode_admin_country_v1 | name text[], inputcountry text | normal
  ````
 
+# Response data types
+* geocode_admin_country_v1
+* geocode_admin_v1
+
 # Data Sources
 
 (see the wiki page: [Geocoder Data Sources #admin1-states-provinces](https://github.com/CartoDB/data-services/wiki/Geocoder-Datasources#admin1-statesprovinces))
