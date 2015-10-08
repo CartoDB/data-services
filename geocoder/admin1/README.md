@@ -149,8 +149,10 @@ Indexes:
  ````
 
 # Response data types
-* geocode_admin_country_v1
-* geocode_admin_v1
+* geocode_admin_country_v1:
+  `CREATE TYPE geocode_admin_country_v1 AS (q TEXT, c TEXT, geom GEOMETRY, success BOOLEAN);`
+* geocode_admin_v1:
+  `CREATE TYPE geocode_admin_v1 AS (q TEXT, geom GEOMETRY, success BOOLEAN);`
 
 # Data Sources
 
@@ -224,6 +226,8 @@ The table contains the following columns to be populated:
 * In Italy, provinces are being shown instead of ADMIN1 regions. The same happened with Spain, which is manually fixed.
 
 # Historic:
+* [08/10/2015]:
+  * Added response types 
 * [14/07/2015]:
   * Added tests 
 * [02/07/2015]
