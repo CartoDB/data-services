@@ -44,6 +44,10 @@ Indexes:
     "idx_ip_address_locations_start" btree (network_start_ip)
 ````
 
+# Response data types
+* geocode_ip_v1:
+  `CREATE TYPE geocode_ip_v1 AS (q TEXT, geom GEOMETRY, success BOOLEAN);`
+
 # Data Sources
 
 * GeoLite2 open source database [Created by MaxMind](http://www.maxmind.com) - 
@@ -57,6 +61,8 @@ In order to test the data and the functions created under the script avaialble i
 * IPv6 addresses support? 
 
 # Historic:
+* [08/10/2015]:
+  * Added response data types 
 * [14/07/2015]:
   * Added tests 
 * [24/06/2015]: 
