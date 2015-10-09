@@ -62,7 +62,7 @@ In order to test the data and the functions created under the script avaialble i
 
 # Historic:
 * [08/10/2015]:
-  * Added response data types 
+  * Added response data types
 * [14/07/2015]:
   * Added tests 
 * [24/06/2015]: 
