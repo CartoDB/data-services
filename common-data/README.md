@@ -8,8 +8,6 @@ Data library
 * [Historic](#historic)
 * [US Census](#us-census)
 
-## Datasets available in the library
-
 
 ### Physical datasets
 #### World rivers
