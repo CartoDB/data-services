@@ -6,7 +6,7 @@ Data library
 * [Building footprints](#building-footprints)
 * [Administrative regions](#administrative-regions)
 * [Historic](#historic)
-* [US Census](#us-census)
+* [US Census data](#us-census)
 
 
 ### Physical datasets
