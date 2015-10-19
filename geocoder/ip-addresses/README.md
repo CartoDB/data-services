@@ -3,9 +3,12 @@ IP address geocoder
 
 # Function
 
-````
+Receives an array of IP addresses (both IPv4 and IPv6) and returns a point geometry for each input if the geocoding process is successful.
+
+# Usage example
+```sql
 SELECT geocode_ip(Array['1.0.16.0', '::ffff:1.0.16.0'])
-`````
+```
 
 # Creation steps
 1. Create the `ip_address_locations` table
@@ -24,7 +27,7 @@ This table, obtained from GeoLite and curated with `sql/build_data_table` contai
 ````
 
                                                                 Table "public.ip_address_locations"
-        Column        |           Type           |                                 Modifiers                                 | Storage 
+        Column        |           Type           |                                 Modifiers                                 | Storage
 ----------------------+--------------------------+---------------------------------------------------------------------------+---------
  network_start_ip     | inet                     |                                                                           | main    
  the_geom             | geometry(Geometry,4326)  |                                                                           | main    
@@ -50,26 +53,27 @@ Indexes:
 
 # Data Sources
 
-* GeoLite2 open source database [Created by MaxMind](http://www.maxmind.com) - 
-http://dev.maxmind.com/geoip/geoip2/geolite2/ 
+* GeoLite2 open source database [Created by MaxMind](http://www.maxmind.com) -
+http://dev.maxmind.com/geoip/geoip2/geolite2/
     Download the CSV [Geolite2 City](http://geolite.maxmind.com/download/geoip/database/GeoLite2-City-CSV.zip)
+    - Coverage: global
+    - Geometry type: point
 
 # Testing
 In order to test the data and the functions created under the script avaialble in this folder, you will need to run `bash test.sh` from `test/data` and `test/functions`.
 
 # Known issues
-* IPv6 addresses support? 
 
 # Historic:
+* [19/10/2015]:
+  * Updates README and adds usage example and definition of the service
 * [08/10/2015]:
   * Added response data types
 * [14/07/2015]:
-  * Added tests 
-* [24/06/2015]: 
+  * Added tests
+* [24/06/2015]:
   * Update readme.md: Adds Known issues section
   * Supervised function available in `geocoder.sql`
-* [23/06/2015]: 
+* [23/06/2015]:
   * Updates `README.md`: adds testing and table structure sections. Updates creation steps
   * Adding test structure for IP addresses geocoder
-
-
