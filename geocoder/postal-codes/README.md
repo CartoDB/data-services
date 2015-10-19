@@ -10,6 +10,10 @@ By following the next steps a table is populated with zipcodes from Australia, C
 
 ## Usage example
 
+```sql
+SELECT (geocode_postalcode_polygons(Array['11211'],Array['USA'])).*
+```
+
 ## Creation steps
 
 1. Import the four files attached in the section "Datasources" for Australia (`doc` table), Canada (`gfsa000a11a_e` table), USA (`tl_2013_us_zcta510` table) and France (`codes_postaux` table).
@@ -105,6 +109,10 @@ MH, RO, FO, GF, AD, HR, DZ, GT, AU, AS, BE, AT
 ````
 
 ## Usage example
+
+```sql
+SELECT (geocode_postalcode_points(Array['03204'],Array['ESP'])).*
+```
 
 ## Creation steps
 
