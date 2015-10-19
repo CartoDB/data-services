@@ -10,8 +10,6 @@ CREATE OR REPLACE FUNCTION geocode_admin0_polygons(name text[])
 END
 $$ LANGUAGE 'plpgsql' SECURITY DEFINER;
 
---- Helper functions ---
-
 -- admin0_synonym_lookup
 CREATE OR REPLACE FUNCTION admin0_synonym_lookup(name text[])
  RETURNS SETOF synonym_lookup_v1 AS $$
