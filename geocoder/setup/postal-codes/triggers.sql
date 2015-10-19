@@ -1,0 +1,1 @@
+-- Triggers for postal codes geocoder
