@@ -1,5 +1,6 @@
 How to contribute
 ============
+# Contributions
 
 If you're interested in contributing to any of the different sections of the data-services geocoder, please submit a Pull Request with the following information:
 
@@ -14,6 +15,36 @@ If you're interested in contributing to any of the different sections of the dat
   * The updated SQL file which contains the function
   * An updated README.md with the new function information or any new step that might be necessary
 
+## Documentation for changes
+
+There may be different kind of changes in the dataset:
+
+  * Refreshing current data in order to update it to the last source version or adding new sources
+
+  * Fixing or editing any of the current functions
+
+  All of them require:
+
+  * An issue in the data-services repo to be opened to keep the record of the task
+  * Any change must be tested in advance, by checking the results that we expect manually but also by running the automatic test suite that will take care of the most delicate data
+  * Any change must be reviewed by at least one person involved in the whole geocoder process (as @iriberri). Please, ping somebody in your Pull Requests
+
+  **Changes regarding data:**
+
+  Remember to make a backup of the current data running in your production environment before you do any changes.
+
+  Any edition of the data must be performed via SQL queries in order to be run in the build scripts for each section. In order to build the production table, please, edit the build SQL functions as needed, and create a new table in production by running them.
+
+  This method will allow us to make sure that the data that we have in a production environment is totally reproducible just by running the setup scripts.
+
+  **Changes regarding functions:**
+
+  If you have a way to improve how a function works, please reproduce the environment (the involved tables) and test the query in your end.
+
+  We need to make sure that by changing the function we are maintaining some basic priority rules which are currently being taken into account in the geocoding functions (i.e. geocoding "New York" should return "New York" in the NY state, USA, as it's the New York with more population in the World).
+
+
+# Issues
 
 If you have found any issue that you want to report, please [open a new issue in the repository](https://github.com/CartoDB/data-services/issues/new).
 
