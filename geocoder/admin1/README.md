@@ -25,36 +25,6 @@ SELECT (geocode_admin1_polygons(Array['Alicante', 'California'], Array['Spain', 
 
 Some tables involved in the creation of this geocoder which are not used by the geocoder functions are `qs_adm1`, `ne_admin1_v3` and  `qs_adm1_region`, which are obtained directly from the source.
 
-### admin1_synonyms
-#### Table structure
-````
-                                                                 Table "public.admin1_synonyms"
-        Column        |           Type           |                               Modifiers                               | Storage  | Stats target | Description
-----------------------+--------------------------+-----------------------------------------------------------------------+----------+--------------+-------------
- cartodb_id           | integer                  | not null default nextval('untitled_table_1_cartodb_id_seq'::regclass) | plain    |              |
- name                 | text                     |                                                                       | extended |              |
- rank                 | double precision         |                                                                       | plain    |              |
- created_at           | timestamp with time zone | not null default now()                                                | plain    |              |
- updated_at           | timestamp with time zone | not null default now()                                                | plain    |              |
- the_geom             | geometry(Geometry,4326)  |                                                                       | main     |              |
- the_geom_webmercator | geometry(Geometry,3857)  |                                                                       | main     |              |
- adm0_a3              | text                     |                                                                       | extended |              |
- name_                | text                     |                                                                       | extended |              |
- global_id            | integer                  |                                                                       | plain    |              |
-
-````
-
-#### Current indexes
-````
-Indexes:
-    "untitled_table_1_pkey" PRIMARY KEY, btree (cartodb_id)
-    "idx_admin1_synonyms_name" btree (name)
-    "idx_admin1_synonyms_name_" btree (name_)
-    "idx_admin1_synonyms_name_adm0" btree (name_, adm0_a3)
-    "idx_admin1_synonyms_rank" btree (rank)
-    "untitled_table_1_the_geom_idx" gist (the_geom)
-    "untitled_table_1_the_geom_webmercator_idx" gist (the_geom_webmercator)
-````
 ### adm1
 #### Table structure
 ````
