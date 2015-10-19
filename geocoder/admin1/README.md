@@ -1,9 +1,15 @@
-Administrative regions geocoder - Level 1
+Level 1 Administrative regions geocoder
 ============
 
 # Function
 
-Accepts a list of terms. Terms are searched against the ```name_``` column in ```admin1_synonyms_qs```. The ```name_``` column is an automatically cleaned and populated column based on the raw values in ```name``` . The synonym table returns the proper global_id (based on rank values in table below). The global_id is then matched against the single row in the **adm1** table to return the correct polygon(s).
+Accepts a list of terms. Terms are searched against the `name_` column in `admin1_synonyms_qs`. The `name_` column is an automatically cleaned and populated column based on the raw values in `name` . The synonym table returns the proper global_id (based on rank values in table below). The global_id is then matched against the single row in the **adm1** table to return the correct polygon(s).
+
+# Usage example
+
+```sql
+SELECT (geocode_admin1_polygons(Array['Alicante', 'California'], Array['Spain', 'USA'])).*
+```
 
 # Creation steps
 
@@ -23,20 +29,20 @@ Some tables involved in the creation of this geocoder which are not used by the 
 #### Table structure
 ````
                                                                  Table "public.admin1_synonyms"
-        Column        |           Type           |                               Modifiers                               | Storage  | Stats target | Description 
+        Column        |           Type           |                               Modifiers                               | Storage  | Stats target | Description
 ----------------------+--------------------------+-----------------------------------------------------------------------+----------+--------------+-------------
- cartodb_id           | integer                  | not null default nextval('untitled_table_1_cartodb_id_seq'::regclass) | plain    |              | 
- name                 | text                     |                                                                       | extended |              | 
- rank                 | double precision         |                                                                       | plain    |              | 
- created_at           | timestamp with time zone | not null default now()                                                | plain    |              | 
- updated_at           | timestamp with time zone | not null default now()                                                | plain    |              | 
- the_geom             | geometry(Geometry,4326)  |                                                                       | main     |              | 
- the_geom_webmercator | geometry(Geometry,3857)  |                                                                       | main     |              | 
- adm0_a3              | text                     |                                                                       | extended |              | 
- name_                | text                     |                                                                       | extended |              | 
- global_id            | integer                  |                                                                       | plain    |              | 
+ cartodb_id           | integer                  | not null default nextval('untitled_table_1_cartodb_id_seq'::regclass) | plain    |              |
+ name                 | text                     |                                                                       | extended |              |
+ rank                 | double precision         |                                                                       | plain    |              |
+ created_at           | timestamp with time zone | not null default now()                                                | plain    |              |
+ updated_at           | timestamp with time zone | not null default now()                                                | plain    |              |
+ the_geom             | geometry(Geometry,4326)  |                                                                       | main     |              |
+ the_geom_webmercator | geometry(Geometry,3857)  |                                                                       | main     |              |
+ adm0_a3              | text                     |                                                                       | extended |              |
+ name_                | text                     |                                                                       | extended |              |
+ global_id            | integer                  |                                                                       | plain    |              |
 
-`````
+````
 
 #### Current indexes
 ````
@@ -48,21 +54,21 @@ Indexes:
     "idx_admin1_synonyms_rank" btree (rank)
     "untitled_table_1_the_geom_idx" gist (the_geom)
     "untitled_table_1_the_geom_webmercator_idx" gist (the_geom_webmercator)
-`````
+````
 ### adm1
 #### Table structure
 ````
                                                                        Table "public.adm1"
-        Column        |           Type           |                               Modifiers                                | Storage  | Stats target | Description 
+        Column        |           Type           |                               Modifiers                                | Storage  | Stats target | Description
 ----------------------+--------------------------+------------------------------------------------------------------------+----------+--------------+-------------
- cartodb_id           | integer                  | not null default nextval('untitled_table_2_cartodb_id_seq1'::regclass) | plain    |              | 
- name                 | text                     |                                                                        | extended |              | 
- description          | text                     |                                                                        | extended |              | 
- created_at           | timestamp with time zone | not null default now()                                                 | plain    |              | 
- updated_at           | timestamp with time zone | not null default now()                                                 | plain    |              | 
- the_geom             | geometry(Geometry,4326)  |                                                                        | main     |              | 
- the_geom_webmercator | geometry(Geometry,3857)  |                                                                        | main     |              | 
- global_id            | integer                  |                                                                        | plain    |              | 
+ cartodb_id           | integer                  | not null default nextval('untitled_table_2_cartodb_id_seq1'::regclass) | plain    |              |
+ name                 | text                     |                                                                        | extended |              |
+ description          | text                     |                                                                        | extended |              |
+ created_at           | timestamp with time zone | not null default now()                                                 | plain    |              |
+ updated_at           | timestamp with time zone | not null default now()                                                 | plain    |              |
+ the_geom             | geometry(Geometry,4326)  |                                                                        | main     |              |
+ the_geom_webmercator | geometry(Geometry,3857)  |                                                                        | main     |              |
+ global_id            | integer                  |                                                                        | plain    |              |
 
 ````
 #### Current indexes
@@ -77,18 +83,18 @@ Indexes:
 #### Table structure
 ````
                                                                  Table "public.admin1_synonyms"
-        Column        |           Type           |                               Modifiers                               | Storage  | Stats target | Description 
+        Column        |           Type           |                               Modifiers                               | Storage  | Stats target | Description
 ----------------------+--------------------------+-----------------------------------------------------------------------+----------+--------------+-------------
- cartodb_id           | integer                  | not null default nextval('untitled_table_1_cartodb_id_seq'::regclass) | plain    |              | 
- name                 | text                     |                                                                       | extended |              | 
- rank                 | double precision         |                                                                       | plain    |              | 
- created_at           | timestamp with time zone | not null default now()                                                | plain    |              | 
- updated_at           | timestamp with time zone | not null default now()                                                | plain    |              | 
- the_geom             | geometry(Geometry,4326)  |                                                                       | main     |              | 
- the_geom_webmercator | geometry(Geometry,3857)  |                                                                       | main     |              | 
- adm0_a3              | text                     |                                                                       | extended |              | 
- name_                | text                     |                                                                       | extended |              | 
- global_id            | integer                  |                                                                       | plain    |              | 
+ cartodb_id           | integer                  | not null default nextval('untitled_table_1_cartodb_id_seq'::regclass) | plain    |              |
+ name                 | text                     |                                                                       | extended |              |
+ rank                 | double precision         |                                                                       | plain    |              |
+ created_at           | timestamp with time zone | not null default now()                                                | plain    |              |
+ updated_at           | timestamp with time zone | not null default now()                                                | plain    |              |
+ the_geom             | geometry(Geometry,4326)  |                                                                       | main     |              |
+ the_geom_webmercator | geometry(Geometry,3857)  |                                                                       | main     |              |
+ adm0_a3              | text                     |                                                                       | extended |              |
+ name_                | text                     |                                                                       | extended |              |
+ global_id            | integer                  |                                                                       | plain    |              |
 
 ````
 
@@ -108,20 +114,20 @@ Indexes:
 #### Table structure
 `````
                                                                  Table "public.admin1_decoder"
-        Column        |           Type           |                              Modifiers                              | Storage  | Stats target | Description 
+        Column        |           Type           |                              Modifiers                              | Storage  | Stats target | Description
 ----------------------+--------------------------+---------------------------------------------------------------------+----------+--------------+-------------
- name                 | text                     |                                                                     | extended |              | 
- admin1               | text                     |                                                                     | extended |              | 
- iso2                 | text                     |                                                                     | extended |              | 
- geoname_id           | integer                  |                                                                     | plain    |              | 
- cartodb_id           | integer                  | not null default nextval('admin1_decoder_cartodb_id_seq'::regclass) | plain    |              | 
- created_at           | timestamp with time zone | not null default now()                                              | plain    |              | 
- updated_at           | timestamp with time zone | not null default now()                                              | plain    |              | 
- the_geom             | geometry(Geometry,4326)  |                                                                     | main     |              | 
- the_geom_webmercator | geometry(Geometry,3857)  |                                                                     | main     |              | 
- synonyms             | text[]                   |                                                                     | extended |              | 
- iso3                 | text                     |                                                                     | extended |              | 
- users                | double precision         |                                                                     | plain    |              | 
+ name                 | text                     |                                                                     | extended |              |
+ admin1               | text                     |                                                                     | extended |              |
+ iso2                 | text                     |                                                                     | extended |              |
+ geoname_id           | integer                  |                                                                     | plain    |              |
+ cartodb_id           | integer                  | not null default nextval('admin1_decoder_cartodb_id_seq'::regclass) | plain    |              |
+ created_at           | timestamp with time zone | not null default now()                                              | plain    |              |
+ updated_at           | timestamp with time zone | not null default now()                                              | plain    |              |
+ the_geom             | geometry(Geometry,4326)  |                                                                     | main     |              |
+ the_geom_webmercator | geometry(Geometry,3857)  |                                                                     | main     |              |
+ synonyms             | text[]                   |                                                                     | extended |              |
+ iso3                 | text                     |                                                                     | extended |              |
+ users                | double precision         |                                                                     | plain    |              |
 
 `````
 
@@ -158,12 +164,20 @@ Indexes:
 
 (see the wiki page: [Geocoder Data Sources #admin1-states-provinces](https://github.com/CartoDB/data-services/wiki/Geocoder-Datasources#admin1-statesprovinces))
 
-- Quattro Shapes admin1 and admin1 region polygons are being used for geometry. Users dislike natural earth's small admin1 units in countries like Spain, Italy and France so we have replaced these smaller units with their parent regions. 
+- **Quattro Shapes** admin1 and admin1 region polygons are being used for geometry. Users dislike natural earth's small admin1 units in countries like Spain, Italy and France so we have replaced these smaller units with their parent regions.
   - Quattro Shapes admin1: http://static.quattroshapes.com/qs_adm1.zip
+    - Coverage: global
+    - Geometry type: polygon
   - Quattro Shapes admin1 regions: http://static.quattroshapes.com/qs_adm1_region.zip
-  - Natural Earth Data admin1 states provinces: http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_1_states_provinces.zip
+    - Coverage: global
+    - Geometry type: polygon
 
-- Natural Earth admin1 alternate name spellings will be used as synonyms when the Quattro Shapes `qs_source` = 'Natural Earth'.
+
+- **Natural Earth Data** admin1 states provinces: http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_1_states_provinces.zip
+  - Coverage: global
+  - Geometry type: polygon
+
+  _Note: Natural Earth admin1 alternate name spellings will be used as synonyms when the Quattro Shapes `qs_source` = 'Natural Earth'._
 
 # Admin1 Geometry Table
 The table name is currently being called `adm1` and is built from a combination of data from Quattro Shapes: `qs_adm1` and `qs_adm1_region`. All countries that contain regional admin1 provinces use geometry from the `qs_adm1_region` table and not the `qs_adm1` table. This is an improvement made based on tickets/issues submitted by users when geocoding admin1 states / provinces.
@@ -188,7 +202,7 @@ The table contains the following columns to be populated:
 | 0			  | Quattro Shapes				| qs_a1 | default name for qs_adm1 |
 | 0				| Quattro Shapes			| qs_a1r | default name for qs_adm1_region |
 | 1				| Quattro Shapes			| qs_a1_lc | admin code |
-| 2 			| Natural Earth 			| name_alt | alternate spelling | 
+| 2 			| Natural Earth 			| name_alt | alternate spelling |
 | 3				| Natural Earth				| abbrev   | abbreviation |
 | 4				| Natural Earth				| postal   | postal code  |
 | 5 			| Natural Earth 			| gn_name  | formal english name  |
@@ -203,7 +217,7 @@ The table contains the following columns to be populated:
 - global_province_polygons
 
 ## Generation steps:
-1. Upload Natural Earth Data admin1 states provinces 
+1. Upload Natural Earth Data admin1 states provinces
 2. Rename `adm0_a3` by `iso3`, add columns `frequency` [number] (To calculate frequency, I simply counted the number of users we had signed up in each country. Countries with more users, we favor higher in the geocoder :)) and `synonyms` [string[]]  
 3. In order to fill the `synonyms` column, you can run the following query:
 `UPDATE tablename SET synonyms = Array[lower(woe_name), lower(name), lower(gns_name), lower(gn_name), lower(gn_a1_code), lower(code_hasc), lower(adm1_code), lower(adm1_cod_1), lower(postal)]`
@@ -226,10 +240,12 @@ The table contains the following columns to be populated:
 * In Italy, provinces are being shown instead of ADMIN1 regions. The same happened with Spain, which is manually fixed.
 
 # Historic:
+* [19/10/2015]:
+  * Updates on README + Adding usage examples
 * [08/10/2015]:
-  * Added response types 
+  * Added response types
 * [14/07/2015]:
-  * Added tests 
+  * Added tests
 * [02/07/2015]
   * Includes section for deprecated admin1 geocoder
 * [24/06/2015]:
