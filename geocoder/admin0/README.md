@@ -1,9 +1,9 @@
-Administrative regions geocoder - Level 0
+Level 0 Administrative regions geocoder
 ===============
 
 # Function
 
-Accepts a list of terms. Terms are searched against the `name_` column in `admin0_synonyms`. The `name_ column is an automatically cleaned and populated column based on the raw values in `name_ . The synonym table returns the proper ISO code (based on rank values in table below). The ISO code is then matched against the single row in `ne_admin0_v3 to return the polygon.
+Accepts a list of terms. Terms are searched against the `name_` column in `admin0_synonyms`. The `name_` column is an automatically cleaned and populated column based on the raw values in `name_` . The synonym table returns the proper ISO code (based on rank values in table below). The ISO code is then matched against the single row in `ne_admin0_v3` to return the polygon.
 
 # Usage example
 
@@ -169,7 +169,7 @@ This table stores the geometries. It's obtained from Natural Earth Data and cura
  updated_at           | timestamp with time zone | not null default now()                                                           | plain    |              |
  the_geom_webmercator | geometry(Geometry,3857)  |                                                                                  | main     |              |
 
-````
+```
 ##### Current indexes
 ````
 Indexes:
@@ -214,11 +214,11 @@ Indexes:
 
 # Data Sources
 
-(see the wiki page: [Geocoder Data Sources #admin0-countries](https://github.com/CartoDB/data-services/wiki/Geocoder-Datasources#admin0-countries))
+- **Natural Earth Data**: ne_10m_admin_0_countries (version 3.0) which is currently stored in Geocoding.CartoDB as ne_admin0_v3. This is stored in data/ne_10m_admin_0_countries.zip
+  - Coverage: global
+  - Geometry type: polygon
 
-- natural earth data: ne_10m_admin_0_countries (version 3.0) which is currently stored in Geocoding.CartoDB as ne_admin0_v3. This is stored in data/ne_10m_admin_0_countries.zip
-
-- native language spellings were gathered from http://en.wikipedia.org/wiki/List_of_countries_and_dependencies_and_their_capitals_in_native_languages and stored in data/wikipedia_countries_native_names.csv
+- Native language spellings were gathered from http://en.wikipedia.org/wiki/List_of_countries_and_dependencies_and_their_capitals_in_native_languages and stored in data/wikipedia_countries_native_names.csv
 
 - ISO 3166-2 codes were gathered from http://en.wikipedia.org/wiki/ISO_3166-2 and stored in data/wikipedia_iso_3166_2.csv
 
