@@ -3,7 +3,13 @@ Administrative regions geocoder - Level 0
 
 # Function
 
-Accepts a list of terms. Terms are searched against the ```name_``` column in ```admin0_synonyms```. The ```name_``` column is an automatically cleaned and populated column based on the raw values in ```name_``` . The synonym table returns the proper ISO code (based on rank values in table below). The iso code is then matched against the single row in ```ne_admin0_v3``` to return the polygon.
+Accepts a list of terms. Terms are searched against the `name_` column in `admin0_synonyms`. The `name_ column is an automatically cleaned and populated column based on the raw values in `name_ . The synonym table returns the proper ISO code (based on rank values in table below). The ISO code is then matched against the single row in `ne_admin0_v3 to return the polygon.
+
+# Usage example
+
+```sql
+SELECT (geocode_admin0_polygons(Array['Spain', 'USA', ''])).*;
+```
 
 # Creation steps
 
@@ -12,7 +18,7 @@ Accepts a list of terms. Terms are searched against the ```name_``` column in ``
 3. If fresh, add all `sql/indexes.sql` and `sql/triggers.sql`
 4. Upload the `data/wikipedia_countries_native_names.csv` table if it doesn't already exist
 5. Upload the `data/wikipedia_iso_3166_2` table if it doesn't already exist
-6. Run the `sql/subdivide_polygons.sql` 
+6. Run the `sql/subdivide_polygons.sql`
 7. Run the `sql/build_synonym_table.sql`
 8. If needed, load or replace the function with `sql/geocoder.sql`. Don't forget to create the types: `geocode_admin_v1` and `synonym_lookup_v1`
 
@@ -24,17 +30,17 @@ This table stores different synonyms per each country/region. It is populated th
 ##### Table stucture
 ````
                                                                  Table "public.admin0_synonyms"
-        Column        |           Type           |                              Modifiers                               | Storage  | Stats target | Description 
+        Column        |           Type           |                              Modifiers                               | Storage  | Stats target | Description
 ----------------------+--------------------------+----------------------------------------------------------------------+----------+--------------+-------------
- name                 | text                     |                                                                      | extended |              | 
- rank                 | double precision         |                                                                      | plain    |              | 
- created_at           | timestamp with time zone | not null default now()                                               | plain    |              | 
- updated_at           | timestamp with time zone | not null default now()                                               | plain    |              | 
- the_geom             | geometry(Geometry,4326)  |                                                                      | main     |              | 
- the_geom_webmercator | geometry(Geometry,3857)  |                                                                      | main     |              | 
- cartodb_id           | integer                  | not null default nextval('admin0_synonyms_cartodb_id_seq'::regclass) | plain    |              | 
- adm0_a3              | text                     |                                                                      | extended |              | 
- name_                | text                     |                                                                      | extended |              | 
+ name                 | text                     |                                                                      | extended |              |
+ rank                 | double precision         |                                                                      | plain    |              |
+ created_at           | timestamp with time zone | not null default now()                                               | plain    |              |
+ updated_at           | timestamp with time zone | not null default now()                                               | plain    |              |
+ the_geom             | geometry(Geometry,4326)  |                                                                      | main     |              |
+ the_geom_webmercator | geometry(Geometry,3857)  |                                                                      | main     |              |
+ cartodb_id           | integer                  | not null default nextval('admin0_synonyms_cartodb_id_seq'::regclass) | plain    |              |
+ adm0_a3              | text                     |                                                                      | extended |              |
+ name_                | text                     |                                                                      | extended |              |
 
 ````
 
@@ -60,17 +66,17 @@ This table stores manually added synonyms.
 ##### Table stucture
 ````
                                                                  Table "public.admin0_synonym_additions"
-        Column        |           Type           |                              Modifiers                               | Storage  | Stats target | Description 
+        Column        |           Type           |                              Modifiers                               | Storage  | Stats target | Description
 ----------------------+--------------------------+----------------------------------------------------------------------+----------+--------------+-------------
-  name                 | text                     |                                                                                 | extended |              | 
- adm0_a3              | text                     |                                                                                 | extended |              | 
- rank                 | double precision         |                                                                                 | plain    |              | 
- notes                | text                     |                                                                                 | extended |              | 
- the_geom             | geometry(Geometry,4326)  |                                                                                 | main     |              | 
- cartodb_id           | integer                  | not null default nextval('world_bank_admin0_synonyms_cartodb_id_seq'::regclass) | plain    |              | 
- created_at           | timestamp with time zone | not null default now()                                                          | plain    |              | 
- updated_at           | timestamp with time zone | not null default now()                                                          | plain    |              | 
- the_geom_webmercator | geometry(Geometry,3857)  |                                                                                 | main     |              | 
+  name                 | text                     |                                                                                 | extended |              |
+ adm0_a3              | text                     |                                                                                 | extended |              |
+ rank                 | double precision         |                                                                                 | plain    |              |
+ notes                | text                     |                                                                                 | extended |              |
+ the_geom             | geometry(Geometry,4326)  |                                                                                 | main     |              |
+ cartodb_id           | integer                  | not null default nextval('world_bank_admin0_synonyms_cartodb_id_seq'::regclass) | plain    |              |
+ created_at           | timestamp with time zone | not null default now()                                                          | plain    |              |
+ updated_at           | timestamp with time zone | not null default now()                                                          | plain    |              |
+ the_geom_webmercator | geometry(Geometry,3857)  |                                                                                 | main     |              |
 
 ````
 
@@ -90,78 +96,78 @@ This table stores the geometries. It's obtained from Natural Earth Data and cura
 ##### Table structure
 ```
                                                                         Table "public.ne_admin0_v3"
-        Column        |           Type           |                                    Modifiers                                     | Storage  | Stats target | Description 
+        Column        |           Type           |                                    Modifiers                                     | Storage  | Stats target | Description
 ----------------------+--------------------------+----------------------------------------------------------------------------------+----------+--------------+-------------
- the_geom             | geometry(Geometry,4326)  |                                                                                  | main     |              | 
- scalerank            | integer                  |                                                                                  | plain    |              | 
- featurecla           | text                     |                                                                                  | extended |              | 
- labelrank            | double precision         |                                                                                  | plain    |              | 
- sovereignt           | text                     |                                                                                  | extended |              | 
- sov_a3               | text                     |                                                                                  | extended |              | 
- adm0_dif             | double precision         |                                                                                  | plain    |              | 
- level                | double precision         |                                                                                  | plain    |              | 
- type                 | text                     |                                                                                  | extended |              | 
- admin                | text                     |                                                                                  | extended |              | 
- adm0_a3              | text                     |                                                                                  | extended |              | 
- geou_dif             | double precision         |                                                                                  | plain    |              | 
- geounit              | text                     |                                                                                  | extended |              | 
- gu_a3                | text                     |                                                                                  | extended |              | 
- su_dif               | double precision         |                                                                                  | plain    |              | 
- subunit              | text                     |                                                                                  | extended |              | 
- su_a3                | text                     |                                                                                  | extended |              | 
- brk_diff             | double precision         |                                                                                  | plain    |              | 
- name                 | text                     |                                                                                  | extended |              | 
- name_long            | text                     |                                                                                  | extended |              | 
- brk_a3               | text                     |                                                                                  | extended |              | 
- brk_name             | text                     |                                                                                  | extended |              | 
- brk_group            | text                     |                                                                                  | extended |              | 
- abbrev               | text                     |                                                                                  | extended |              | 
- postal               | text                     |                                                                                  | extended |              | 
- formal_en            | text                     |                                                                                  | extended |              | 
- formal_fr            | text                     |                                                                                  | extended |              | 
- note_adm0            | text                     |                                                                                  | extended |              | 
- note_brk             | text                     |                                                                                  | extended |              | 
- name_sort            | text                     |                                                                                  | extended |              | 
- name_alt             | text                     |                                                                                  | extended |              | 
- mapcolor7            | double precision         |                                                                                  | plain    |              | 
- mapcolor8            | double precision         |                                                                                  | plain    |              | 
- mapcolor9            | double precision         |                                                                                  | plain    |              | 
- mapcolor13           | double precision         |                                                                                  | plain    |              | 
- pop_est              | double precision         |                                                                                  | plain    |              | 
- gdp_md_est           | double precision         |                                                                                  | plain    |              | 
- pop_year             | double precision         |                                                                                  | plain    |              | 
- lastcensus           | double precision         |                                                                                  | plain    |              | 
- gdp_year             | double precision         |                                                                                  | plain    |              | 
- economy              | text                     |                                                                                  | extended |              | 
- income_grp           | text                     |                                                                                  | extended |              | 
- wikipedia            | double precision         |                                                                                  | plain    |              | 
- fips_10_             | text                     |                                                                                  | extended |              | 
- iso_a2               | text                     |                                                                                  | extended |              | 
- iso_a3               | text                     |                                                                                  | extended |              | 
- iso_n3               | text                     |                                                                                  | extended |              | 
- un_a3                | text                     |                                                                                  | extended |              | 
- wb_a2                | text                     |                                                                                  | extended |              | 
- wb_a3                | text                     |                                                                                  | extended |              | 
- woe_id               | double precision         |                                                                                  | plain    |              | 
- woe_id_eh            | double precision         |                                                                                  | plain    |              | 
- woe_note             | text                     |                                                                                  | extended |              | 
- adm0_a3_is           | text                     |                                                                                  | extended |              | 
- adm0_a3_us           | text                     |                                                                                  | extended |              | 
- adm0_a3_un           | double precision         |                                                                                  | plain    |              | 
- adm0_a3_wb           | double precision         |                                                                                  | plain    |              | 
- continent            | text                     |                                                                                  | extended |              | 
- region_un            | text                     |                                                                                  | extended |              | 
- subregion            | text                     |                                                                                  | extended |              | 
- region_wb            | text                     |                                                                                  | extended |              | 
- name_len             | double precision         |                                                                                  | plain    |              | 
- long_len             | double precision         |                                                                                  | plain    |              | 
- abbrev_len           | double precision         |                                                                                  | plain    |              | 
- tiny                 | double precision         |                                                                                  | plain    |              | 
- homepart             | double precision         |                                                                                  | plain    |              | 
- cartodb_id           | integer                  | not null default nextval('ne_10m_admin_0_countries_1_cartodb_id_seq1'::regclass) | plain    |              | 
- created_at           | timestamp with time zone | not null default now()                                                           | plain    |              | 
- updated_at           | timestamp with time zone | not null default now()                                                           | plain    |              | 
- the_geom_webmercator | geometry(Geometry,3857)  |                                                                                  | main     |              | 
+ the_geom             | geometry(Geometry,4326)  |                                                                                  | main     |              |
+ scalerank            | integer                  |                                                                                  | plain    |              |
+ featurecla           | text                     |                                                                                  | extended |              |
+ labelrank            | double precision         |                                                                                  | plain    |              |
+ sovereignt           | text                     |                                                                                  | extended |              |
+ sov_a3               | text                     |                                                                                  | extended |              |
+ adm0_dif             | double precision         |                                                                                  | plain    |              |
+ level                | double precision         |                                                                                  | plain    |              |
+ type                 | text                     |                                                                                  | extended |              |
+ admin                | text                     |                                                                                  | extended |              |
+ adm0_a3              | text                     |                                                                                  | extended |              |
+ geou_dif             | double precision         |                                                                                  | plain    |              |
+ geounit              | text                     |                                                                                  | extended |              |
+ gu_a3                | text                     |                                                                                  | extended |              |
+ su_dif               | double precision         |                                                                                  | plain    |              |
+ subunit              | text                     |                                                                                  | extended |              |
+ su_a3                | text                     |                                                                                  | extended |              |
+ brk_diff             | double precision         |                                                                                  | plain    |              |
+ name                 | text                     |                                                                                  | extended |              |
+ name_long            | text                     |                                                                                  | extended |              |
+ brk_a3               | text                     |                                                                                  | extended |              |
+ brk_name             | text                     |                                                                                  | extended |              |
+ brk_group            | text                     |                                                                                  | extended |              |
+ abbrev               | text                     |                                                                                  | extended |              |
+ postal               | text                     |                                                                                  | extended |              |
+ formal_en            | text                     |                                                                                  | extended |              |
+ formal_fr            | text                     |                                                                                  | extended |              |
+ note_adm0            | text                     |                                                                                  | extended |              |
+ note_brk             | text                     |                                                                                  | extended |              |
+ name_sort            | text                     |                                                                                  | extended |              |
+ name_alt             | text                     |                                                                                  | extended |              |
+ mapcolor7            | double precision         |                                                                                  | plain    |              |
+ mapcolor8            | double precision         |                                                                                  | plain    |              |
+ mapcolor9            | double precision         |                                                                                  | plain    |              |
+ mapcolor13           | double precision         |                                                                                  | plain    |              |
+ pop_est              | double precision         |                                                                                  | plain    |              |
+ gdp_md_est           | double precision         |                                                                                  | plain    |              |
+ pop_year             | double precision         |                                                                                  | plain    |              |
+ lastcensus           | double precision         |                                                                                  | plain    |              |
+ gdp_year             | double precision         |                                                                                  | plain    |              |
+ economy              | text                     |                                                                                  | extended |              |
+ income_grp           | text                     |                                                                                  | extended |              |
+ wikipedia            | double precision         |                                                                                  | plain    |              |
+ fips_10_             | text                     |                                                                                  | extended |              |
+ iso_a2               | text                     |                                                                                  | extended |              |
+ iso_a3               | text                     |                                                                                  | extended |              |
+ iso_n3               | text                     |                                                                                  | extended |              |
+ un_a3                | text                     |                                                                                  | extended |              |
+ wb_a2                | text                     |                                                                                  | extended |              |
+ wb_a3                | text                     |                                                                                  | extended |              |
+ woe_id               | double precision         |                                                                                  | plain    |              |
+ woe_id_eh            | double precision         |                                                                                  | plain    |              |
+ woe_note             | text                     |                                                                                  | extended |              |
+ adm0_a3_is           | text                     |                                                                                  | extended |              |
+ adm0_a3_us           | text                     |                                                                                  | extended |              |
+ adm0_a3_un           | double precision         |                                                                                  | plain    |              |
+ adm0_a3_wb           | double precision         |                                                                                  | plain    |              |
+ continent            | text                     |                                                                                  | extended |              |
+ region_un            | text                     |                                                                                  | extended |              |
+ subregion            | text                     |                                                                                  | extended |              |
+ region_wb            | text                     |                                                                                  | extended |              |
+ name_len             | double precision         |                                                                                  | plain    |              |
+ long_len             | double precision         |                                                                                  | plain    |              |
+ abbrev_len           | double precision         |                                                                                  | plain    |              |
+ tiny                 | double precision         |                                                                                  | plain    |              |
+ homepart             | double precision         |                                                                                  | plain    |              |
+ cartodb_id           | integer                  | not null default nextval('ne_10m_admin_0_countries_1_cartodb_id_seq1'::regclass) | plain    |              |
+ created_at           | timestamp with time zone | not null default now()                                                           | plain    |              |
+ updated_at           | timestamp with time zone | not null default now()                                                           | plain    |              |
+ the_geom_webmercator | geometry(Geometry,3857)  |                                                                                  | main     |              |
 
 ````
 ##### Current indexes
@@ -237,7 +243,7 @@ The table contains the following columns to be populated:
 The following query can be used:
 
 
-````
+````sql
 INSERT INTO admin0_synonym_additions (adm0_a3, name, notes, rank) VALUES ($iso3_code, $synonym, $notes, 10)
 ````
 
@@ -260,10 +266,10 @@ INSERT INTO admin0_synonym_additions (adm0_a3, name, notes, rank) VALUES ($iso3_
 | 10           | admin0_synonym_additions | n/a     | manually curated additions       |
 
 
-__notes:__ 
+__notes:__
 
 - The column `adm0_a3` will be used as a unique identifier.
-- The ranks are somewhat arbitrarily organized and should be modified later based on our users use of the geocoder (will users more commonly geocode an adm0_a3 or abbreviation?) 
+- The ranks are somewhat arbitrarily organized and should be modified later based on our users use of the geocoder (will users more commonly geocode an adm0_a3 or abbreviation?)
 - I also forgot to assign a `rank` of `2` to a synonym.
 
 # Admin0 Synonym Service
@@ -284,27 +290,29 @@ For country boundaries, we use the data provided by Natural Earth Data. The whol
 # Known issues
 
 # Historic
+* [19/10/2015]:
+  * Revision and usage examples addition
 * [06/10/2015]:
   * Added information for response types
 * [28/09/2015]:
-  * Fixes Svalbard and Jan Mayen separation: https://github.com/CartoDB/data-services/issues/165 
+  * Fixes Svalbard and Jan Mayen separation: https://github.com/CartoDB/data-services/issues/165
 * [14/09/2015]:
   * Added new COD synonym
 * [21/08/2015]:
   * Edited creation steps with missing instructions
 * [16/07/2015]:
-  * Fixed manual addition synonyms table, which related Equatorial Guinea (GNQ) with Guinea (GIN) 
+  * Fixed manual addition synonyms table, which related Equatorial Guinea (GNQ) with Guinea (GIN)
 * [14/07/2015]:
-  * Added tests 
+  * Added tests
 * [03/07/2015]:
-  * Added "U.S. Virgin Islands" (normalised) as synonym of VIR 
-* [24/06/2015]: 
+  * Added "U.S. Virgin Islands" (normalised) as synonym of VIR
+* [24/06/2015]:
   * Added table structure and index information
   * Adds known issues section
-  * [Adds](https://github.com/CartoDB/data-services/pull/149/) `admin0_synonym_lookup` function 
-* [23/06/2015]: 
+  * [Adds](https://github.com/CartoDB/data-services/pull/149/) `admin0_synonym_lookup` function
+* [23/06/2015]:
   * Change of SQL code in `subdivide_polygons.sql` in order to create all of them with ST_Collect, which makes uniform the geometry types: ST_MultiPolygon
   * Uploaded basic tests for administrative regions of level 0 geocoder
   * Updated Testing section of `README.md`
-* [22/06/2015]: 
+* [22/06/2015]:
   * Removes code that provokes an empty geometry for `IOA`, which was being stored as a null geometry. [PR 144](https://github.com/CartoDB/data-services/pull/144)

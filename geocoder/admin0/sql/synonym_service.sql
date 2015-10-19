@@ -1,11 +1,10 @@
---CREATE TYPE synonym_lookup_v1 AS (q TEXT, adm0_a3 TEXT);
 
 --EXAMPLE
 -- SELECT (admin0_synonym_lookup(Array['United States', 'ESP'])).*
 
 CREATE OR REPLACE FUNCTION admin0_synonym_lookup(name text[])
   RETURNS SETOF synonym_lookup_v1 AS $$
-  DECLARE 
+  DECLARE
     ret synonym_lookup_v1%rowtype;
   BEGIN
   -- FOR ret IN
