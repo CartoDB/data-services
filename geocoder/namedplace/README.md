@@ -3,14 +3,18 @@ Named places geocoder
 
 # Function
 
-````
+Receives an array of city names (with optional values for the countries and/or the administrative regions to which they belong) and returns point geometries for each row if the geocoding process was successful.
+
+# Usage example
+
+```sql
 SELECT (geocode_namedplace(Array['sunapee', 'sunapeeee', 'New York City'], 'USA')).*
-`````
+```
 
 # Creation steps
-1. Download the allCountries and alternateNames tables from the source
+1. Download the `allCountries` and `alternateNames` tables from the source
 2. In order to clean the files from characters that may provoke issues in the importation to CartoDB, please run in your terminal: `sed 's/"//' filename.txt > filename.out.txt`
-3. Import the zipped files for allCountries and alternateNames once processed
+3. Import the zipped files for `allCountries` and `alternateNames` once processed
 4. Generate the `global_cities_points_limited` and `global_cities_alternates_limited` tables
 5. Run the `sql/build_data_table.sql` script to build the `global_cities_points_limited` table
 
@@ -22,28 +26,28 @@ SELECT (geocode_namedplace(Array['sunapee', 'sunapeeee', 'New York City'], 'USA'
 #### Table structure
 ````
                                                            Table "public.global_cities_points_limited"
-        Column        |           Type           |                               Modifiers                               | Storage  | Stats target | Description 
+        Column        |           Type           |                               Modifiers                               | Storage  | Stats target | Description
 ----------------------+--------------------------+-----------------------------------------------------------------------+----------+--------------+-------------
- geoname_id           | double precision         |                                                                       | plain    |              | 
- name                 | text                     |                                                                       | extended |              | 
- asciiname            | text                     |                                                                       | extended |              | 
- altnames             | text                     |                                                                       | extended |              | 
- featclass            | text                     |                                                                       | extended |              | 
- featcode             | text                     |                                                                       | extended |              | 
- iso2                 | text                     |                                                                       | extended |              | 
- cc2                  | text                     |                                                                       | extended |              | 
- admin1               | text                     |                                                                       | extended |              | 
- admin2               | text                     |                                                                       | extended |              | 
- admin3               | text                     |                                                                       | extended |              | 
- admin4               | text                     |                                                                       | extended |              | 
- population           | double precision         |                                                                       | plain    |              | 
- gtopo30              | integer                  |                                                                       | plain    |              | 
- the_geom             | geometry(Point,4326)     |                                                                       | main     |              | 
- created_at           | timestamp with time zone | not null default now()                                                | plain    |              | 
- updated_at           | timestamp with time zone | not null default now()                                                | plain    |              | 
- the_geom_webmercator | geometry(Geometry,3857)  |                                                                       | main     |              | 
- cartodb_id           | integer                  | not null default nextval('points_cities_le_cartodb_id_seq'::regclass) | plain    |              | 
- lowername            | text                     |                                                                       | extended |              | 
+ geoname_id           | double precision         |                                                                       | plain    |              |
+ name                 | text                     |                                                                       | extended |              |
+ asciiname            | text                     |                                                                       | extended |              |
+ altnames             | text                     |                                                                       | extended |              |
+ featclass            | text                     |                                                                       | extended |              |
+ featcode             | text                     |                                                                       | extended |              |
+ iso2                 | text                     |                                                                       | extended |              |
+ cc2                  | text                     |                                                                       | extended |              |
+ admin1               | text                     |                                                                       | extended |              |
+ admin2               | text                     |                                                                       | extended |              |
+ admin3               | text                     |                                                                       | extended |              |
+ admin4               | text                     |                                                                       | extended |              |
+ population           | double precision         |                                                                       | plain    |              |
+ gtopo30              | integer                  |                                                                       | plain    |              |
+ the_geom             | geometry(Point,4326)     |                                                                       | main     |              |
+ created_at           | timestamp with time zone | not null default now()                                                | plain    |              |
+ updated_at           | timestamp with time zone | not null default now()                                                | plain    |              |
+ the_geom_webmercator | geometry(Geometry,3857)  |                                                                       | main     |              |
+ cartodb_id           | integer                  | not null default nextval('points_cities_le_cartodb_id_seq'::regclass) | plain    |              |
+ lowername            | text                     |                                                                       | extended |              |
 
 ````
 
@@ -64,20 +68,20 @@ Indexes:
 #### Table structure
 ````
                                                                  Table "public.global_cities_alternates_limited"
-        Column        |           Type           |                                       Modifiers                                       | Storage  | Stats target | Description 
+        Column        |           Type           |                                       Modifiers                                       | Storage  | Stats target | Description
 ----------------------+--------------------------+---------------------------------------------------------------------------------------+----------+--------------+-------------
- geoname_id           | integer                  |                                                                                       | plain    |              | 
- name                 | text                     |                                                                                       | extended |              | 
- the_geom             | geometry(Geometry,4326)  |                                                                                       | main     |              | 
- created_at           | timestamp with time zone | not null default now()                                                                | plain    |              | 
- updated_at           | timestamp with time zone | not null default now()                                                                | plain    |              | 
- the_geom_webmercator | geometry(Geometry,3857)  |                                                                                       | main     |              | 
- preferred            | boolean                  |                                                                                       | plain    |              | 
- lowername            | text                     |                                                                                       | extended |              | 
- cartodb_id           | integer                  | not null default nextval('global_cities_alternates_limited_cartodb_id_seq'::regclass) | plain    |              | 
- admin1_geonameid     | integer                  |                                                                                       | plain    |              | 
- iso2                 | text                     |                                                                                       | extended |              | 
- admin1               | text                     |                                                                                       | extended |              | 
+ geoname_id           | integer                  |                                                                                       | plain    |              |
+ name                 | text                     |                                                                                       | extended |              |
+ the_geom             | geometry(Geometry,4326)  |                                                                                       | main     |              |
+ created_at           | timestamp with time zone | not null default now()                                                                | plain    |              |
+ updated_at           | timestamp with time zone | not null default now()                                                                | plain    |              |
+ the_geom_webmercator | geometry(Geometry,3857)  |                                                                                       | main     |              |
+ preferred            | boolean                  |                                                                                       | plain    |              |
+ lowername            | text                     |                                                                                       | extended |              |
+ cartodb_id           | integer                  | not null default nextval('global_cities_alternates_limited_cartodb_id_seq'::regclass) | plain    |              |
+ admin1_geonameid     | integer                  |                                                                                       | plain    |              |
+ iso2                 | text                     |                                                                                       | extended |              |
+ admin1               | text                     |                                                                                       | extended |              |
 
 ````
 
@@ -91,10 +95,10 @@ Indexes:
     "idx_global_cities_alternates_limited_admin1" btree (admin1)
     "idx_global_cities_alternates_limited_admin1_geonameid" btree (admin1_geonameid)
     "idx_global_cities_alternates_limited_lowername" btree (lowername)
-`````
+````
 # Related functions
 
-### geocode_namedplace 
+### geocode_namedplace
 
 ````
  Schema |        Name        |          Result data type           |                Argument data types                 |  Type  
@@ -106,8 +110,8 @@ Indexes:
  public | geocode_namedplace | SETOF geocode_namedplace_country_v1 | places text[], country text[]                      | normal
  public | geocode_namedplace | SETOF geocode_admin_country_v1      | places text[], inputcountry text                   | normal
  ````
- 
-### geocode_namedplace_country 
+
+### geocode_namedplace_country
 ````
  Schema |            Name            |          Result data type           |      Argument data types      |  Type  
 --------+----------------------------+-------------------------------------+-------------------------------+--------
@@ -121,8 +125,10 @@ Indexes:
 # Data Sources
 
 * Geonames free gazzeter data. `allCountries.zip` file available [here](http://download.geonames.org/export/dump/allCountries.zip). `alternateNames.zip` file available [here](http://download.geonames.org/export/dump/alternateNames.zip).
+  * Coverage: global
+  * Geometry type: point
 
-## Fields (from GeoNames database)
+## Fields metadata (from GeoNames database)
 
 | column name | meaning |
 |-------------|---------|
@@ -137,7 +143,7 @@ Indexes:
 | country code  | ISO-3166 2-letter country code, 2 characters    |
 | cc2           | alternate country codes, comma separated, ISO-3166 2-letter country code, 200 characters   |
 | admin1 code   | fipscode (subject to change to iso code), see exceptions below, see file admin1Codes.txt for display names of this code; varchar(20) |
-| admin2 code   | code for the second administrative division, a county in the US, see file admin2Codes.txt; varchar(80) | 
+| admin2 code   | code for the second administrative division, a county in the US, see file admin2Codes.txt; varchar(80) |
 | admin3 code   | code for third level administrative division, varchar(20) |
 | admin4 code   | code for fourth level administrative division, varchar(20) |
 | population    | bigint (8 byte int) |
@@ -159,16 +165,17 @@ In order to test the data and the functions created under the script avaialble i
 * Needs a better approach for synonyms and normalisation
 
 # Historic:
+* [19/10/2015]:
+  * Updates README with process description and update setup scripts
 * [08/10/2015]:
-  * Added response data types 
+  * Added response data types
 * [14/07/2015]:
   * Updated README: Known issues
   * Added tests
 * [24/06/2015]:
-  * Added section "Known issues" 
+  * Added section "Known issues"
   * Added table, functions and indexes information
   * Reviewed functions in the sql file. [Added this one](https://github.com/CartoDB/data-services/pull/150)
-* [23/06/2015]: 
+* [23/06/2015]:
   * `README.md` file generated
   * Added structure for `/test`
-
