@@ -98,9 +98,16 @@ function sql() {
     	if [[ "$2" == "should" ]]
     	then
       		if [[ "${RESULT}" != "$3" ]]
-      		then
-            	log_error "QUERY '${QUERY}' expected result '${3}' but got '${RESULT}'"
-            	set_failed
+                then
+                    # Deal with bool values from pg, returned as t/f instead of true/false
+                    if [[ "$3" == "true" && "${RESULT}" == "t" ]] || [[ "$3" == "false" && "${RESULT}" == "f" ]]
+                    then
+                        # do nothing, test ok
+                        true
+                    else
+                        log_error "QUERY '${QUERY}' expected result '${3}' but got '${RESULT}'"
+                        set_failed
+                    fi
         	fi
     	fi
     fi
