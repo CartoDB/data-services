@@ -191,8 +191,3 @@ CREATE TRIGGER test_quota_per_row BEFORE INSERT OR UPDATE ON ne_admin0_v3 FOR EA
 CREATE TRIGGER track_updates AFTER INSERT OR DELETE OR UPDATE OR TRUNCATE ON ne_admin0_v3 FOR EACH STATEMENT EXECUTE PROCEDURE cartodb.cdb_tablemetadata_trigger();
 CREATE TRIGGER update_the_geom_webmercator_trigger BEFORE INSERT OR UPDATE OF the_geom ON ne_admin0_v3 FOR EACH ROW EXECUTE PROCEDURE cartodb._cdb_update_the_geom_webmercator();
 CREATE TRIGGER update_updated_at_trigger BEFORE UPDATE ON ne_admin0_v3 FOR EACH ROW EXECUTE PROCEDURE cartodb._cdb_update_updated_at();
-
-
--- This is needed to let publicuser execute the functions above without granting privileges on the tables
-GRANT SELECT ON public.geometry_columns TO publicuser;
-GRANT SELECT ON public.geography_columns TO publicuser;
