@@ -20,3 +20,20 @@ SELECT (geocode_admin0_polygons(Array['Spain', 'USA', ''])).*;
  USA   |      | f
 (3 rows)
 
+-- Mock the varnish invalidation function
+CREATE OR REPLACE FUNCTION public.cdb_invalidate_varnish(table_name text) RETURNS void AS $$
+BEGIN
+  RETURN;
+END
+$$
+LANGUAGE plpgsql;
+-- Add a few synonyms
+COPY admin0_synonyms (name, rank, created_at, updated_at, the_geom, the_geom_webmercator, cartodb_id, adm0_a3, name_) FROM stdin;
+-- Check that the synonym function is callable, should return their iso codes
+SELECT (admin0_synonym_lookup(Array['United States', 'ESP'])).*;
+       q       | adm0_a3 
+---------------+---------
+ ESP           | ESP
+ United States | USA
+(2 rows)
+
