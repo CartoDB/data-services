@@ -21,7 +21,7 @@ CREATE OR REPLACE FUNCTION geocode_admin0_polygons(name text[])
       LEFT OUTER JOIN admin0_synonyms s ON name_ = d.x
       LEFT OUTER JOIN ne_admin0_v3 n ON s.adm0_a3 = n.adm0_a3 GROUP BY d.q, n.the_geom, s.adm0_a3;
 END
-$$ LANGUAGE 'plpgsql' SECURITY DEFINER;
+$$ LANGUAGE 'plpgsql';
 
 
 -- admin0_synonym_lookup
@@ -35,7 +35,7 @@ CREATE OR REPLACE FUNCTION admin0_synonym_lookup(name text[])
         FROM (SELECT unnest(name) q) g) d
       LEFT OUTER JOIN admin0_synonyms s ON name_ = d.x GROUP BY d.q, s.adm0_a3;
 END
-$$ LANGUAGE 'plpgsql' SECURITY DEFINER;
+$$ LANGUAGE 'plpgsql';
 
 --------------------------------------------------------------------------------
 
