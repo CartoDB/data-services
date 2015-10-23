@@ -21,7 +21,7 @@ CREATE OR REPLACE FUNCTION geocode_admin0_polygons(name text[])
       LEFT OUTER JOIN admin0_synonyms s ON name_ = d.x
       LEFT OUTER JOIN ne_admin0_v3 n ON s.adm0_a3 = n.adm0_a3 GROUP BY d.q, n.the_geom, s.adm0_a3;
 END
-$$ LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql' SECURITY DEFINER;
 
 
 -- admin0_synonym_lookup
@@ -35,7 +35,7 @@ CREATE OR REPLACE FUNCTION admin0_synonym_lookup(name text[])
         FROM (SELECT unnest(name) q) g) d
       LEFT OUTER JOIN admin0_synonyms s ON name_ = d.x GROUP BY d.q, s.adm0_a3;
 END
-$$ LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql' SECURITY DEFINER;
 
 --------------------------------------------------------------------------------
 
@@ -191,3 +191,8 @@ CREATE TRIGGER test_quota_per_row BEFORE INSERT OR UPDATE ON ne_admin0_v3 FOR EA
 CREATE TRIGGER track_updates AFTER INSERT OR DELETE OR UPDATE OR TRUNCATE ON ne_admin0_v3 FOR EACH STATEMENT EXECUTE PROCEDURE cartodb.cdb_tablemetadata_trigger();
 CREATE TRIGGER update_the_geom_webmercator_trigger BEFORE INSERT OR UPDATE OF the_geom ON ne_admin0_v3 FOR EACH ROW EXECUTE PROCEDURE cartodb._cdb_update_the_geom_webmercator();
 CREATE TRIGGER update_updated_at_trigger BEFORE UPDATE ON ne_admin0_v3 FOR EACH ROW EXECUTE PROCEDURE cartodb._cdb_update_updated_at();
+
+
+-- This is needed to let publicuser execute the functions above without granting privileges on the tables
+GRANT SELECT ON public.geometry_columns TO publicuser;
+GRANT SELECT ON public.geography_columns TO publicuser;
