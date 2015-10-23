@@ -10,14 +10,16 @@ source functions/test.sh
 # SQL_API_ROUTE and API_KEY need to be
 # conveniently filled for the requests
 # to work.
-# Example: bash run.sh api sql_api_route api_key test_type
+# Syntax: bash run.sh api sql_api_route api_key test_type
+# E.g: bash run.sh api http://development.localhost.lan:8080/api/v1 916f4c31aaa35d6b867dae9a7f54270d functions
 #
 # SQL
 # ====================================
 # It is expected that you run this script
 # as a PostgreSQL superuser, for example:
 #
-# bash run.sh db database role test_type
+# Syntax: bash run.sh db database role test_type
+# E.g: bash run.sh db cartodb_dev_user_fe3b850a-01c0-48f9-8a26-a82f09e9b53f_db postgres data
 #
 # test_type defines the kind of tests to run: data or functions
 
@@ -52,7 +54,7 @@ function sql() {
     then
     # SQL API mode
      	echo $QUERY 
-    	RESULT=$(curl -s -X POST "https://$SQL_API_ROUTE/sql?api_key=$API_KEY&format=csv" --data-urlencode "q=$QUERY" |tail -n1 | tr -d '\r')
+    	RESULT=$(curl -s -X POST "$SQL_API_ROUTE/sql?api_key=$API_KEY&format=csv" --data-urlencode "q=$QUERY" |tail -n1 | tr -d '\r')
     	if [[ "$2" == "should" ]]
     	then
        		if [[ "${RESULT}" != "$3" ]]
@@ -96,9 +98,16 @@ function sql() {
     	if [[ "$2" == "should" ]]
     	then
       		if [[ "${RESULT}" != "$3" ]]
-      		then
-            	log_error "QUERY '${QUERY}' expected result '${3}' but got '${RESULT}'"
-            	set_failed
+                then
+                    # Deal with bool values from pg, returned as t/f instead of true/false
+                    if [[ "$3" == "true" && "${RESULT}" == "t" ]] || [[ "$3" == "false" && "${RESULT}" == "f" ]]
+                    then
+                        # do nothing, test ok
+                        true
+                    else
+                        log_error "QUERY '${QUERY}' expected result '${3}' but got '${RESULT}'"
+                        set_failed
+                    fi
         	fi
     	fi
     fi
