@@ -7,7 +7,6 @@ CREATE TYPE synonym_lookup_v1 AS (q TEXT, adm0_a3 TEXT);
 
 -- Public API functions --
 --- Geocoding function ---
--- TODO: deal with permissions
 CREATE OR REPLACE FUNCTION geocode_admin0_polygons(name text[])
   RETURNS SETOF geocode_admin_v1 AS $$
   DECLARE
