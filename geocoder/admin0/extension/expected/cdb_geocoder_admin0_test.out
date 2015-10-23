@@ -11,3 +11,12 @@ SELECT (admin0_synonym_lookup(Array['United States', 'ESP'])).*;
  ESP           | 
 (2 rows)
 
+-- Check that the geocoding function is callable, should return success = false
+SELECT (geocode_admin0_polygons(Array['Spain', 'USA', ''])).*;
+   q   | geom | success 
+-------+------+---------
+       |      | f
+ Spain |      | f
+ USA   |      | f
+(3 rows)
+
