@@ -1,5 +1,5 @@
 # CartoDB IP addresses geocoder extension
-Postgres extension for the CartoDB admin0 geocoder. It is meant to contain the functions and related objects needed to geocode by IP addresses. It is not meant to contain the actual data used to geocode them.
+Postgres extension for the CartoDB IP addresses geocoder. It is meant to contain the functions and related objects needed to geocode by IP addresses. It is not meant to contain the actual data used to geocode them.
 
 ## Dependencies
 This extension is thought to be used on top of CartoDB platform. Therefore a cartodb user is required to install the extension onto it.
