@@ -24,7 +24,7 @@ PGUSER=postgres make installcheck
 
 ## Install onto a user's database
 ```
-psql -U development_cartodb_user_fe3b850a-01c0-48f9-8a26-a82f09e9b53f cartodb_dev_user_fe3b850a-01c0-48f9-8a26-a82f09e9b53f_db
+psql -U cartodb_dev_user_367c0edc-b2ad-4bab-ad43-3d58a6179a93_db cartodb_dev_user_367c0edc-b2ad-4bab-ad43-3d58a6179a93_db
 ```
 
 and then:
