@@ -37,7 +37,9 @@ INSERT INTO admin0_synonyms (name, rank, adm0_a3)
 SELECT 
     country_endonym, 2,  adm0_a3
 FROM
-    wikipedia_countries_native_names;
+    wikipedia_countries_native_names
+WHERE
+    adm0_a3 IS NOT null;
 
 -- insert ad0_a3  codes as synonyms with a rank = 3
 INSERT INTO admin0_synonyms (name, rank, adm0_a3) 

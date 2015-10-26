@@ -46,15 +46,15 @@ TLS,East Timor,Timor Lorosa'e
 BHS,Bahamas,The Bahamas
 CHN,China,Zhōngguó
 EGY,Egypt,Misr or Masr
-,Equatorial Guinea,Guinea Ecuatorial
+GNQ,Equatorial Guinea,Guinea Ecuatorial
 ERI,Eritrea,Iritriya
 EST,Estonia,Eesti
 ETH,Ethiopia,Ityop'ia
 FLK,Falkland Islands,Falkland Islands
-,Faroe Islands,Føroyar
+FRO,Faroe Islands,Føroyar
 FJI,Fiji,Fiji
 FIN,Finland,Suomi
-,French Guiana,Guyane
+GUF,French Guiana,Guyane
 PYF,French Polynesia,Polynésie française
 GEO,Georgia,Sak'art'velo
 DEU,Germany,Deutschland
@@ -88,8 +88,8 @@ LVA,Latvia,Latvija
 PHL,Philippines,Pilipinas
 PRT,Portugal,Portugal
 QAT,Qatar,Qaṭar
-,Republic of the Congo,République du Congo
-,Réunion,Réunion
+COG,Republic of the Congo,République du Congo
+REU,Réunion,Réunion
 ROU,Romania,România
 RUS,Russia,Rossiya or Rossiâ
 BLM,Saint Barthélemy,Saint-Barthélemy
@@ -98,7 +98,7 @@ USA,United States,United States
 URY,Uruguay,República Oriental del Uruguay
 UZB,Uzbekistan,O‘zbekiston
 VUT,Vanuatu,Vanuatu
-,Vatican City,Città del Vaticano
+VAT,Vatican City,Città del Vaticano
 VNM,Vietnam,Việt Nam
 LBY,Libya,Libya
 LIE,Liechtenstein,Liechtenstein
@@ -112,7 +112,7 @@ MLI,Mali,Mali
 MLT,Malta,Malta
 MRT,Mauritania,Muritan / Agawec
 MUS,Mauritius,Maurice
-,Mayotte,Mayotte
+MYT,Mayotte,Mayotte
 MEX,Mexico,México
 MDA,Moldova,Moldova
 MCO,Monaco,Monaco
@@ -127,13 +127,13 @@ NLD,Netherlands,Nederland
 NCL,New Caledonia,Nouvelle-Calédonie
 NZL,New Zealand,New Zealand
 NIU,Niue,Niuē
-,North Korea,Chosŏn as called in NK
-,Northern Cyprus,Kuzey Kıbrıs
+PRK,North Korea,Chosŏn as called in NK
+CYN,Northern Cyprus,Kuzey Kıbrıs
 NOR,Norway,Norge
 OMN,Oman,‘Umān
 PAK,Pakistan,Pākistān (Islamic Republic of Pakistan)
 PLW,Palau,Belau
-,Palestinian National Authority,Filastīn
+PSX,Palestinian National Authority,Filastīn
 PAN,Panama,Panamá
 PNG,Papua New Guinea,Papua New Guinea
 PRY,Paraguay,Paraguay
@@ -141,7 +141,7 @@ PER,Peru,Perú
 POL,Poland,Polska
 LBN,Lebanon,Lubnān
 SPM,Saint Pierre and Miquelon,Saint-Pierre et Miquelon
-,São Tomé and Príncipe,São Tomé e Príncipe
+STP,São Tomé and Príncipe,São Tomé e Príncipe
 SAU,Saudi Arabia,Al-Mamlaka Al-‘Arabiyyah as Sa‘ūdiyyah
 ,Wallis and Futuna,Wallis-et-Futuna
 YEM,Yemen,Al-Yaman
@@ -153,10 +153,10 @@ SXM,Sint Maarten,Sint Maarten
 SVK,Slovakia,Slovensko
 TON,Tonga,Tonga
 SVN,Slovenia,Slovenija
-,Solomon Islands,Solomon Islands
+SLB,Solomon Islands,Solomon Islands
 SOM,Somalia,Soomaaliya
 ZAF,South Africa,South Africa
-,South Korea,Hanguk as called in SK
+KOR,South Korea,Hanguk as called in SK
 ,South Ossetia,Khussar Iryston
 ESP,Spain,España
 LKA,Sri Lanka,Sri Lankā
@@ -165,7 +165,7 @@ SDN,Sudan,As-Sudan
 SWE,Sweden,Sverige
 CHE,Switzerland,Schweiz
 SYR,Syria,Suriyah
-,Taiwan (Republic of China),Zhōnghuá Mínguó or Táiwan
+TWN,Taiwan (Republic of China),Zhōnghuá Mínguó or Táiwan
 TJK,Tajikistan,Tojikistan
 TUN,Tunisia,Tunes
 THA,Thailand,"Mueang Thai, Prathet Thai, Ratcha-anachak Thai"
