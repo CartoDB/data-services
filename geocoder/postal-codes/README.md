@@ -59,13 +59,6 @@ Indexes:
  public | geocode_postalcode_polygons | SETOF geocode_namedplace_v1         | code text[], inputcountry text        | normal
 ````
 
-### test_geocode_postalcode_polygons
-````
- Schema |               Name               |          Result data type           |        Argument data types         |  Type  
---------+----------------------------------+-------------------------------------+------------------------------------+--------
- public | test_geocode_postalcode_polygons | SETOF geocode_namedplace_country_v1 | code text[], inputcountries text[] | normal
- public | test_geocode_postalcode_polygons | SETOF geocode_namedplace_v1         | code text[], inputcountry text     | normal
-````
 
 ## Response data types
 * geocode_namedplace_country_v1:
