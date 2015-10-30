@@ -28,9 +28,9 @@ CREATE FUNCTION geocode_postalcode_polygons(code text[], inputcountries text[]) 
       SELECT 
         q, c, (
           SELECT the_geom
-          FROM postal_code_polygons
+          FROM global_postal_code_polygons
           WHERE postal_code = CASE WHEN a = 'CAN' THEN substring(upper(d.q) from 1 for 3) ELSE upper(d.q) END
-            AND adm0_a3 = a
+            AND iso3 = a
         ) geom
       FROM (SELECT unnest(code) q, unnest(inputcountries) c, unnest(adm) a) d
     ) v
@@ -277,44 +277,6 @@ $$;
 
 -- Support tables
 
-
-CREATE TABLE postal_code_polygons (
-    cartodb_id integer NOT NULL,
-    postal_code text,
-    adm0_a3 text,
-    created_at timestamp with time zone DEFAULT now() NOT NULL,
-    updated_at timestamp with time zone DEFAULT now() NOT NULL,
-    the_geom geometry(Geometry,4326),
-    the_geom_webmercator geometry(Geometry,3857)
-);
-
-
-CREATE SEQUENCE postal_code_polygons_cartodb_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-ALTER SEQUENCE postal_code_polygons_cartodb_id_seq OWNED BY postal_code_polygons.cartodb_id;
-ALTER TABLE ONLY postal_code_polygons ALTER COLUMN cartodb_id SET DEFAULT nextval('postal_code_polygons_cartodb_id_seq'::regclass);
-
-
-ALTER TABLE ONLY postal_code_polygons
-    ADD CONSTRAINT postal_code_polygons_cartodb_id_key UNIQUE (cartodb_id);
-ALTER TABLE ONLY postal_code_polygons
-    ADD CONSTRAINT postal_code_polygons_pkey PRIMARY KEY (cartodb_id);
-
-
-CREATE INDEX postal_code_polygons_the_geom_idx ON postal_code_polygons USING gist (the_geom);
-CREATE INDEX postal_code_polygons_the_geom_webmercator_idx ON postal_code_polygons USING gist (the_geom_webmercator);
-
-
-CREATE TRIGGER track_updates AFTER INSERT OR DELETE OR UPDATE OR TRUNCATE ON postal_code_polygons FOR EACH STATEMENT EXECUTE PROCEDURE cartodb.cdb_tablemetadata_trigger();
-CREATE TRIGGER update_the_geom_webmercator_trigger BEFORE INSERT OR UPDATE OF the_geom ON postal_code_polygons FOR EACH ROW EXECUTE PROCEDURE cartodb._cdb_update_the_geom_webmercator();
-CREATE TRIGGER update_updated_at_trigger BEFORE UPDATE ON postal_code_polygons FOR EACH ROW EXECUTE PROCEDURE cartodb._cdb_update_updated_at();
-
-
-
 CREATE TABLE global_postal_code_polygons (
     the_geom geometry(Geometry,4326),
     zcta5ce10 text,
@@ -447,5 +409,3 @@ CREATE INDEX available_services_the_geom_webmercator_idx ON available_services U
 CREATE TRIGGER track_updates AFTER INSERT OR DELETE OR UPDATE OR TRUNCATE ON available_services FOR EACH STATEMENT EXECUTE PROCEDURE cartodb.cdb_tablemetadata_trigger();
 CREATE TRIGGER update_the_geom_webmercator_trigger BEFORE INSERT OR UPDATE OF the_geom ON available_services FOR EACH ROW EXECUTE PROCEDURE cartodb._cdb_update_the_geom_webmercator();
 CREATE TRIGGER update_updated_at_trigger BEFORE UPDATE ON available_services FOR EACH ROW EXECUTE PROCEDURE cartodb._cdb_update_updated_at();
-
-
