@@ -109,26 +109,26 @@ SELECT (geocode_postalcode_points(Array['03204'],Array['ESP'])).*
 
 ## Creation steps
 
-1. Download the allCountries.zip file from [GeoNames](www.geonames.org). Import and rename the table as tmp_zipcode_points. You can follow the manual process explained below instead.
+1. Download the allCountries.zip file from [GeoNames](www.geonames.org). Import and rename the table as `tmp_zipcode_points`. You can follow the manual process explained below instead.
 
   The columns that are loaded are the following ones:
-  field_1: corresponding to ISO2
-  field_10: corresponds to latitude
-  field_11: corresponds to longitude
-  field_2: corresponds to ZIP code
+  `field_1`: corresponding to ISO2
+  `field_10`: corresponds to latitude
+  `field_11`: corresponds to longitude
+  `field_2`: corresponds to ZIP code
 
-2. Georeference the table using field11 as longitude and field10 as latitude in order to construct the_geom.
+2. Georeference the table using `field11` as longitude and `field10` as latitude in order to construct `the_geom`.
 
 3. Add column `iso3 (text)` and run `sql/build_zipcode_points_table.sql`.
 
 
 **Alternative manual process for importing and preprocessing**
 
-Open the allCountries.txt file with Excel an add a new row on top. Delete columns C-I and L.
+1. Open the `allCountries.txt` file with Excel an add a new row on top. Delete columns C-I and L.
 
-In the first row, add the following columns: iso2, zipcode, lat, long.
+2. In the first row, add the following columns: `iso2`, `zipcode`, `lat`, `long`.
 
-Import the file ignoring step 2.
+3. Import the file ignoring step 2.
 
 ## Tables
 ### postal_code_points
@@ -187,6 +187,8 @@ Import the file ignoring step 2.
   ![Duplicates](https://camo.githubusercontent.com/1dbd4874830b0654b2fc2e11cd2a650d498f6bc9/68747470733a2f2f646c2e64726f70626f7875736572636f6e74656e742e636f6d2f752f323837393330382f53637265656e25323053686f74253230323031352d30362d3239253230617425323031322e35362e30332e706e67)
 
 # Historic:
+* [30/10/2015]_
+  * Found bug #173 https://github.com/CartoDB/data-services/issues/173 
 * [19/10/2015]:
   * Updates readme with usage examples and setup scripts
 * [08/10/2015]:
