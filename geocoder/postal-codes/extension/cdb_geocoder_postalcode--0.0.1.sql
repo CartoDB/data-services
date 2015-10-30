@@ -5,7 +5,7 @@
 CREATE TYPE geocode_namedplace_v1 AS (q TEXT, geom GEOMETRY, success BOOLEAN);
 CREATE TYPE geocode_postalint_country_v1 AS (q TEXT, c TEXT, geom GEOMETRY, success BOOLEAN);
 CREATE TYPE geocode_namedplace_country_v1 AS (q TEXT, c TEXT, geom GEOMETRY, success BOOLEAN);
-
+CREATE TYPE available_services_v1 AS (q text, adm0_a3 text, postal_code_points boolean, postal_code_polygons boolean);
 
 -- Public API functions --
 --- Geocoding function ---
@@ -256,6 +256,23 @@ CREATE FUNCTION geocode_greatbritain_outward(code text) RETURNS geometry
   RETURN geom;
 END
 $$;
+
+
+CREATE FUNCTION admin0_available_services(name text[]) RETURNS SETOF available_services_v1
+    LANGUAGE plpgsql SECURITY DEFINER
+    AS $$
+  DECLARE 
+    ret available_services_v1%rowtype;
+  BEGIN  RETURN QUERY
+    SELECT d.q, n.adm0_a3, n.postal_code_points, n.postal_code_polygons FROM 
+      (
+        SELECT q, lower(regexp_replace(q, '[^a-zA-Z\u00C0-\u00ff]+', '', 'g'))::text x FROM 
+          (
+            SELECT unnest(name) q
+          ) 
+      g) d LEFT OUTER JOIN admin0_synonyms s ON name_ = d.x LEFT OUTER JOIN available_services n ON s.adm0_a3 = n.adm0_a3 GROUP BY d.q, n.adm0_a3, n.postal_code_points, n.postal_code_polygons;
+END
+$$;
 --------------------------------------------------------------------------------
 
 -- Support tables
@@ -390,4 +407,45 @@ CREATE INDEX global_postal_code_points_postal_code_num_idx ON global_postal_code
 CREATE TRIGGER track_updates AFTER INSERT OR DELETE OR UPDATE OR TRUNCATE ON global_postal_code_points FOR EACH STATEMENT EXECUTE PROCEDURE cartodb.cdb_tablemetadata_trigger();
 CREATE TRIGGER update_the_geom_webmercator_trigger BEFORE INSERT OR UPDATE OF the_geom ON global_postal_code_points FOR EACH ROW EXECUTE PROCEDURE cartodb._cdb_update_the_geom_webmercator();
 CREATE TRIGGER update_updated_at_trigger BEFORE UPDATE ON global_postal_code_points FOR EACH ROW EXECUTE PROCEDURE cartodb._cdb_update_updated_at();
+
+
+
+CREATE TABLE available_services (
+    adm0_a3 text,
+    admin0 boolean,
+    cartodb_id integer NOT NULL,
+    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    updated_at timestamp with time zone DEFAULT now() NOT NULL,
+    the_geom geometry(Geometry,4326),
+    the_geom_webmercator geometry(Geometry,3857),
+    postal_code_points boolean,
+    postal_code_polygons boolean
+);
+
+CREATE SEQUENCE available_services_cartodb_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+ALTER SEQUENCE available_services_cartodb_id_seq_cartodb_id_seq OWNED BY available_services.cartodb_id;
+ALTER TABLE ONLY available_services ALTER COLUMN cartodb_id SET DEFAULT nextval('available_services_cartodb_id_seq_cartodb_id_seq'::regclass);
+
+
+ALTER TABLE ONLY available_services
+    ADD CONSTRAINT available_services_cartodb_id_key UNIQUE (cartodb_id);
+ALTER TABLE ONLY available_services
+    ADD CONSTRAINT available_services_pkey PRIMARY KEY (cartodb_id);
+
+
+
+CREATE INDEX available_services_the_geom_idx ON available_services USING gist (the_geom);
+CREATE INDEX available_services_the_geom_webmercator_idx ON available_services USING gist (the_geom_webmercator);
+
+
+CREATE TRIGGER track_updates AFTER INSERT OR DELETE OR UPDATE OR TRUNCATE ON available_services FOR EACH STATEMENT EXECUTE PROCEDURE cartodb.cdb_tablemetadata_trigger();
+CREATE TRIGGER update_the_geom_webmercator_trigger BEFORE INSERT OR UPDATE OF the_geom ON available_services FOR EACH ROW EXECUTE PROCEDURE cartodb._cdb_update_the_geom_webmercator();
+CREATE TRIGGER update_updated_at_trigger BEFORE UPDATE ON available_services FOR EACH ROW EXECUTE PROCEDURE cartodb._cdb_update_updated_at();
+
 
