@@ -119,7 +119,7 @@ SELECT (geocode_postalcode_points(Array['03204'],Array['ESP'])).*
 
 2. Georeference the table using field11 as longitude and field10 as latitude in order to construct the_geom.
 
-3. Add column iso3 (text) and run sql/build_zipcode_points_table.sql.
+3. Add column `iso3 (text)` and run `sql/build_zipcode_points_table.sql`.
 
 
 **Alternative manual process for importing and preprocessing**
@@ -173,6 +173,7 @@ Import the file ignoring step 2.
 ![Map](https://camo.githubusercontent.com/483eae203445096ffa8bf0fe3d92a99fd9367a01/68747470733a2f2f646c2e64726f70626f7875736572636f6e74656e742e636f6d2f752f323837393330382f53637265656e25323053686f74253230323031352d30362d3239253230617425323031342e30332e34342e706e67)
 # Known issues:
 * The name of the countries added in a column are not being sanitized https://github.com/CartoDB/cartodb/issues/3392
+* Incorrect table usage for polygons and free text https://github.com/CartoDB/data-services/issues/173
 
 # Known deficiencies of the service
 * For the USA polygon zipcode service, Zipcode Tabulation Areas (ZCTA) are being used which [don't correspond to actual zipcode regions](http://web.archive.org/web/20050209030255/http://www.manifold.net/cases/zip_codes/zip_codes.html).
