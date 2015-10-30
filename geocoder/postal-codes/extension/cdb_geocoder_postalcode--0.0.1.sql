@@ -10,8 +10,6 @@ CREATE TYPE geocode_namedplace_country_v1 AS (q TEXT, c TEXT, geom GEOMETRY, suc
 -- Public API functions --
 --- Geocoding function ---
 -- TODO: deal with permissions
--- TODO: check functions
-
 
 CREATE FUNCTION geocode_postalcode_polygons(code text[], inputcountries text[]) RETURNS SETOF geocode_namedplace_country_v1
     LANGUAGE plpgsql SECURITY DEFINER
@@ -44,6 +42,8 @@ END
 $$;
 
 
+-- TODO: The next function works with an incorrect table
+
 CREATE FUNCTION geocode_postalcode_polygons(code text[], inputcountry text) RETURNS SETOF geocode_namedplace_v1
     LANGUAGE plpgsql SECURITY DEFINER
     AS $$
@@ -73,36 +73,7 @@ CREATE FUNCTION geocode_postalcode_polygons(code text[], inputcountry text) RETU
 END
 $$;
 
-
-CREATE FUNCTION geocode_postalcode_polygons(code integer[], inputcountries text[]) RETURNS SETOF geocode_postalint_country_v1
-    LANGUAGE plpgsql SECURITY DEFINER
-    AS $$
-DECLARE 
-  ret geocode_postalint_country_v1%rowtype;
-BEGIN
-  FOR ret IN
-    SELECT
-      q, c, geom, CASE WHEN geom IS NULL THEN FALSE ELSE TRUE END AS success
-    FROM (
-      SELECT 
-        q, c, (
-          SELECT the_geom
-          FROM global_postal_code_polygons
-          WHERE postal_code_num = d.q
-            AND iso3 = (
-                SELECT iso3 FROM country_decoder WHERE
-                lower(d.c) = ANY (synonyms) LIMIT 1
-            )
-        ) geom
-      FROM (SELECT unnest(code) q, unnest(inputcountries) c) d
-    ) v
-  LOOP 
-    RETURN NEXT ret;
-  END LOOP;
-  RETURN;
-END
-$$;
-
+-- TODO: The next function works with an incorrect table
 
 CREATE FUNCTION geocode_postalcode_polygons(code text[]) RETURNS SETOF geocode_namedplace_v1
     LANGUAGE plpgsql SECURITY DEFINER
@@ -130,6 +101,8 @@ CREATE FUNCTION geocode_postalcode_polygons(code text[]) RETURNS SETOF geocode_n
 END
 $$;
 
+------ POINTS ------
+
 
 CREATE FUNCTION geocode_postalcode_points(code text[], inputcountry text) RETURNS SETOF geocode_namedplace_v1
     LANGUAGE plpgsql SECURITY DEFINER
@@ -155,48 +128,6 @@ CREATE FUNCTION geocode_postalcode_points(code text[], inputcountry text) RETURN
       FROM (SELECT unnest(code) q) d
     ) v
   LOOP 
-    RETURN NEXT ret;
-  END LOOP;
-  RETURN;
-END
-$$;
-
-
-
-CREATE FUNCTION geocode_postalcode_points(code text[], inputcountries text[]) RETURNS SETOF geocode_place_country_iso_v1
-    LANGUAGE plpgsql SECURITY DEFINER
-    AS $$
-  DECLARE 
-    ret geocode_place_country_iso_v1%rowtype;
-    geo GEOMETRY;
-  BEGIN
-
-  FOR ret IN
-    SELECT
-      q, c, iso3, geom, CASE WHEN geom IS NULL THEN FALSE ELSE TRUE END AS success
-    FROM (
-      SELECT 
-        q, c, (SELECT iso3 FROM country_decoder WHERE
-                lower(d.c) = ANY (synonyms) LIMIT 1) iso3, (
-          SELECT the_geom
-          FROM global_postal_code_points
-          WHERE postal_code = upper(d.q)
-            AND iso3 = (
-                SELECT iso3 FROM country_decoder WHERE
-                lower(d.c) = ANY (synonyms) LIMIT 1
-            )
-          LIMIT 1
-        ) geom
-      FROM (SELECT unnest(code) q, unnest(inputcountries) c) d
-    ) v
-  LOOP 
-    IF ret.geom IS NULL AND ret.iso3 = 'GBR' THEN
-      geo := geocode_greatbritain_outward(ret.q);
-      IF geo IS NOT NULL THEN
-        ret.geom := geo;
-        ret.success := TRUE;
-      END IF;
-    END IF;
     RETURN NEXT ret;
   END LOOP;
   RETURN;
@@ -263,46 +194,71 @@ CREATE FUNCTION geocode_postalcode_points(code text[]) RETURNS SETOF geocode_nam
 END
 $$;
 
+
+
+CREATE FUNCTION geocode_postalcode_points(code text[], inputcountries text[]) RETURNS SETOF geocode_place_country_iso_v1
+    LANGUAGE plpgsql SECURITY DEFINER
+    AS $$
+  DECLARE 
+    ret geocode_place_country_iso_v1%rowtype;
+    geo GEOMETRY;
+  BEGIN
+
+  FOR ret IN
+    SELECT
+      q, c, iso3, geom, CASE WHEN geom IS NULL THEN FALSE ELSE TRUE END AS success
+    FROM (
+      SELECT 
+        q, c, (SELECT iso3 FROM country_decoder WHERE
+                lower(d.c) = ANY (synonyms) LIMIT 1) iso3, (
+          SELECT the_geom
+          FROM global_postal_code_points
+          WHERE postal_code = upper(d.q)
+            AND iso3 = (
+                SELECT iso3 FROM country_decoder WHERE
+                lower(d.c) = ANY (synonyms) LIMIT 1
+            )
+          LIMIT 1
+        ) geom
+      FROM (SELECT unnest(code) q, unnest(inputcountries) c) d
+    ) v
+  LOOP 
+    IF ret.geom IS NULL AND ret.iso3 = 'GBR' THEN
+      geo := geocode_greatbritain_outward(ret.q);
+      IF geo IS NOT NULL THEN
+        ret.geom := geo;
+        ret.success := TRUE;
+      END IF;
+    END IF;
+    RETURN NEXT ret;
+  END LOOP;
+  RETURN;
+END
+$$;
+
+
+
+CREATE FUNCTION geocode_greatbritain_outward(code text) RETURNS geometry
+    LANGUAGE plpgsql
+    AS $$
+  DECLARE
+    geom GEOMETRY;
+  BEGIN
+  code := trim(code);
+  geom := NULL;
+  IF array_length(string_to_array(code,' '),1) = 2 THEN
+    code := split_part(code, ' ', 1) || ' ' || rpad(substring(split_part(code, ' ', 2), 1, 1), 3, '#');
+    SELECT the_geom INTO geom FROM global_postal_code_points WHERE 
+      postal_code = code
+      AND iso3 = 'GBR'
+      LIMIT 1;
+  END IF;
+  RETURN geom;
+END
+$$;
 --------------------------------------------------------------------------------
 
 -- Support tables
-
-
-CREATE TABLE postal_code_points (
-    cartodb_id integer NOT NULL,
-    adm0_a3 text,
-    postal_code text,
-    created_at timestamp with time zone DEFAULT now() NOT NULL,
-    updated_at timestamp with time zone DEFAULT now() NOT NULL,
-    the_geom geometry(Geometry,4326),
-    the_geom_webmercator geometry(Geometry,3857)
-);
-
-
-CREATE SEQUENCE postal_code_points_cartodb_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-ALTER SEQUENCE postal_code_points_cartodb_id_seq OWNED BY postal_code_points.cartodb_id;
-ALTER TABLE ONLY postal_code_points ALTER COLUMN cartodb_id SET DEFAULT nextval('postal_code_points_cartodb_id_seq'::regclass);
-
-
-ALTER TABLE ONLY postal_code_points
-    ADD CONSTRAINT postal_code_points_cartodb_id_key UNIQUE (cartodb_id);
-ALTER TABLE ONLY postal_code_points
-    ADD CONSTRAINT postal_code_points_pkey PRIMARY KEY (cartodb_id);
-
-
-CREATE INDEX postal_code_points_the_geom_idx ON postal_code_points USING gist (the_geom);
-CREATE INDEX postal_code_points_the_geom_webmercator_idx ON postal_code_points USING gist (the_geom_webmercator);
-
-
-CREATE TRIGGER track_updates AFTER INSERT OR DELETE OR UPDATE OR TRUNCATE ON postal_code_points FOR EACH STATEMENT EXECUTE PROCEDURE cartodb.cdb_tablemetadata_trigger();
-CREATE TRIGGER update_the_geom_webmercator_trigger BEFORE INSERT OR UPDATE OF the_geom ON postal_code_points FOR EACH ROW EXECUTE PROCEDURE cartodb._cdb_update_the_geom_webmercator();
-CREATE TRIGGER update_updated_at_trigger BEFORE UPDATE ON postal_code_points FOR EACH ROW EXECUTE PROCEDURE cartodb._cdb_update_updated_at();
-
 
 
 CREATE TABLE postal_code_polygons (
