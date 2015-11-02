@@ -29,7 +29,7 @@ CREATE OR REPLACE FUNCTION geocode_postalcode_points(code text[], inputcountry t
   END LOOP;
   RETURN;
 END
-$$ LANGUAGE 'plpgsql' SECURITY DEFINER;
+$$;
 
 -- codes array, countries array
 
