@@ -136,8 +136,9 @@ $$ LANGUAGE 'plpgsql' SECURITY DEFINER;
 --SELECT (geocode_postalcode_polygons(Array['10013','G9H','03782'], Array['USA', 'Canada', 'US'])).*
 -- codes array, countries array
 
-CREATE OR REPLACE FUNCTION geocode_postalcode_polygons(code text[], inputcountries text[])
-  RETURNS SETOF geocode_namedplace_country_v1 AS $$
+CREATE FUNCTION geocode_postalcode_polygons(code text[], inputcountries text[]) RETURNS SETOF geocode_namedplace_country_v1
+    LANGUAGE plpgsql SECURITY DEFINER
+    AS $$
   DECLARE 
     ret geocode_namedplace_country_v1%rowtype;
     adm text[];
@@ -152,9 +153,9 @@ CREATE OR REPLACE FUNCTION geocode_postalcode_polygons(code text[], inputcountri
       SELECT 
         q, c, (
           SELECT the_geom
-          FROM postal_code_polygons
+          FROM global_postal_code_polygons
           WHERE postal_code = CASE WHEN a = 'CAN' THEN substring(upper(d.q) from 1 for 3) ELSE upper(d.q) END
-            AND adm0_a3 = a
+            AND iso3 = a
         ) geom
       FROM (SELECT unnest(code) q, unnest(inputcountries) c, unnest(adm) a) d
     ) v
@@ -163,7 +164,7 @@ CREATE OR REPLACE FUNCTION geocode_postalcode_polygons(code text[], inputcountri
   END LOOP;
   RETURN;
 END
-$$ LANGUAGE 'plpgsql' SECURITY DEFINER;
+$$;
 
 
 -- codes array integers, countries array
