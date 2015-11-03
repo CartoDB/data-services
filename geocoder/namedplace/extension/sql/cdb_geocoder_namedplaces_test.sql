@@ -10,7 +10,7 @@ SELECT (geocode_namedplace(Array['Elche', 'Granada', 'Madrid'], 'Spain')).*;
 SELECT (geocode_namedplace(Array['sunapee', 'sunapeeee', 'New York City', 'Madrid'], Array['', 'US', 'United States', NULL])).*;
 SELECT (geocode_namedplace(Array['Portland', 'Portland', 'New York City'], Array['Maine',    'Oregon',    NULL], 'USA')).*;
 SELECT (geocode_namedplace(Array['Portland'], 'Oregon', 'USA')).*;
-SELECT (geocode_namedplace(Array['Portland', 'Portland', 'New York City'], Array['Maine',    'Oregon',    NULL], Array['USA'])).*
+SELECT (geocode_namedplace(Array['Portland', 'Portland', 'New York City'], Array['Maine',    'Oregon',    NULL], Array['USA'])).*;
 
 
 -- Mock the varnish invalidation function
