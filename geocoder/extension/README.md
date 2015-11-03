@@ -1,5 +1,5 @@
-# CartoDB admin0 geocoder extension
-Postgres extension for the CartoDB admin0 geocoder. It is meant to contain the functions and related objects needed to geocode by admin0 regions. It is not meant to contain the actual data used to geocode them.
+# CartoDB geocoder extension
+Postgres extension for the CartoDB geocoder. It is meant to contain the functions and related objects needed to provide a geocoding service for administrative areas of level 0, administrative areas of level 1, postal codes, IP addresses and city names. It is not meant to contain the actual data used to geocode them.
 
 ## Dependencies
 This extension is thought to be used on top of CartoDB platform. Therefore a cartodb user is required to install the extension onto it.
@@ -30,7 +30,7 @@ psql -U development_cartodb_user_fe3b850a-01c0-48f9-8a26-a82f09e9b53f cartodb_de
 and then:
 
 ```sql
-CREATE EXTENSION cdb_geocoder_admin0;
+CREATE EXTENSION cdb_geocoder;
 ```
 
 The extension creation in the user's db does not require special privileges. It can be even created from the sql api.
