@@ -1,21 +1,7 @@
-CREATE EXTENSION postgis;
-CREATE EXTENSION schema_triggers;
-CREATE EXTENSION plpythonu;
-CREATE EXTENSION cartodb;
-CREATE EXTENSION cdb_geocoder_admin1;
-
 -- Check that the geocoding functions are callable, should return NULL
 SELECT (geocode_admin1_polygons(Array['TX','Cuidad Real', 'sevilla'])).*;
 SELECT (geocode_admin1_polygons(Array['NH', 'Vermont'], 'United States')).*;
 SELECT (geocode_admin1_polygons(Array['az', 'az'], Array['Ecuador', 'USA'])).*;
-
--- Mock the varnish invalidation function
-CREATE OR REPLACE FUNCTION public.cdb_invalidate_varnish(table_name text) RETURNS void AS $$
-BEGIN
-  RETURN;
-END
-$$
-LANGUAGE plpgsql;
 
 -- Add a few data to the sources
 INSERT INTO global_province_polygons (the_geom, synonyms, iso3) VALUES (

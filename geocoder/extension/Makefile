@@ -5,6 +5,7 @@ EXTVERSION = $(shell grep default_version $(EXTENSION).control | sed -e "s/defau
 
 DATA = $(EXTENSION)--$(EXTVERSION).sql
 REGRESS = \
+  00_install_test \
   cdb_geocoder_admin0_test \
   cdb_geocoder_admin1_test
 
