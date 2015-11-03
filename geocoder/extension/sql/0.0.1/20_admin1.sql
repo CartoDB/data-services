@@ -176,14 +176,14 @@ CREATE TABLE global_province_polygons (
     frequency double precision
 );
 
-CREATE SEQUENCE global_province_polygons_cartodb_id_seq
+CREATE SEQUENCE ne_10m_admin_1_states_provinces_cartodb_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
-ALTER SEQUENCE global_province_polygons_cartodb_id_seq OWNED BY global_province_polygons.cartodb_id;
-ALTER TABLE ONLY global_province_polygons ALTER COLUMN cartodb_id SET DEFAULT nextval('global_province_polygons_cartodb_id_seq'::regclass);
+ALTER SEQUENCE ne_10m_admin_1_states_provinces_cartodb_id_seq OWNED BY global_province_polygons.cartodb_id;
+ALTER TABLE ONLY global_province_polygons ALTER COLUMN cartodb_id SET DEFAULT nextval('ne_10m_admin_1_states_provinces_cartodb_id_seq'::regclass);
 ALTER TABLE ONLY global_province_polygons
     ADD CONSTRAINT global_province_polygons_cartodb_id_key UNIQUE (cartodb_id);
 ALTER TABLE ONLY global_province_polygons
