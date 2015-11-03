@@ -1,8 +1,3 @@
--- Response types for namedplaces geocoder
-CREATE TYPE geocode_namedplace_country_v1 AS (q text, c text, geom geometry, success boolean);
-CREATE TYPE geocode_namedplace_v1 AS (q text, geom geometry, success boolean);
-CREATE TYPE geocode_admin1_country_v1 AS (q text, a1 text, c text, geom geometry, success boolean);
-
 -- Public API functions --
 --- Geocoding function ---
 -- TODO: deal with permissions

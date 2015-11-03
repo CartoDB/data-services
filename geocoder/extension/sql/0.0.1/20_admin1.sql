@@ -1,9 +1,3 @@
--- Response types for admin1 geocoder
--- TODO: check if the types exist already in the db
-
-CREATE TYPE geocode_admin_country_v1 AS (q TEXT, c TEXT, geom GEOMETRY, success BOOLEAN);
-
-
 -- Public API functions --
 --- Geocoding function ---
 -- TODO: deal with permissions

@@ -9,7 +9,8 @@ REGRESS = \
   cdb_geocoder_admin0_test \
   cdb_geocoder_admin1_test \
   cdb_geocoder_ipaddr_test \
-  cdb_geocoder_namedplaces_test
+  cdb_geocoder_namedplaces_test \
+  cdb_geocoder_postalcode_test
 
 # postgres build stuff
 PG_CONFIG = pg_config

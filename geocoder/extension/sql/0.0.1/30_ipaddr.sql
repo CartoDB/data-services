@@ -1,6 +1,3 @@
--- Response types for IP addresses geocoder
-CREATE TYPE geocode_ip_v1 AS (q text, geom geometry, success boolean);
-
 -- Public API functions --
 --- Geocoding function ---
 -- TODO: deal with permissions

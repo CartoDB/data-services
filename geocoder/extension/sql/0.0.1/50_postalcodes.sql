@@ -1,12 +1,3 @@
--- Complain if script is sourced in psql, rather than via CREATE EXTENSION
-\echo Use "CREATE EXTENSION cdb_geocoder_postalcode" to load this file. \quit
-
--- Response types for admin0 geocoder
-CREATE TYPE geocode_namedplace_v1 AS (q TEXT, geom GEOMETRY, success BOOLEAN);
-CREATE TYPE geocode_postalint_country_v1 AS (q TEXT, c TEXT, geom GEOMETRY, success BOOLEAN);
-CREATE TYPE geocode_namedplace_country_v1 AS (q TEXT, c TEXT, geom GEOMETRY, success BOOLEAN);
-CREATE TYPE available_services_v1 AS (q text, adm0_a3 text, postal_code_points boolean, postal_code_polygons boolean);
-
 -- Public API functions --
 --- Geocoding function ---
 -- TODO: deal with permissions
@@ -391,8 +382,8 @@ CREATE SEQUENCE available_services_cartodb_id_seq
     NO MAXVALUE
     CACHE 1;
 
-ALTER SEQUENCE available_services_cartodb_id_seq_cartodb_id_seq OWNED BY available_services.cartodb_id;
-ALTER TABLE ONLY available_services ALTER COLUMN cartodb_id SET DEFAULT nextval('available_services_cartodb_id_seq_cartodb_id_seq'::regclass);
+ALTER SEQUENCE available_services_cartodb_id_seq OWNED BY available_services.cartodb_id;
+ALTER TABLE ONLY available_services ALTER COLUMN cartodb_id SET DEFAULT nextval('available_services_cartodb_id_seq'::regclass);
 
 
 ALTER TABLE ONLY available_services
