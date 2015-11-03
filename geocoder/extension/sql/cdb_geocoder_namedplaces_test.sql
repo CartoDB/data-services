@@ -1,9 +1,3 @@
-CREATE EXTENSION postgis;
-CREATE EXTENSION schema_triggers;
-CREATE EXTENSION plpythonu;
-CREATE EXTENSION cartodb;
-CREATE EXTENSION cdb_geocoder_namedplaces;
-
 -- Check that the different geocoding functions are callable, should return success = false
 SELECT (geocode_namedplace(Array['Madrid', 'New York City', 'sunapee'])).*;
 SELECT (geocode_namedplace(Array['Elche', 'Granada', 'Madrid'], 'Spain')).*;
@@ -11,15 +5,6 @@ SELECT (geocode_namedplace(Array['sunapee', 'sunapeeee', 'New York City', 'Madri
 SELECT (geocode_namedplace(Array['Portland', 'Portland', 'New York City'], Array['Maine',    'Oregon',    NULL], 'USA')).*;
 SELECT (geocode_namedplace(Array['Portland'], 'Oregon', 'USA')).*;
 SELECT (geocode_namedplace(Array['Portland', 'Portland', 'New York City'], Array['Maine',    'Oregon',    NULL], Array['USA'])).*;
-
-
--- Mock the varnish invalidation function
-CREATE OR REPLACE FUNCTION public.cdb_invalidate_varnish(table_name text) RETURNS void AS $$
-BEGIN
-  RETURN;
-END
-$$
-LANGUAGE plpgsql;
 
 -- Add a named place source
 COPY global_cities_alternates_limited (geoname_id, name, the_geom, created_at, updated_at, the_geom_webmercator, preferred, lowername, cartodb_id, admin1_geonameid, iso2, admin1) FROM stdin;

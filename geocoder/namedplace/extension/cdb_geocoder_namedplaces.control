@@ -1,6 +1,0 @@
-# cdb geocoder namedplaces extension
-comment = 'CartoDB named places internal geocoder'
-default_version = '0.0.1'
-relocatable = true
-requires = cartodb
-superuser = false
