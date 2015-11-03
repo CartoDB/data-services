@@ -1,0 +1,6 @@
+# cdb geocoder admin1 extension
+comment = 'CartoDB admin1 internal geocoder'
+default_version = '0.0.1'
+relocatable = true
+requires = cartodb
+superuser = false
