@@ -30,14 +30,14 @@ CREATE TABLE country_decoder (
 );
 
 
-CREATE SEQUENCE country_decoder_cartodb_id_seq
+CREATE SEQUENCE countries_cartodb_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
-ALTER SEQUENCE country_decoder_cartodb_id_seq OWNED BY country_decoder.cartodb_id;
-ALTER TABLE ONLY country_decoder ALTER COLUMN cartodb_id SET DEFAULT nextval('country_decoder_cartodb_id_seq'::regclass);
+ALTER SEQUENCE countries_cartodb_id_seq OWNED BY country_decoder.cartodb_id;
+ALTER TABLE ONLY country_decoder ALTER COLUMN cartodb_id SET DEFAULT nextval('countries_cartodb_id_seq'::regclass);
 
 ALTER TABLE ONLY country_decoder
     ADD CONSTRAINT country_decoder_cartodb_id_key UNIQUE (cartodb_id);
