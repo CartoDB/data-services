@@ -22,14 +22,29 @@ $$
 LANGUAGE plpgsql;
 
 -- Add a named place source
-COPY global_cities_alternates_limited (geoname_id, name, the_geom, created_at, updated_at, the_geom_webmercator, preferred, lowername, cartodb_id, admin1_geonameid, iso2, admin1) FROM stdin;
-3128760	barcelona	\N	2014-02-11 18:23:18.115612+00	2014-02-25 16:41:15.278786+00	\N	t	barcelona	7530944	409419	\N	56
-\.
+INSERT INTO global_cities_alternates_limited(name, preferred, geoname_id, lowername, iso2, admin1, admin1_geonameid) VALUES (
+  'Barcelona',
+  't',
+  3128760,
+  'barcelona', 
+  'ES',
+  '56',
+  409419
+);
 
-COPY global_cities_points_limited (geoname_id, name, asciiname, altnames, featclass, featcode, iso2, admin1, admin2, population, the_geom, created_at, updated_at, the_geom_webmercator, cartodb_id, lowername) FROM stdin;
-2421056	Barcelona	Barcelona		P	PPLA	ES	B		185	0101000020E6100000CA15DEE522E653C0A4C2D842902B4540	2015-06-13 14:48:34.341372+00	2015-06-15 16:53:41.067784+00	0101000020110F00000643969A73E660C10FF27276F0E15341	8653176	barcelona
-\.
-
+INSERT INTO global_cities_points_limited(name, geoname_id, asciiname, featclass, featcode, iso2, admin1, admin2, population, the_geom, lowername) VALUES(
+  'Barcelona',
+  2421056,
+  'Barcelona', 
+  'P',
+  'PPLA',
+  'ES',
+  'B',
+  '185',
+  234234,
+  '0101000020E6100000CA15DEE522E653C0A4C2D842902B4540',
+  'barcelona'
+)
 -- Check that the geocoding function is callable, should return success = true
-SELECT (geocode_namedplace(Array['Barcelona'])).*
+SELECT (geocode_namedplace(Array['Barcelona'])).geom;
 
