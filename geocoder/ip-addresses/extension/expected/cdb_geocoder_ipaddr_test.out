@@ -18,10 +18,19 @@ END
 $$
 LANGUAGE plpgsql;
 -- Add a few IP sources
-COPY ip_address_locations (network_start_ip, the_geom, cartodb_id, created_at, updated_at, the_geom_webmercator) FROM stdin;
+INSERT INTO ip_address_locations (network_start_ip, the_geom) VALUES ('::ffff:2.235.35.0'::inet, '0101000020E610000072F90FE9B7CF22405DFE43FAEDC34640');
+INSERT INTO ip_address_locations (network_start_ip, the_geom) VALUES ('::ffff:31.7.187.0'::inet, '');
+ERROR:  parse error - invalid geometry
+LINE 1: ..._start_ip, the_geom) VALUES ('::ffff:31.7.187.0'::inet, '');
+                                                                   ^
+INSERT INTO ip_address_locations (network_start_ip, the_geom) VALUES ('::ffff:64.110.146.0'::inet, '');
+ERROR:  parse error - invalid geometry
+LINE 1: ...tart_ip, the_geom) VALUES ('::ffff:64.110.146.0'::inet, '');
+                                                                   ^
 -- Check that the geocoding function is callable, should return success = true
-SELECT (geocode_ip(Array['2.235.35.0'])).*;
-     q      |                        geom                        | success 
-------------+----------------------------------------------------+---------
- 2.235.35.0 | 0101000020E610000072F90FE9B7CF22405DFE43FAEDC34640 | t
+SELECT (geocode_ip(Array['2.235.35.0'])).geom;
+                        geom                        
+----------------------------------------------------
+ 0101000020E610000072F90FE9B7CF22405DFE43FAEDC34640
 (1 row)
+
