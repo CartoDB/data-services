@@ -1,6 +1,3 @@
--- Complain if script is sourced in psql, rather than via CREATE EXTENSION
-\echo Use "CREATE EXTENSION cdb_geocoder_admin0" to load this file. \quit
-
 -- Response types for admin0 geocoder
 CREATE TYPE geocode_admin_v1 AS (q TEXT, geom GEOMETRY, success BOOLEAN);
 CREATE TYPE synonym_lookup_v1 AS (q TEXT, adm0_a3 TEXT);

@@ -1,3 +1,5 @@
+# Makefile to generate the extension out of separate sql source files.
+# Once a version is released, it is not meant to be changed. E.g: once version 0.0.1 is out, it SHALL NOT be changed.
 EXTENSION = cdb_geocoder
 EXTVERSION = $(shell grep default_version $(EXTENSION).control | sed -e "s/default_version[[:space:]]*=[[:space:]]*'\([^']*\)'/\1/")
 
@@ -17,3 +19,7 @@ $(DATA): $(SOURCES_DATA)
 	cat $(SOURCES_DATA) >> $@
 
 all: $(DATA)
+
+# Only meant for development time, do not use once a version is released
+devclean:
+	rm -f $(DATA)
