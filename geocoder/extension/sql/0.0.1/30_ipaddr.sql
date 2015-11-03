@@ -48,14 +48,14 @@ CREATE TABLE ip_address_locations (
     the_geom_webmercator geometry(Geometry,3857)
 );
 
-CREATE SEQUENCE ip_address_locations_cartodb_id_seq
+CREATE SEQUENCE geolite2_city_blocks_cartodb_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
-ALTER SEQUENCE ip_address_locations_cartodb_id_seq OWNED BY ip_address_locations.cartodb_id;
-ALTER TABLE ONLY ip_address_locations ALTER COLUMN cartodb_id SET DEFAULT nextval('ip_address_locations_cartodb_id_seq'::regclass);
+ALTER SEQUENCE geolite2_city_blocks_cartodb_id_seq OWNED BY ip_address_locations.cartodb_id;
+ALTER TABLE ONLY ip_address_locations ALTER COLUMN cartodb_id SET DEFAULT nextval('geolite2_city_blocks_cartodb_id_seq'::regclass);
 
 
 ALTER TABLE ONLY ip_address_locations
