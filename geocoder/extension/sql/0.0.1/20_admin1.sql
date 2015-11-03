@@ -1,6 +1,3 @@
--- Complain if script is sourced in psql, rather than via CREATE EXTENSION
-\echo Use "CREATE EXTENSION cdb_geocoder_admin1" to load this file. \quit
-
 -- Response types for admin1 geocoder
 -- TODO: check if the types exist already in the db
 
