@@ -11,13 +11,15 @@ SELECT (geocode_namedplace(Array['Madrid', 'New York City', 'sunapee'])).*;
  New York City |      | f
  sunapee       |      | f
 (3 rows)
+
 SELECT (geocode_namedplace(Array['Elche', 'Granada', 'Madrid'], 'Spain')).*;
     q    |   c   | geom | success 
 ---------+-------+------+---------
  Elche   | Spain |      | f
  Granada | Spain |      | f
  Madrid  | Spain |      | f
- (3 rows)
+(3 rows)
+
 SELECT (geocode_namedplace(Array['sunapee', 'sunapeeee', 'New York City', 'Madrid'], Array['', 'US', 'United States', NULL])).*;
        q       |       c       | geom | success 
 ---------------+---------------+------+---------
@@ -26,6 +28,7 @@ SELECT (geocode_namedplace(Array['sunapee', 'sunapeeee', 'New York City', 'Madri
  sunapeeee     | US            |      | f
  New York City | United States |      | f
 (4 rows)
+
 SELECT (geocode_namedplace(Array['Portland', 'Portland', 'New York City'], Array['Maine',    'Oregon',    NULL], 'USA')).*;
        q       |   a1   |  c  | geom | success 
 ---------------+--------+-----+------+---------
@@ -33,11 +36,13 @@ SELECT (geocode_namedplace(Array['Portland', 'Portland', 'New York City'], Array
  Portland      | Maine  | USA |      | f
  Portland      | Oregon | USA |      | f
 (3 rows)
+
 SELECT (geocode_namedplace(Array['Portland'], 'Oregon', 'USA')).*;
     q     |   a1   |  c  | geom | success 
 ----------+--------+-----+------+---------
  Portland | Oregon | USA |      | f
 (1 row)
+
 SELECT (geocode_namedplace(Array['Portland', 'Portland', 'New York City'], Array['Maine',    'Oregon',    NULL], Array['USA'])).*;
        q       |   a1   |  c  | geom | success 
 ---------------+--------+-----+------+---------
@@ -62,3 +67,4 @@ SELECT (geocode_namedplace(Array['Barcelona'])).*
 -----------+----------------------------------------------------+---------
  Barcelona | 0101000020E6100000CA15DEE522E653C0A4C2D842902B4540 | t
 (1 row)
+
