@@ -1,6 +1,3 @@
--- Complain if script is sourced in psql, rather than via CREATE EXTENSION
-\echo Use "CREATE EXTENSION cdb_geocoder_ipaddr" to load this file. \quit
-
 -- Response types for IP addresses geocoder
 CREATE TYPE geocode_ip_v1 AS (q text, geom geometry, success boolean);
 
