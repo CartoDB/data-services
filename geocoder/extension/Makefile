@@ -1,7 +1,7 @@
 EXTENSION = cdb_geocoder
 EXTVERSION = $(shell grep default_version $(EXTENSION).control | sed -e "s/default_version[[:space:]]*=[[:space:]]*'\([^']*\)'/\1/")
 
-DATA = cdb_geocoder--0.0.1.sql
+DATA = $(EXTENSION)--$(EXTVERSION).sql
 REGRESS = cdb_geocoder_admin0_test
 
 # postgres build stuff
@@ -10,10 +10,10 @@ PGXS := $(shell $(PG_CONFIG) --pgxs)
 include $(PGXS)
 
 
-SOURCES_0_0_1 = $(wildcard sql/0.0.1/*.sql)
+SOURCES_DATA = $(wildcard sql/$(EXTVERSION)/*.sql)
 
-cdb_geocoder--0.0.1.sql: $(SOURCES_0_0_1)
+$(DATA): $(SOURCES_DATA)
 	rm -f $@
-	cat $(SOURCES_0_0_1) >> $@
+	cat $(SOURCES_DATA) >> $@
 
 all: $(DATA)
