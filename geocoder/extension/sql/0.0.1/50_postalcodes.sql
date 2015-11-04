@@ -334,14 +334,14 @@ CREATE TABLE global_postal_code_points (
 );
 
 
-CREATE SEQUENCE global_postal_code_points_cartodb_id_seq
+CREATE SEQUENCE allcountries_cartodb_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
-ALTER SEQUENCE global_postal_code_points_cartodb_id_seq OWNED BY global_postal_code_points.cartodb_id;
-ALTER TABLE ONLY global_postal_code_points ALTER COLUMN cartodb_id SET DEFAULT nextval('global_postal_code_points_cartodb_id_seq'::regclass);
+ALTER SEQUENCE allcountries_cartodb_id_seq OWNED BY global_postal_code_points.cartodb_id;
+ALTER TABLE ONLY global_postal_code_points ALTER COLUMN cartodb_id SET DEFAULT nextval('allcountries_cartodb_id_seq'::regclass);
 
 
 ALTER TABLE ONLY global_postal_code_points
