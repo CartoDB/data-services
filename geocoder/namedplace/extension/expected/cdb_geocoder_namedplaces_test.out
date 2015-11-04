@@ -1,0 +1,96 @@
+CREATE EXTENSION postgis;
+CREATE EXTENSION schema_triggers;
+CREATE EXTENSION plpythonu;
+CREATE EXTENSION cartodb;
+CREATE EXTENSION cdb_geocoder_namedplaces;
+-- Check that the different geocoding functions are callable, should return success = false
+SELECT (geocode_namedplace(Array['Madrid', 'New York City', 'sunapee'])).*;
+       q       | geom | success 
+---------------+------+---------
+ Madrid        |      | f
+ New York City |      | f
+ sunapee       |      | f
+(3 rows)
+
+SELECT (geocode_namedplace(Array['Elche', 'Granada', 'Madrid'], 'Spain')).*;
+    q    |   c   | geom | success 
+---------+-------+------+---------
+ Elche   | Spain |      | f
+ Granada | Spain |      | f
+ Madrid  | Spain |      | f
+(3 rows)
+
+SELECT (geocode_namedplace(Array['sunapee', 'sunapeeee', 'New York City', 'Madrid'], Array['', 'US', 'United States', NULL])).*;
+       q       |       c       | geom | success 
+---------------+---------------+------+---------
+ Madrid        |               |      | f
+ sunapee       |               |      | f
+ sunapeeee     | US            |      | f
+ New York City | United States |      | f
+(4 rows)
+
+SELECT (geocode_namedplace(Array['Portland', 'Portland', 'New York City'], Array['Maine',    'Oregon',    NULL], 'USA')).*;
+       q       |   a1   |  c  | geom | success 
+---------------+--------+-----+------+---------
+ New York City |        | USA |      | f
+ Portland      | Maine  | USA |      | f
+ Portland      | Oregon | USA |      | f
+(3 rows)
+
+SELECT (geocode_namedplace(Array['Portland'], 'Oregon', 'USA')).*;
+    q     |   a1   |  c  | geom | success 
+----------+--------+-----+------+---------
+ Portland | Oregon | USA |      | f
+(1 row)
+
+SELECT (geocode_namedplace(Array['Portland', 'Portland', 'New York City'], Array['Maine',    'Oregon',    NULL], Array['USA'])).*
+-- Mock the varnish invalidation function
+CREATE OR REPLACE FUNCTION public.cdb_invalidate_varnish(table_name text) RETURNS void AS $$
+BEGIN
+  RETURN;
+END
+$$
+LANGUAGE plpgsql;
+ERROR:  syntax error at or near "CREATE"
+LINE 3: CREATE OR REPLACE FUNCTION public.cdb_invalidate_varnish(tab...
+        ^
+-- Add a named place source
+INSERT INTO global_cities_alternates_limited(name, preferred, geoname_id, lowername, iso2, admin1, admin1_geonameid) VALUES (
+'Barcelona',
+'t',
+3128760,
+'barcelona', 
+'ES',
+'56',
+409419
+);
+WARNING:  Missing cdb_invalidate_varnish()
+CONTEXT:  SQL statement "WITH nv as (
+    SELECT TG_RELID as tabname, NOW() as t
+  ), updated as (
+    UPDATE cartodb.CDB_TableMetadata x SET updated_at = nv.t
+    FROM nv WHERE x.tabname = nv.tabname
+    RETURNING x.tabname
+  )
+  INSERT INTO cartodb.CDB_TableMetadata SELECT nv.*
+  FROM nv LEFT JOIN updated USING(tabname)
+  WHERE updated.tabname IS NULL"
+PL/pgSQL function cdb_tablemetadata_trigger() line 14 at SQL statement
+INSERT INTO global_cities_points_limited(name, geoname_id, asciiname, featclass, featcode, iso2, admin1, admin2, population, the_geom, lowername) VALUES(
+'Barcelona',
+2421056,
+'Barcelona', 
+'P',
+'PPLA',
+'ES',
+'B',
+'185',
+234234,
+'0101000020E6100000CA15DEE522E653C0A4C2D842902B4540',
+'barcelona'
+)
+-- Check that the geocoding function is callable, should return success = true
+SELECT (geocode_namedplace(Array['Barcelona'])).geom;
+ERROR:  syntax error at or near "SELECT"
+LINE 15: SELECT (geocode_namedplace(Array['Barcelona'])).geom;
+         ^
