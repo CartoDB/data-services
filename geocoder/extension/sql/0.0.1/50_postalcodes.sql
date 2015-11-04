@@ -283,14 +283,14 @@ CREATE TABLE global_postal_code_polygons (
 );
 
 
-CREATE SEQUENCE global_postal_code_polygons_cartodb_id_seq
+CREATE SEQUENCE tl_2013_us_zcta510_cartodb_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
-ALTER SEQUENCE global_postal_code_polygons_cartodb_id_seq OWNED BY global_postal_code_polygons.cartodb_id;
-ALTER TABLE ONLY global_postal_code_polygons ALTER COLUMN cartodb_id SET DEFAULT nextval('global_postal_code_polygons_cartodb_id_seq'::regclass);
+ALTER SEQUENCE tl_2013_us_zcta510_cartodb_id_seq OWNED BY global_postal_code_polygons.cartodb_id;
+ALTER TABLE ONLY global_postal_code_polygons ALTER COLUMN cartodb_id SET DEFAULT nextval('tl_2013_us_zcta510_cartodb_id_seq'::regclass);
 
 
 ALTER TABLE ONLY global_postal_code_polygons
