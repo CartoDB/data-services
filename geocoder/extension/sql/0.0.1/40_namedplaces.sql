@@ -361,14 +361,14 @@ CREATE TABLE global_cities_points_limited (
 );
 
 
-CREATE SEQUENCE global_cities_points_limited_cartodb_id_seq
+CREATE SEQUENCE points_cities_le_cartodb_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
-ALTER SEQUENCE global_cities_points_limited_cartodb_id_seq OWNED BY global_cities_points_limited.cartodb_id;
-ALTER TABLE ONLY global_cities_points_limited ALTER COLUMN cartodb_id SET DEFAULT nextval('global_cities_points_limited_cartodb_id_seq'::regclass);
+ALTER SEQUENCE points_cities_le_cartodb_id_seq OWNED BY global_cities_points_limited.cartodb_id;
+ALTER TABLE ONLY global_cities_points_limited ALTER COLUMN cartodb_id SET DEFAULT nextval('points_cities_le_cartodb_id_seq'::regclass);
 
 ALTER TABLE ONLY global_cities_points_limited
     ADD CONSTRAINT global_cities_points_limited_cartodb_id_key UNIQUE (cartodb_id);
