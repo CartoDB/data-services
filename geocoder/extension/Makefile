@@ -4,13 +4,8 @@ EXTENSION = cdb_geocoder
 EXTVERSION = $(shell grep default_version $(EXTENSION).control | sed -e "s/default_version[[:space:]]*=[[:space:]]*'\([^']*\)'/\1/")
 
 DATA = $(EXTENSION)--$(EXTVERSION).sql
-REGRESS = \
-  00_install_test \
-  cdb_geocoder_admin0_test \
-  cdb_geocoder_admin1_test \
-  cdb_geocoder_ipaddr_test \
-  cdb_geocoder_namedplaces_test \
-  cdb_geocoder_postalcode_test
+
+REGRESS = $(notdir $(basename $(wildcard sql/*test.sql)))
 
 # postgres build stuff
 PG_CONFIG = pg_config
