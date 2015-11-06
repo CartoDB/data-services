@@ -9,5 +9,5 @@ This project contains data from Open Data portals, government or other sources. 
 ## Administrative regions level 1 geocoder
 The datasets addressed in this section and their corresponding sources are as follows:
 * global_province_polygons
-  * From [Natural Earth Data. Public Domain license.](http://www.naturalearthdata.com/about/terms-of-use/)
+  * Data from [Natural Earth Data. Public Domain license.](http://www.naturalearthdata.com/about/terms-of-use/)
 * admin1_synonyms
