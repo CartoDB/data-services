@@ -1052,11 +1052,35 @@ Data library
 
 **Source**: [GeoNetwork](http://salbgeonetwork.grid.unep.ch/geonetwork/srv/en/main.home)
 
-**License**:
+**License**: Apache 2.0
 
 **Table name**: australia_adm1
 
 **Sync table**: `false` 
+
+#### States an territories of Australia (Statistical Area level 4) NOT YET
+
+**Description**: Population in the range of 100k-500k
+
+**Source**: [National Map NICTA](http://geoserver.nationalmap.nicta.com.au/region_map/web)
+
+**License**: Apache 2.0
+
+**Table name**: australia_adm2
+
+**Sync table**:`false`
+
+#### States an territories of Australia (Statistical Area level 3) NOT YET
+
+**Description**: Population in the range of 100k-500k
+
+**Source**: [National Map NICTA](http://geoserver.nationalmap.nicta.com.au/region_map/web)
+
+**License**: Apache 2.0
+
+**Table name**: australia_adm3
+
+**Sync table**:`false`
 
 #### Ireland counties
 **Description**: Geometries for traditional and administrative counties in Ireland.
