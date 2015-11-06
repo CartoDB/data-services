@@ -32,7 +32,6 @@ for i in $DUMP_FILES; do
         --username=${DBUSER} \
         --dbname=${DBNAME} \
         --set=ON_ERROR_STOP=on \
-        --single-transaction \
         --file=${i} || exit 1
     echo "Done with ${i}."
     echo
