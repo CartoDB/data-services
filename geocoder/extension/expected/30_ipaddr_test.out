@@ -1,0 +1,16 @@
+-- Check that the geocoding function is callable, should return success = false
+SELECT (geocode_ip(Array['100.0.24.0'])).*;
+     q      | geom | success 
+------------+------+---------
+ 100.0.24.0 |      | f
+(1 row)
+
+-- Add a few IP sources
+COPY ip_address_locations (network_start_ip, the_geom, cartodb_id, created_at, updated_at, the_geom_webmercator) FROM stdin;
+-- Check that the geocoding function is callable, should return success = true
+SELECT (geocode_ip(Array['2.235.35.0'])).*;
+     q      |                        geom                        | success 
+------------+----------------------------------------------------+---------
+ 2.235.35.0 | 0101000020E610000072F90FE9B7CF22405DFE43FAEDC34640 | t
+(1 row)
+

@@ -1,0 +1,25 @@
+#!/bin/bash
+
+TARGET_DIR=db_dumps
+BASE_URL=https://s3.amazonaws.com/data.cartodb.net/geocoding/dumps
+VERSION=0.0.1
+
+DUMP_LIST="admin0_synonyms.sql
+available_services.sql
+country_decoder.sql
+admin1_decoder.sql
+global_cities_alternates_limited.sql
+global_cities_points_limited.sql
+global_postal_code_points.sql
+global_province_polygons.sql
+ip_address_locations.sql
+ne_admin0_v3.sql
+global_postal_code_polygons.sql"
+
+mkdir -p $TARGET_DIR
+
+for file in $DUMP_LIST; do
+    url="${BASE_URL}/${VERSION}/$file"
+
+    wget --directory-prefix=$TARGET_DIR $url
+done

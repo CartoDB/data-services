@@ -1,0 +1,58 @@
+-- Check that the different geocoding functions are callable, should return success = false
+SELECT (geocode_namedplace(Array['Madrid', 'New York City', 'sunapee'])).*;
+       q       | geom | success 
+---------------+------+---------
+ Madrid        |      | f
+ New York City |      | f
+ sunapee       |      | f
+(3 rows)
+
+SELECT (geocode_namedplace(Array['Elche', 'Granada', 'Madrid'], 'Spain')).*;
+    q    |   c   | geom | success 
+---------+-------+------+---------
+ Elche   | Spain |      | f
+ Granada | Spain |      | f
+ Madrid  | Spain |      | f
+(3 rows)
+
+SELECT (geocode_namedplace(Array['sunapee', 'sunapeeee', 'New York City', 'Madrid'], Array['', 'US', 'United States', NULL])).*;
+       q       |       c       | geom | success 
+---------------+---------------+------+---------
+ Madrid        |               |      | f
+ sunapee       |               |      | f
+ sunapeeee     | US            |      | f
+ New York City | United States |      | f
+(4 rows)
+
+SELECT (geocode_namedplace(Array['Portland', 'Portland', 'New York City'], Array['Maine',    'Oregon',    NULL], 'USA')).*;
+       q       |   a1   |  c  | geom | success 
+---------------+--------+-----+------+---------
+ New York City |        | USA |      | f
+ Portland      | Maine  | USA |      | f
+ Portland      | Oregon | USA |      | f
+(3 rows)
+
+SELECT (geocode_namedplace(Array['Portland'], 'Oregon', 'USA')).*;
+    q     |   a1   |  c  | geom | success 
+----------+--------+-----+------+---------
+ Portland | Oregon | USA |      | f
+(1 row)
+
+SELECT (geocode_namedplace(Array['Portland', 'Portland', 'New York City'], Array['Maine',    'Oregon',    NULL], Array['USA'])).*;
+       q       |   a1   |  c  | geom | success 
+---------------+--------+-----+------+---------
+ New York City |        | USA |      | f
+ Portland      | Oregon | USA |      | f
+ Portland      | Maine  | USA |      | f
+(3 rows)
+
+-- Add a named place source
+COPY global_cities_alternates_limited (geoname_id, name, the_geom, created_at, updated_at, the_geom_webmercator, preferred, lowername, cartodb_id, admin1_geonameid, iso2, admin1) FROM stdin;
+COPY global_cities_points_limited (geoname_id, name, asciiname, altnames, featclass, featcode, iso2, admin1, admin2, population, the_geom, created_at, updated_at, the_geom_webmercator, cartodb_id, lowername) FROM stdin;
+-- Check that the geocoding function is callable, should return success = true
+SELECT (geocode_namedplace(Array['Barcelona'])).*
+     q     |                        geom                        | success 
+-----------+----------------------------------------------------+---------
+ Barcelona | 0101000020E6100000CA15DEE522E653C0A4C2D842902B4540 | t
+(1 row)
+
