@@ -1057,8 +1057,8 @@ Data library
 **Table name**: australia_adm1
 
 **Sync table**: `false` 
-
-#### States an territories of Australia (Statistical Area level 4) NOT YET
+===========================================PENDING==============================================
+#### States an territories of Australia (Statistical Area level 4)
 
 **Description**: Population in the range of 100k-500k
 
@@ -1081,6 +1081,8 @@ Data library
 **Table name**: australia_adm3
 
 **Sync table**:`false`
+
+=========================================================================================================
 
 #### Ireland counties
 **Description**: Geometries for traditional and administrative counties in Ireland.
