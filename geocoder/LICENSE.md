@@ -1,4 +1,4 @@
-# Attribution
+# License
 
 This work is licensed under a [Creative Commons Attribution 3.0 License](http://creativecommons.org/licenses/by/3.0/) except for the [postal code](https://github.com/CartoDB/data-services/blob/master/geocoder/postal-codes/LICENSE.md) and [IP addresses](https://github.com/CartoDB/data-services/blob/master/geocoder/ip-addresses/LICENSE.md) geocoding methods, derivated from other sources with specific share-alike licenses.
 
