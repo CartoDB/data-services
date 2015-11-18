@@ -1250,9 +1250,9 @@ Data library
 #### Municipalities of Spain
 **Description**: Geometries for the municipalities of Spain. Official dataset from Instituto Geográfico Nacional de España.
 
-**Source**: [IGN/CNIG](https://www.cnig.es/)
+**Source**: [Instituto Geográfico Nacional](http://www.ign.es/)
 
-**License**: 
+**License**: Public data - Attribution required  
 
 **Table Name**: ign_spanish_adm3_municipalities
 
@@ -1263,9 +1263,9 @@ Data library
 #### Municipalities of Spain with displaced Canary Islands
 **Description**: Geometries for the municipalities of Spain with the Canary Islands displaced. Official dataset from Instituto Geográfico Nacional de España.
 
-**Source**: [IGN/CNIG](https://www.cnig.es/)
+**Source**: [Instituto Geográfico Nacional](http://www.ign.es/)
 
-**License**: 
+**License**: Public data - Attribution required  
 
 **Table Name**: ign_spanish_adm3_municipalities_displaced_canary
 
@@ -1276,9 +1276,9 @@ Data library
 #### Provinces of Spain
 **Description**: Geometries for the provinces of Spain. Official dataset from Instituto Geográfico Nacional de España.
 
-**Source**: [IGN/CNIG](https://www.cnig.es/)
+**Source**: [Instituto Geográfico Nacional](http://www.ign.es/)
 
-**License**: 
+**License**: Public data - Attribution required 
 
 **Table Name**: ign_spanish_adm2_provinces
 
@@ -1289,9 +1289,9 @@ Data library
 #### Provinces of Spain with displaced Canary Islands
 **Description**: Geometries for the provinces of Spain with the Canary Islands displaced. Official dataset from Instituto Geográfico Nacional de España.
 
-**Source**: [IGN/CNIG](https://www.cnig.es/)
+**Source**: [Instituto Geográfico Nacional](http://www.ign.es/)
 
-**License**: 
+**License**: Public data - Attribution required
 
 **Table Name**: ign_spanish_adm2_provinces_displaced_canary
 
@@ -1302,9 +1302,9 @@ Data library
 #### Autonomous Communities of Spain.
 **Description**: Geometries for  the autonomous communities of Spain. Official dataset from Instituto Geográfico Nacional de España.
 
-**Source**: [IGN/CNIG](https://www.cnig.es/)
+**Source**: [Instituto Geográfico Nacional](http://www.ign.es/)
 
-**License**: 
+**License**: Public data - Attribution required
 
 **Table Name**: ign_spanish_adm1_ccaa
 
@@ -1315,9 +1315,9 @@ Data library
 #### Autonomous communities of Spain with displaced Canary Islands
 **Description**: Geometries for  the autonomous communities of Spain with  the Canary Islands displaced. Official dataset from Instituto Geográfico Nacional de España.
 
-**Source**: [IGN/CNIG](https://www.cnig.es/)
+**Source**: [Instituto Geográfico Nacional](http://www.ign.es/)
 
-**License**: 
+**License**: Public data - Attribution required
 
 **Table Name**: ign_spanish_adm1_ccaa_displaced_canary
 
