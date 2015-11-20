@@ -5,6 +5,7 @@ SELECT (geocode_namedplace(Array['sunapee', 'sunapeeee', 'New York City', 'Madri
 SELECT (geocode_namedplace(Array['Portland', 'Portland', 'New York City'], Array['Maine',    'Oregon',    NULL], 'USA')).*;
 SELECT (geocode_namedplace(Array['Portland'], 'Oregon', 'USA')).*;
 SELECT (geocode_namedplace(Array['Portland', 'Portland', 'New York City'], Array['Maine',    'Oregon',    NULL], Array['USA'])).*;
+SELECT namedplace_guess_country(Array['granada', 'jaen', 'cordoba', 'madrid', 'valladolid']);
 
 -- Add a named place source
 COPY global_cities_alternates_limited (geoname_id, name, the_geom, created_at, updated_at, the_geom_webmercator, preferred, lowername, cartodb_id, admin1_geonameid, iso2, admin1) FROM stdin;
@@ -16,5 +17,6 @@ COPY global_cities_points_limited (geoname_id, name, asciiname, altnames, featcl
 \.
 
 -- Check that the geocoding function is callable, should return success = true
-SELECT (geocode_namedplace(Array['Barcelona'])).*
+SELECT (geocode_namedplace(Array['Barcelona'])).*;
+SELECT namedplace_guess_country(Array['Barcelona']);
 
