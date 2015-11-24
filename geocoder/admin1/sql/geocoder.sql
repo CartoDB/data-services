@@ -6,7 +6,7 @@
 
 
 --- Function
-CREATE OR REPLACE FUNCTION test_geocode_admin1_polygons(name text[], inputcountry text)
+CREATE OR REPLACE FUNCTION geocode_admin1_polygons(name text[], inputcountry text)
   RETURNS SETOF geocode_admin_country_v1 AS $$
   DECLARE 
     ret geocode_admin_country_v1%rowtype;
@@ -78,7 +78,7 @@ $$ LANGUAGE 'plpgsql';
 
 --- Function
 
-CREATE OR REPLACE FUNCTION test_geocode_admin1_polygons(names text[], country text[])
+CREATE OR REPLACE FUNCTION geocode_admin1_polygons(names text[], country text[])
   RETURNS SETOF geocode_admin_country_v1 AS $$
   DECLARE 
     ret geocode_admin_country_v1%rowtype;
@@ -96,7 +96,7 @@ $$ LANGUAGE 'plpgsql';
 
 --- Function
 
-CREATE OR REPLACE FUNCTION test_geocode_admin1_polygons(name text[])
+CREATE OR REPLACE FUNCTION geocode_admin1_polygons(name text[])
 RETURNS SETOF geocode_admin_country_v1 AS $$
 DECLARE 
     ret geocode_admin_v1%rowtype;
