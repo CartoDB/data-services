@@ -4,14 +4,14 @@
 CREATE OR REPLACE FUNCTION geocode_admin1_polygons(name text[]) RETURNS SETOF geocode_admin_v1
     LANGUAGE plpgsql SECURITY DEFINER
     AS $$
-  DECLARE 
+  DECLARE
     ret geocode_admin_v1%rowtype;
   BEGIN
   FOR ret IN
     SELECT
        q, geom, CASE WHEN geom IS NULL THEN FALSE ELSE TRUE END AS success
     FROM (
-      SELECT 
+      SELECT
         q, (
           SELECT the_geom
           FROM global_province_polygons
@@ -20,7 +20,7 @@ CREATE OR REPLACE FUNCTION geocode_admin1_polygons(name text[]) RETURNS SETOF ge
         ) geom
       FROM (SELECT trim(replace(lower(unnest(name)),'.',' ')) c, unnest(name) q) d
     ) v
-  LOOP 
+  LOOP
     RETURN NEXT ret;
   END LOOP;
   RETURN;
@@ -36,11 +36,11 @@ CREATE OR REPLACE FUNCTION geocode_admin1_polygons(name text[], inputcountry tex
   BEGIN
 
   FOR ret IN WITH
-    p AS (SELECT r.c, r.q, (SELECT iso3 FROM country_decoder WHERE lower(inputcountry) = ANY (synonyms)) i FROM (SELECT  trim(replace(lower(unnest(name)),'.',' ')) c, unnest(name) q) r)
+    p AS (SELECT r.c, r.q, (SELECT iso3 FROM country_decoder WHERE lower(regexp_replace(inputcountry, '[^a-zA-Z\u00C0-\u00ff]+', '', 'g'))::text = ANY (synonyms)) i FROM (SELECT  trim(replace(lower(unnest(name)),'.',' ')) c, unnest(name) q) r)
     SELECT
        q, geom, CASE WHEN geom IS NULL THEN FALSE ELSE TRUE END AS success
     FROM (
-      SELECT 
+      SELECT
         q, (
           SELECT the_geom
           FROM global_province_polygons
@@ -79,12 +79,12 @@ CREATE OR REPLACE FUNCTION geocode_admin1_polygons(names text[], country text[])
   END IF;
 
 
-  FOR ret IN WITH 
-    p AS (SELECT r.p, r.q, c, (SELECT iso3 FROM country_decoder WHERE lower(r.c) = ANY (synonyms)) i FROM (SELECT  trim(replace(lower(unnest(names)),'.',' ')) p, unnest(names) q, unnest(country) c) r)
+  FOR ret IN WITH
+    p AS (SELECT r.p, r.q, c, (SELECT iso3 FROM country_decoder WHERE lower(regexp_replace(r.c, '[^a-zA-Z\u00C0-\u00ff]+', '', 'g'))::text = ANY (synonyms)) i FROM (SELECT  trim(replace(lower(unnest(names)),'.',' ')) p, unnest(names) q, unnest(country) c) r)
     SELECT
        q, c, geom, CASE WHEN geom IS NULL THEN FALSE ELSE TRUE END AS success
     FROM (
-      SELECT 
+      SELECT
         q, c, (
           SELECT the_geom
           FROM global_province_polygons
