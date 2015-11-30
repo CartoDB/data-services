@@ -201,7 +201,7 @@ CREATE FUNCTION geocode_postalcode_points(code text[], inputcountries text[]) RE
     FROM (
       SELECT
         q, c, (SELECT iso3 FROM country_decoder WHERE
-                lower(d.c) = ANY (synonyms) LIMIT 1) iso3, (
+                lower(regexp_replace(d.c, '[^a-zA-Z\u00C0-\u00ff]+', '', 'g'))::text = ANY (synonyms) LIMIT 1) iso3, (
           SELECT the_geom
           FROM global_postal_code_points
           WHERE postal_code = upper(d.q)
