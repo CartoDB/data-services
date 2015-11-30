@@ -162,7 +162,7 @@ $$;
 CREATE FUNCTION geocode_postalcode_points(code text[]) RETURNS SETOF geocode_namedplace_v1
     LANGUAGE plpgsql SECURITY DEFINER
     AS $$
-  DECLARElower(regexp_replace(inputcountry, '[^a-zA-Z\u00C0-\u00ff]+', '', 'g'))::text
+  DECLARE
     ret geocode_namedplace_v1%rowtype;
   BEGIN
   FOR ret IN
