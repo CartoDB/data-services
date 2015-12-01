@@ -9,7 +9,7 @@ CREATE OR REPLACE FUNCTION geocode_admin0_polygons(name text[])
   -- FOR ret IN
   RETURN QUERY
     SELECT d.q, n.the_geom as geom, CASE WHEN s.adm0_a3 IS NULL then FALSE ELSE TRUE END AS success
-      FROM (SELECT q, lower(regexp_replace(q, '[^a-zA-Z\u00C0-\u00ff]+', '', 'g'))::text x
+      FROM (SELECT q, lower(geocode_clean_name(q))::text x
         FROM (SELECT unnest(name) q) g) d
       LEFT OUTER JOIN admin0_synonyms s ON name_ = d.x
       LEFT OUTER JOIN ne_admin0_v3 n ON s.adm0_a3 = n.adm0_a3 GROUP BY d.q, n.the_geom, s.adm0_a3;
@@ -24,7 +24,7 @@ CREATE OR REPLACE FUNCTION admin0_synonym_lookup(name text[])
     ret synonym_lookup_v1%rowtype;
  BEGIN  RETURN QUERY
     SELECT d.q, s.adm0_a3
-      FROM (SELECT q, lower(regexp_replace(q, '[^a-zA-Z\u00C0-\u00ff]+', '', 'g'))::text x
+      FROM (SELECT q, lower(geocode_clean_name(q))::text x
         FROM (SELECT unnest(name) q) g) d
       LEFT OUTER JOIN admin0_synonyms s ON name_ = d.x GROUP BY d.q, s.adm0_a3;
 END
@@ -74,7 +74,7 @@ CREATE INDEX idx_admin0_synonyms_rank ON admin0_synonyms USING btree (rank);
 -- create trigger function. used in both admin0 and admin1 synonym tables
 CREATE OR REPLACE FUNCTION alpha_numeric_identifiers() RETURNS trigger AS $alpha_numeric_identifiers$
     BEGIN
-        NEW.name_ := lower(regexp_replace(NEW.name, '[^a-zA-Z\u00C0-\u00ff]+', '', 'g'));
+        NEW.name_ := lower(geocode_clean_name(NEW.name));
         RETURN NEW;
     END;
 $alpha_numeric_identifiers$ LANGUAGE plpgsql;

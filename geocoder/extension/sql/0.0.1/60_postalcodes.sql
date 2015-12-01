@@ -10,7 +10,7 @@ CREATE FUNCTION geocode_postalcode_polygons(code text[], inputcountries text[]) 
     adm text[];
   BEGIN
 
-  SELECT INTO adm array_agg((SELECT adm0_a3 FROM admin0_synonyms WHERE name_ = lower(regexp_replace(b.c, '[^a-zA-Z\u00C0-\u00ff]+', '', 'g'))::text LIMIT 1)) FROM (SELECT UNNEST(inputcountries) c) b;
+  SELECT INTO adm array_agg((SELECT adm0_a3 FROM admin0_synonyms WHERE name_ = lower(geocode_clean_name(b.c))::text LIMIT 1)) FROM (SELECT UNNEST(inputcountries) c) b;
 
   FOR ret IN
     SELECT
@@ -52,7 +52,7 @@ CREATE FUNCTION geocode_postalcode_polygons(code text[], inputcountry text) RETU
           WHERE postal_code = upper(d.q)
             AND iso3 = (
                 SELECT iso3 FROM country_decoder WHERE
-                lower(regexp_replace(inputcountry, '[^a-zA-Z\u00C0-\u00ff]+', '', 'g'))::text = ANY (synonyms) LIMIT 1
+                lower(geocode_clean_name(inputcountry))::text = ANY (synonyms) LIMIT 1
             )
         ) geom
       FROM (SELECT unnest(code) q) d
@@ -112,7 +112,7 @@ CREATE FUNCTION geocode_postalcode_points(code text[], inputcountry text) RETURN
           WHERE postal_code = upper(d.q)
             AND iso3 = (
                 SELECT iso3 FROM country_decoder WHERE
-                lower(regexp_replace(inputcountry, '[^a-zA-Z\u00C0-\u00ff]+', '', 'g'))::text = ANY (synonyms) LIMIT 1
+                lower(geocode_clean_name(inputcountry))::text = ANY (synonyms) LIMIT 1
             )
           LIMIT 1
         ) geom
@@ -144,7 +144,7 @@ CREATE FUNCTION geocode_postalcode_points(code integer[], inputcountries text[])
           WHERE postal_code_num = d.q
             AND iso3 = (
                 SELECT iso3 FROM country_decoder WHERE
-                lower(regexp_replace(d.c, '[^a-zA-Z\u00C0-\u00ff]+', '', 'g'))::text = ANY (synonyms) LIMIT 1
+                lower(geocode_clean_name(d.c))::text = ANY (synonyms) LIMIT 1
             )
           LIMIT 1
         ) geom
@@ -201,13 +201,13 @@ CREATE FUNCTION geocode_postalcode_points(code text[], inputcountries text[]) RE
     FROM (
       SELECT
         q, c, (SELECT iso3 FROM country_decoder WHERE
-                lower(regexp_replace(d.c, '[^a-zA-Z\u00C0-\u00ff]+', '', 'g'))::text = ANY (synonyms) LIMIT 1) iso3, (
+                lower(geocode_clean_name(d.c))::text = ANY (synonyms) LIMIT 1) iso3, (
           SELECT the_geom
           FROM global_postal_code_points
           WHERE postal_code = upper(d.q)
             AND iso3 = (
                 SELECT iso3 FROM country_decoder WHERE
-                lower(regexp_replace(d.c, '[^a-zA-Z\u00C0-\u00ff]+', '', 'g'))::text = ANY (synonyms) LIMIT 1
+                lower(geocode_clean_name(d.c))::text = ANY (synonyms) LIMIT 1
             )
           LIMIT 1
         ) geom
@@ -257,7 +257,7 @@ CREATE FUNCTION admin0_available_services(name text[]) RETURNS SETOF available_s
   BEGIN  RETURN QUERY
     SELECT d.q, n.adm0_a3, n.postal_code_points, n.postal_code_polygons FROM
       (
-        SELECT q, lower(regexp_replace(q, '[^a-zA-Z\u00C0-\u00ff]+', '', 'g'))::text x FROM
+        SELECT q, lower(geocode_clean_name(q))::text x FROM
           (
             SELECT unnest(name) q
           )

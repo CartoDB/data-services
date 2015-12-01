@@ -36,7 +36,7 @@ CREATE OR REPLACE FUNCTION geocode_admin1_polygons(name text[], inputcountry tex
   BEGIN
 
   FOR ret IN WITH
-    p AS (SELECT r.c, r.q, (SELECT iso3 FROM country_decoder WHERE lower(regexp_replace(inputcountry, '[^a-zA-Z\u00C0-\u00ff]+', '', 'g'))::text = ANY (synonyms)) i FROM (SELECT  trim(replace(lower(unnest(name)),'.',' ')) c, unnest(name) q) r)
+    p AS (SELECT r.c, r.q, (SELECT iso3 FROM country_decoder WHERE lower(geocode_clean_name(inputcountry))::text = ANY (synonyms)) i FROM (SELECT  trim(replace(lower(unnest(name)),'.',' ')) c, unnest(name) q) r)
     SELECT
        q, geom, CASE WHEN geom IS NULL THEN FALSE ELSE TRUE END AS success
     FROM (
@@ -80,7 +80,7 @@ CREATE OR REPLACE FUNCTION geocode_admin1_polygons(names text[], country text[])
 
 
   FOR ret IN WITH
-    p AS (SELECT r.p, r.q, c, (SELECT iso3 FROM country_decoder WHERE lower(regexp_replace(r.c, '[^a-zA-Z\u00C0-\u00ff]+', '', 'g'))::text = ANY (synonyms)) i FROM (SELECT  trim(replace(lower(unnest(names)),'.',' ')) p, unnest(names) q, unnest(country) c) r)
+    p AS (SELECT r.p, r.q, c, (SELECT iso3 FROM country_decoder WHERE lower(geocode_clean_name(r.c))::text = ANY (synonyms)) i FROM (SELECT  trim(replace(lower(unnest(names)),'.',' ')) p, unnest(names) q, unnest(country) c) r)
     SELECT
        q, c, geom, CASE WHEN geom IS NULL THEN FALSE ELSE TRUE END AS success
     FROM (

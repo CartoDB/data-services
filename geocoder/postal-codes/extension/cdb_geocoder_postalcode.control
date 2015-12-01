@@ -1,6 +1,0 @@
-# cdb geocoder postalcode extension
-comment = 'CartoDB postalcode internal geocoder'
-default_version = '0.0.1'
-relocatable = true
-requires = cartodb
-superuser = false

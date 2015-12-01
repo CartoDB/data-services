@@ -28,7 +28,7 @@ CREATE OR REPLACE FUNCTION geocode_namedplace(places text[], country text[]) RET
   END IF;
 
   FOR ret IN WITH
-    p AS (SELECT r.s, r.c, (SELECT iso2 FROM country_decoder WHERE lower(regexp_replace(r.c, '[^a-zA-Z\u00C0-\u00ff]+', '', 'g'))::text = ANY (synonyms)) i FROM (SELECT unnest(places) AS s, unnest(country)::text AS c) r),
+    p AS (SELECT r.s, r.c, (SELECT iso2 FROM country_decoder WHERE lower(geocode_clean_name(r.c))::text = ANY (synonyms)) i FROM (SELECT unnest(places) AS s, unnest(country)::text AS c) r),
     best AS (SELECT p.s AS q, p.c AS c, (SELECT gp.the_geom AS geom FROM global_cities_points_limited gp WHERE gp.lowername = lower(p.s) AND gp.iso2 = p.i ORDER BY population DESC LIMIT 1) AS geom FROM p),
     next AS (SELECT p.s AS q, p.c AS c, (SELECT gp.the_geom FROM global_cities_points_limited gp, global_cities_alternates_limited ga WHERE lower(p.s) = ga.lowername AND gp.iso2 = p.i AND ga.geoname_id = gp.geoname_id ORDER BY preferred DESC LIMIT 1) geom FROM p WHERE p.s NOT IN (SELECT q FROM best WHERE c = p.c AND geom IS NOT NULL))
     SELECT q, c, geom, TRUE AS success FROM best WHERE geom IS NOT NULL
@@ -59,20 +59,20 @@ CREATE OR REPLACE FUNCTION geocode_namedplace(places text[], inputcountry text) 
   END IF;
 
   IF has_country THEN
-    SELECT iso2 INTO isoTwo FROM country_decoder WHERE lower(regexp_replace(inputcountry, '[^a-zA-Z\u00C0-\u00ff]+', '', 'g'))::text = ANY (synonyms) LIMIT 1;
+    SELECT iso2 INTO isoTwo FROM country_decoder WHERE lower(geocode_clean_name(inputcountry))::text = ANY (synonyms) LIMIT 1;
     FOR ret IN WITH
       best AS (SELECT p.s AS q, (SELECT gp.the_geom AS geom FROM global_cities_points_limited gp WHERE gp.lowername = lower(p.s) AND gp.iso2 = isoTwo ORDER BY population DESC LIMIT 1) AS geom FROM (SELECT unnest(places) AS s) p),
       next AS (SELECT p.s AS q, (SELECT gp.the_geom FROM global_cities_points_limited gp, global_cities_alternates_limited ga WHERE lower(p.s) = ga.lowername AND gp.iso2 = isoTwo AND ga.geoname_id = gp.geoname_id ORDER BY preferred DESC LIMIT 1) geom FROM (SELECT unnest(places) AS s) p WHERE p.s NOT IN (SELECT q FROM best WHERE geom IS NOT NULL))
       SELECT q, inputcountry c, geom, TRUE AS success FROM best WHERE geom IS NOT NULL
       UNION ALL
-      SELECT q, inputcountry c, geom, CASE WHEN geom IS NULL THEN FALSE ELSE TRUE END AS success FROM next 
+      SELECT q, inputcountry c, geom, CASE WHEN geom IS NULL THEN FALSE ELSE TRUE END AS success FROM next
       LOOP
       RETURN NEXT ret;
     END LOOP;
   -- no country included, or iso interpretation found
   ELSE
     FOR ret IN
-      SELECT g.q as q, inputcountry as c, g.geom as geom, g.success as success FROM (SELECT (geocode_namedplace(places)).*) g 
+      SELECT g.q as q, inputcountry as c, g.geom as geom, g.success as success FROM (SELECT (geocode_namedplace(places)).*) g
     LOOP
       RETURN NEXT ret;
     END LOOP;
@@ -172,7 +172,7 @@ CREATE OR REPLACE FUNCTION geocode_namedplace(places text[], admin1s text[], inp
     has_country := FALSE;
   END IF;
   IF has_country THEN
-    SELECT iso2 INTO isoTwo FROM country_decoder WHERE lower(regexp_replace(inputcountry, '[^a-zA-Z\u00C0-\u00ff]+', '', 'g'))::text = ANY (synonyms) LIMIT 1;
+    SELECT iso2 INTO isoTwo FROM country_decoder WHERE lower(geocode_clean_name(inputcountry))::text = ANY (synonyms) LIMIT 1;
   END IF;
 
   -- find all cases where admin1 is NULL
