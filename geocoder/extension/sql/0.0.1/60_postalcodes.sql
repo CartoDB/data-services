@@ -5,18 +5,18 @@
 CREATE FUNCTION geocode_postalcode_polygons(code text[], inputcountries text[]) RETURNS SETOF geocode_namedplace_country_v1
     LANGUAGE plpgsql SECURITY DEFINER
     AS $$
-  DECLARE 
+  DECLARE
     ret geocode_namedplace_country_v1%rowtype;
     adm text[];
   BEGIN
-  
-  SELECT INTO adm array_agg((SELECT adm0_a3 FROM admin0_synonyms WHERE name_ = lower(regexp_replace(b.c, '[^a-zA-Z\u00C0-\u00ff]+', '', 'g'))::text LIMIT 1)) FROM (SELECT UNNEST(inputcountries) c) b;
+
+  SELECT INTO adm array_agg((SELECT adm0_a3 FROM admin0_synonyms WHERE name_ = lower(geocode_clean_name(b.c))::text LIMIT 1)) FROM (SELECT UNNEST(inputcountries) c) b;
 
   FOR ret IN
     SELECT
       q, c, geom, CASE WHEN geom IS NULL THEN FALSE ELSE TRUE END AS success
     FROM (
-      SELECT 
+      SELECT
         q, c, (
           SELECT the_geom
           FROM global_postal_code_polygons
@@ -25,7 +25,7 @@ CREATE FUNCTION geocode_postalcode_polygons(code text[], inputcountries text[]) 
         ) geom
       FROM (SELECT unnest(code) q, unnest(inputcountries) c, unnest(adm) a) d
     ) v
-  LOOP 
+  LOOP
     RETURN NEXT ret;
   END LOOP;
   RETURN;
@@ -38,26 +38,26 @@ $$;
 CREATE FUNCTION geocode_postalcode_polygons(code text[], inputcountry text) RETURNS SETOF geocode_namedplace_v1
     LANGUAGE plpgsql SECURITY DEFINER
     AS $$
-  DECLARE 
+  DECLARE
     ret geocode_namedplace_v1%rowtype;
   BEGIN
   FOR ret IN
     SELECT
       q, geom, CASE WHEN geom IS NULL THEN FALSE ELSE TRUE END AS success
     FROM (
-      SELECT 
+      SELECT
         q, (
-          SELECT the_geom 
+          SELECT the_geom
           FROM global_postal_code_polygons
           WHERE postal_code = upper(d.q)
             AND iso3 = (
                 SELECT iso3 FROM country_decoder WHERE
-                lower(inputcountry) = ANY (synonyms) LIMIT 1
+                lower(geocode_clean_name(inputcountry))::text = ANY (synonyms) LIMIT 1
             )
         ) geom
       FROM (SELECT unnest(code) q) d
     ) v
-  LOOP 
+  LOOP
     RETURN NEXT ret;
   END LOOP;
   RETURN;
@@ -69,23 +69,23 @@ $$;
 CREATE FUNCTION geocode_postalcode_polygons(code text[]) RETURNS SETOF geocode_namedplace_v1
     LANGUAGE plpgsql SECURITY DEFINER
     AS $$
-  DECLARE 
+  DECLARE
     ret geocode_namedplace_v1%rowtype;
   BEGIN
   FOR ret IN
     SELECT
       q, geom, CASE WHEN geom IS NULL THEN FALSE ELSE TRUE END AS success
     FROM (
-      SELECT 
+      SELECT
         q, (
-          SELECT the_geom 
+          SELECT the_geom
           FROM global_postal_code_polygons
-          WHERE postal_code = upper(d.q) 
+          WHERE postal_code = upper(d.q)
           LIMIT 1
         ) geom
       FROM (SELECT unnest(code) q) d
     ) v
-  LOOP 
+  LOOP
     RETURN NEXT ret;
   END LOOP;
   RETURN;
@@ -98,27 +98,27 @@ $$;
 CREATE FUNCTION geocode_postalcode_points(code text[], inputcountry text) RETURNS SETOF geocode_namedplace_v1
     LANGUAGE plpgsql SECURITY DEFINER
     AS $$
-  DECLARE 
+  DECLARE
     ret geocode_namedplace_v1%rowtype;
   BEGIN
   FOR ret IN
     SELECT
       q, geom, CASE WHEN geom IS NULL THEN FALSE ELSE TRUE END AS success
     FROM (
-      SELECT 
+      SELECT
         q, (
-          SELECT the_geom 
+          SELECT the_geom
           FROM global_postal_code_points
           WHERE postal_code = upper(d.q)
             AND iso3 = (
                 SELECT iso3 FROM country_decoder WHERE
-                lower(inputcountry) = ANY (synonyms) LIMIT 1
+                lower(geocode_clean_name(inputcountry))::text = ANY (synonyms) LIMIT 1
             )
           LIMIT 1
         ) geom
       FROM (SELECT unnest(code) q) d
     ) v
-  LOOP 
+  LOOP
     RETURN NEXT ret;
   END LOOP;
   RETURN;
@@ -130,27 +130,27 @@ $$;
 CREATE FUNCTION geocode_postalcode_points(code integer[], inputcountries text[]) RETURNS SETOF geocode_postalint_country_v1
     LANGUAGE plpgsql SECURITY DEFINER
     AS $$
-  DECLARE 
+  DECLARE
     ret geocode_postalint_country_v1%rowtype;
   BEGIN
   FOR ret IN
     SELECT
       q, c, geom, CASE WHEN geom IS NULL THEN FALSE ELSE TRUE END AS success
     FROM (
-      SELECT 
+      SELECT
         q, c, (
           SELECT the_geom
           FROM global_postal_code_points
           WHERE postal_code_num = d.q
             AND iso3 = (
                 SELECT iso3 FROM country_decoder WHERE
-                lower(d.c) = ANY (synonyms) LIMIT 1
+                lower(geocode_clean_name(d.c))::text = ANY (synonyms) LIMIT 1
             )
           LIMIT 1
         ) geom
       FROM (SELECT unnest(code) q, unnest(inputcountries) c) d
     ) v
-  LOOP 
+  LOOP
     RETURN NEXT ret;
   END LOOP;
   RETURN;
@@ -162,23 +162,23 @@ $$;
 CREATE FUNCTION geocode_postalcode_points(code text[]) RETURNS SETOF geocode_namedplace_v1
     LANGUAGE plpgsql SECURITY DEFINER
     AS $$
-  DECLARE 
+  DECLARE
     ret geocode_namedplace_v1%rowtype;
   BEGIN
   FOR ret IN
     SELECT
       q, geom, CASE WHEN geom IS NULL THEN FALSE ELSE TRUE END AS success
     FROM (
-      SELECT 
+      SELECT
         q, (
-          SELECT the_geom 
+          SELECT the_geom
           FROM global_postal_code_points
-          WHERE postal_code = upper(d.q) 
+          WHERE postal_code = upper(d.q)
           LIMIT 1
         ) geom
       FROM (SELECT unnest(code) q) d
     ) v
-  LOOP 
+  LOOP
     RETURN NEXT ret;
   END LOOP;
   RETURN;
@@ -190,7 +190,7 @@ $$;
 CREATE FUNCTION geocode_postalcode_points(code text[], inputcountries text[]) RETURNS SETOF geocode_place_country_iso_v1
     LANGUAGE plpgsql SECURITY DEFINER
     AS $$
-  DECLARE 
+  DECLARE
     ret geocode_place_country_iso_v1%rowtype;
     geo GEOMETRY;
   BEGIN
@@ -199,21 +199,21 @@ CREATE FUNCTION geocode_postalcode_points(code text[], inputcountries text[]) RE
     SELECT
       q, c, iso3, geom, CASE WHEN geom IS NULL THEN FALSE ELSE TRUE END AS success
     FROM (
-      SELECT 
+      SELECT
         q, c, (SELECT iso3 FROM country_decoder WHERE
-                lower(d.c) = ANY (synonyms) LIMIT 1) iso3, (
+                lower(geocode_clean_name(d.c))::text = ANY (synonyms) LIMIT 1) iso3, (
           SELECT the_geom
           FROM global_postal_code_points
           WHERE postal_code = upper(d.q)
             AND iso3 = (
                 SELECT iso3 FROM country_decoder WHERE
-                lower(d.c) = ANY (synonyms) LIMIT 1
+                lower(geocode_clean_name(d.c))::text = ANY (synonyms) LIMIT 1
             )
           LIMIT 1
         ) geom
       FROM (SELECT unnest(code) q, unnest(inputcountries) c) d
     ) v
-  LOOP 
+  LOOP
     IF ret.geom IS NULL AND ret.iso3 = 'GBR' THEN
       geo := geocode_greatbritain_outward(ret.q);
       IF geo IS NOT NULL THEN
@@ -239,7 +239,7 @@ CREATE FUNCTION geocode_greatbritain_outward(code text) RETURNS geometry
   geom := NULL;
   IF array_length(string_to_array(code,' '),1) = 2 THEN
     code := split_part(code, ' ', 1) || ' ' || rpad(substring(split_part(code, ' ', 2), 1, 1), 3, '#');
-    SELECT the_geom INTO geom FROM global_postal_code_points WHERE 
+    SELECT the_geom INTO geom FROM global_postal_code_points WHERE
       postal_code = code
       AND iso3 = 'GBR'
       LIMIT 1;
@@ -252,15 +252,15 @@ $$;
 CREATE FUNCTION admin0_available_services(name text[]) RETURNS SETOF available_services_v1
     LANGUAGE plpgsql SECURITY DEFINER
     AS $$
-  DECLARE 
+  DECLARE
     ret available_services_v1%rowtype;
   BEGIN  RETURN QUERY
-    SELECT d.q, n.adm0_a3, n.postal_code_points, n.postal_code_polygons FROM 
+    SELECT d.q, n.adm0_a3, n.postal_code_points, n.postal_code_polygons FROM
       (
-        SELECT q, lower(regexp_replace(q, '[^a-zA-Z\u00C0-\u00ff]+', '', 'g'))::text x FROM 
+        SELECT q, lower(geocode_clean_name(q))::text x FROM
           (
             SELECT unnest(name) q
-          ) 
+          )
       g) d LEFT OUTER JOIN admin0_synonyms s ON name_ = d.x LEFT OUTER JOIN available_services n ON s.adm0_a3 = n.adm0_a3 GROUP BY d.q, n.adm0_a3, n.postal_code_points, n.postal_code_polygons;
 END
 $$;
