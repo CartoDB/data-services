@@ -165,6 +165,8 @@ In order to test the data and the functions created under the script avaialble i
 * Needs a better approach for synonyms and normalisation
 
 # Historic:
+* [01/12/2015]:
+  * Removed geocoder function. Check /extensions instead.
 * [19/10/2015]:
   * Updates README with process description and update setup scripts
 * [08/10/2015]:
