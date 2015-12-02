@@ -187,6 +187,8 @@ SELECT (geocode_postalcode_points(Array['03204'],Array['ESP'])).*
   ![Duplicates](https://camo.githubusercontent.com/1dbd4874830b0654b2fc2e11cd2a650d498f6bc9/68747470733a2f2f646c2e64726f70626f7875736572636f6e74656e742e636f6d2f752f323837393330382f53637265656e25323053686f74253230323031352d30362d3239253230617425323031322e35362e30332e706e67)
 
 # Historic:
+* [01/12/2015]:
+  * Removed geocoder function. Check /extensions instead.
 * [30/10/2015]:
   * Found bug #173 https://github.com/CartoDB/data-services/issues/173 
 * [19/10/2015]:
