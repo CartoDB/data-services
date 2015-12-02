@@ -19,7 +19,6 @@ SELECT (geocode_admin1_polygons(Array['Alicante', 'California'], Array['Spain', 
 3. If fresh, add all `sql/indexes.sql` and `sql/triggers.sql`
 4. Run the `sql/build_data_table.sql` script.
 5. Run the `sql/build_admin1_synonyms.sql` script.
-6. If needed, load or replace the function with `sql/geocoder.sql`
 
 # Tables
 
@@ -210,6 +209,8 @@ The table contains the following columns to be populated:
 * In Italy, provinces are being shown instead of ADMIN1 regions. The same happened with Spain, which is manually fixed.
 
 # Historic:
+* [01/12/2015]:
+  * Removed geocoder function. Check /extensions instead. 
 * [19/10/2015]:
   * Updates on README + Adding usage examples
 * [08/10/2015]:
