@@ -20,7 +20,7 @@ SELECT (geocode_admin0_polygons(Array['Spain', 'USA', ''])).*;
 5. Upload the `data/wikipedia_iso_3166_2` table if it doesn't already exist
 6. Run the `sql/subdivide_polygons.sql`
 7. Run the `sql/build_synonym_table.sql`
-8. If needed, load or replace the function with `sql/geocoder.sql`. Don't forget to create the types: `geocode_admin_v1` and `synonym_lookup_v1`
+8. Create the types: `geocode_admin_v1` and `synonym_lookup_v1`
 
 # Tables
 #### admin0_synonyms
@@ -290,6 +290,8 @@ For country boundaries, we use the data provided by Natural Earth Data. The whol
 # Known issues
 
 # Historic
+* [01/12/2015]:
+  * Removed geocoder functions. Check the /extension folder instead. 
 * [19/10/2015]:
   * Revision and usage examples addition
 * [06/10/2015]:
