@@ -4,6 +4,9 @@ CREATE EXTENSION schema_triggers;
 CREATE EXTENSION plpythonu;
 CREATE EXTENSION cartodb;
 
+-- Mock the quota check
+SELECT cartodb.CDB_SetUserQuotaInBytes(0);
+
 -- Install the extension
 CREATE EXTENSION cdb_geocoder;
 
