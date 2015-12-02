@@ -65,6 +65,8 @@ In order to test the data and the functions created under the script avaialble i
 # Known issues
 
 # Historic:
+* [01/12/2015]:
+  * Removed geocoder function. Check /extensions instead.
 * [19/10/2015]:
   * Updates README and adds usage example and definition of the service
 * [08/10/2015]:
