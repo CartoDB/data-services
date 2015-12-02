@@ -3,6 +3,13 @@ CREATE EXTENSION postgis;
 CREATE EXTENSION schema_triggers;
 CREATE EXTENSION plpythonu;
 CREATE EXTENSION cartodb;
+-- Mock the quota check
+SELECT cartodb.CDB_SetUserQuotaInBytes(0);
+ cdb_setuserquotainbytes 
+-------------------------
+                       0
+(1 row)
+
 -- Install the extension
 CREATE EXTENSION cdb_geocoder;
 -- Mock the varnish invalidation function
