@@ -1050,7 +1050,7 @@ Data library
 #### Greater Capital City Statistical Area (GCCSA)
 **Description**: Lands administrative divisions of Australia.
 
-**Source**: [National Map NICTA](http://geoserver.nationalmap.nicta.com.au/region_map/web)
+**Source**: [Australian Bureau of Statistics](http://www.abs.gov.au/)
 
 **License**: CC BY: Attribution alone
 
@@ -1063,7 +1063,7 @@ Data library
 #### States and territories of Australia
 **Description**: Lands administrative divisions of Australia.
 
-**Source**: [National Map NICTA](http://geoserver.nationalmap.nicta.com.au/region_map/web)
+**Source**: [Australian Bureau of Statistics](http://www.abs.gov.au/)
 
 **License**: CC BY: Attribution alone
 
@@ -1076,7 +1076,7 @@ Data library
 #### Australia Statistical Area level 4
 **Description**: 106 Regions with population in the range of 100k-500k
 
-**Source**: [National Map NICTA](http://geoserver.nationalmap.nicta.com.au/region_map/web)
+**Source**: [Australian Bureau of Statistics](http://www.abs.gov.au/)
 
 **License**: CC BY: Attribution alone
 
@@ -1089,7 +1089,7 @@ Data library
 #### Australia Statistical Area level 3
 **Description**: 351 Regions with population in the range of 30k-130k
 
-**Source**: [National Map NICTA](http://geoserver.nationalmap.nicta.com.au/region_map/web)
+**Source**: [Australian Bureau of Statistics](http://www.abs.gov.au/)
 
 **License**: CC BY: Attribution alone
 
@@ -1102,7 +1102,7 @@ Data library
 #### Australia Statistical Area level 2
 **Description**: 2214 Regions with population in the range of 3k-25k
 
-**Source**: [National Map NICTA](http://geoserver.nationalmap.nicta.com.au/region_map/web)
+**Source**: [Australian Bureau of Statistics](http://www.abs.gov.au/)
 
 **License**: CC BY: Attribution alone
 
@@ -1115,7 +1115,7 @@ Data library
 #### Australia Statistical Area level 1
 **Description**: 54805 Regions with population in the range of 200-800
 
-**Source**: [National Map NICTA](http://geoserver.nationalmap.nicta.com.au/region_map/web)
+**Source**: [Australian Bureau of Statistics](http://www.abs.gov.au/)
 
 **License**: CC BY: Attribution alone
 
