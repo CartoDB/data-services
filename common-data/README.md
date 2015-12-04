@@ -1052,7 +1052,7 @@ Data library
 
 **Source**: [National Map NICTA](http://geoserver.nationalmap.nicta.com.au/region_map/web)
 
-**License**: Apache 2.0
+**License**: CC BY: Attribution alone
 
 **Table name**: australia_gccsa
 
@@ -1065,7 +1065,7 @@ Data library
 
 **Source**: [National Map NICTA](http://geoserver.nationalmap.nicta.com.au/region_map/web)
 
-**License**: Apache 2.0
+**License**: CC BY: Attribution alone
 
 **Table name**: australia_adm1
 
@@ -1078,7 +1078,7 @@ Data library
 
 **Source**: [National Map NICTA](http://geoserver.nationalmap.nicta.com.au/region_map/web)
 
-**License**: Apache 2.0
+**License**: CC BY: Attribution alone
 
 **Table name**: australia_adm2
 
@@ -1091,7 +1091,7 @@ Data library
 
 **Source**: [National Map NICTA](http://geoserver.nationalmap.nicta.com.au/region_map/web)
 
-**License**: Apache 2.0
+**License**: CC BY: Attribution alone
 
 **Table name**: australia_adm3
 
@@ -1104,7 +1104,7 @@ Data library
 
 **Source**: [National Map NICTA](http://geoserver.nationalmap.nicta.com.au/region_map/web)
 
-**License**: Apache 2.0
+**License**: CC BY: Attribution alone
 
 **Table name**: australia_adm4
 
@@ -1117,7 +1117,7 @@ Data library
 
 **Source**: [National Map NICTA](http://geoserver.nationalmap.nicta.com.au/region_map/web)
 
-**License**: Apache 2.0
+**License**: CC BY: Attribution alone
 
 **Table name**: australia_adm5
 
