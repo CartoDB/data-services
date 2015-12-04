@@ -1047,16 +1047,83 @@ Data library
 
 **Sync table**: `false` 
 
+#### Greater Capital City Statistical Area (GCCSA)
+**Description**: Lands administrative divisions of Australia.
+
+**Source**: [National Map NICTA](http://geoserver.nationalmap.nicta.com.au/region_map/web)
+
+**License**: CC BY: Attribution alone
+
+**Table name**: australia_gccsa
+
+**Sync table**: `false` 
+
+**Source URL**:http://www.abs.gov.au/AUSSTATS/abs@.nsf/DetailsPage/2033.0.55.0012011?OpenDocument
+
 #### States and territories of Australia
 **Description**: Lands administrative divisions of Australia.
 
-**Source**: [GeoNetwork](http://salbgeonetwork.grid.unep.ch/geonetwork/srv/en/main.home)
+**Source**: [National Map NICTA](http://geoserver.nationalmap.nicta.com.au/region_map/web)
 
-**License**:
+**License**: CC BY: Attribution alone
 
 **Table name**: australia_adm1
 
 **Sync table**: `false` 
+
+**Source URL**: http://www.abs.gov.au/AUSSTATS/abs@.nsf/DetailsPage/2033.0.55.0012011?OpenDocument
+
+#### Australia Statistical Area level 4
+**Description**: 106 Regions with population in the range of 100k-500k
+
+**Source**: [National Map NICTA](http://geoserver.nationalmap.nicta.com.au/region_map/web)
+
+**License**: CC BY: Attribution alone
+
+**Table name**: australia_adm2
+
+**Sync table**:`false`
+
+**Source URL**: http://www.abs.gov.au/AUSSTATS/abs@.nsf/DetailsPage/2033.0.55.0012011?OpenDocument
+
+#### Australia Statistical Area level 3
+**Description**: 351 Regions with population in the range of 30k-130k
+
+**Source**: [National Map NICTA](http://geoserver.nationalmap.nicta.com.au/region_map/web)
+
+**License**: CC BY: Attribution alone
+
+**Table name**: australia_adm3
+
+**Sync table**:`false`
+
+**Source URL**: http://www.abs.gov.au/AUSSTATS/abs@.nsf/DetailsPage/2033.0.55.0012011?OpenDocument
+
+#### Australia Statistical Area level 2
+**Description**: 2214 Regions with population in the range of 3k-25k
+
+**Source**: [National Map NICTA](http://geoserver.nationalmap.nicta.com.au/region_map/web)
+
+**License**: CC BY: Attribution alone
+
+**Table name**: australia_adm4
+
+**Sync table**:`false`
+
+**Source URL**: http://www.abs.gov.au/AUSSTATS/abs@.nsf/DetailsPage/2033.0.55.0012011?OpenDocument
+
+#### Australia Statistical Area level 1
+**Description**: 54805 Regions with population in the range of 200-800
+
+**Source**: [National Map NICTA](http://geoserver.nationalmap.nicta.com.au/region_map/web)
+
+**License**: CC BY: Attribution alone
+
+**Table name**: australia_adm5
+
+**Sync table**:`false`
+
+**Source URL**: http://www.abs.gov.au/AUSSTATS/abs@.nsf/DetailsPage/2033.0.55.0012011?OpenDocument
 
 #### Ireland counties
 **Description**: Geometries for traditional and administrative counties in Ireland.
