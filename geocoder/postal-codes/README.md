@@ -16,7 +16,7 @@ SELECT (geocode_postalcode_polygons(Array['11211'],Array['USA'])).*
 
 ## Creation steps
 
-1. Import the four files attached in the section "Datasources" for Australia (`doc` table), Canada (`gfsa000a11a_e` table), USA (`tl_2013_us_zcta510` table) and France (`codes_postaux` table).
+1. Import the four files attached in the section "Datasources" for Australia (`doc` table), Canada (`gfsa000a11a_e` table), USA (`tl_2013_us_zcta510` table) and France (`codes_postaux` table, renamed from `codes_postaux_region`).
 
 2. Run `sql/build_data_table.sql`. Notice that table `postal_code_polygons` should exist in advance with columns: `the_geom`, `adm0_a3` and `postal_code`.
 
@@ -190,7 +190,7 @@ SELECT (geocode_postalcode_points(Array['03204'],Array['ESP'])).*
 * [01/12/2015]:
   * Removed geocoder function. Check /extensions instead.
 * [30/10/2015]:
-  * Found bug #173 https://github.com/CartoDB/data-services/issues/173 
+  * Found bug #173 https://github.com/CartoDB/data-services/issues/173
 * [19/10/2015]:
   * Updates readme with usage examples and setup scripts
 * [08/10/2015]:
