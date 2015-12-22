@@ -1,6 +1,7 @@
 CartoDB Internal Geocoder
 ====
 
+
 # API Response Format
 
 ## Parameters
