@@ -1138,6 +1138,19 @@ Data library
 
 **Source URL**: http://www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_1_states_provinces.zip
 
+#### California Protected Areas
+**Description**: Data about lands that are owned outright (“in fee”) and protected for open space purposes in the US state of California.
+
+**Source**: [CA Lands](http://www.calands.org/)
+
+**License**: Public domain
+
+**Table name**: cpad_2015
+
+**Sync table**: `false` 
+
+**Source URL**: http://atlas.ca.gov/casil/planning/Land_Ownership/GreenInfoNetworkProject/CPAD-2015b-December2015/CPAD_2015b.zip
+
 ***
 
 ### Building footprints
