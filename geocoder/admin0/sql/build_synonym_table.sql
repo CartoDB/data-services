@@ -60,27 +60,21 @@ INSERT INTO admin0_synonyms (name, rank,  adm0_a3)
 SELECT 
     formal_en, 5, adm0_a3
 FROM
-    ne_admin0_v3
-WHERE
-    char_length(regexp_replace(formal_en, '[^a-zA-Z\u00C0-\u00ff]+', '', 'g')) > 3;
+    ne_admin0_v3;
 
 -- insert brk_name as name with a rank = 6
 INSERT INTO admin0_synonyms (name, rank,  adm0_a3) 
 SELECT 
     brk_name, 6, adm0_a3
 FROM
-    ne_admin0_v3
-WHERE
-    char_length(regexp_replace(brk_name, '[^a-zA-Z\u00C0-\u00ff]+', '', 'g')) > 3;
+    ne_admin0_v3;
 
 -- insert formal_fr as name with a rank = 7
 INSERT INTO admin0_synonyms (name, rank,  adm0_a3) 
 SELECT 
     formal_fr, 7, adm0_a3
 FROM
-    ne_admin0_v3
-WHERE
-    char_length(regexp_replace(formal_fr, '[^a-zA-Z\u00C0-\u00ff]+', '', 'g')) > 3;
+    ne_admin0_v3;
 
 -- insert abbrv as name with a rank = 8
 INSERT INTO admin0_synonyms (name, rank,  adm0_a3) 
@@ -96,9 +90,7 @@ INSERT INTO admin0_synonyms (name, rank, adm0_a3)
 SELECT
     subunit, 9, adm0_a3
 FROM
-    ne_admin0_v3
-WHERE
-    char_length(regexp_replace(subunit, '[^a-zA-Z\u00C0-\u00ff]+', '', 'g')) > 3;
+    ne_admin0_v3;
 
 -- insert manual additions with a rank = 10    
 INSERT INTO admin0_synonyms (name, rank, adm0_a3)
