@@ -81,7 +81,9 @@ INSERT INTO admin0_synonyms (name, rank,  adm0_a3)
 SELECT 
     abbrev, 8, adm0_a3
 FROM
-    ne_admin0_v3;
+    ne_admin0_v3
+WHERE
+    char_length(regexp_replace(abbrev, '[^a-zA-Z\u00C0-\u00ff]+', '', 'g')) > 3;
 
 -- insert subunit as name with a rank = 9    
 INSERT INTO admin0_synonyms (name, rank, adm0_a3)
