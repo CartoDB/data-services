@@ -33,9 +33,16 @@ There may be different kind of changes in the dataset:
 
   Remember to make a backup of the current data running in your production environment before you do any changes.
 
-  Any edition of the data must be performed via SQL queries in order to be run in the build scripts for each section. In order to build the production table, please, edit the build SQL functions as needed, and create a new table in production by running them.
+  Any edition of the data must be performed via SQL queries in order to be run over the existing data to patch it. An example of patch could be:
+  ```sql
+  -- Patch 0.0.1 data version -20160203
 
-  This method will allow us to make sure that the data that we have in a production environment is totally reproducible just by running the setup scripts.
+  DELETE FROM admin0_synonyms WHERE rank = 8 AND char_length(name_) < 4;
+  ```
+  
+  Please, send your patch file in a PR for us to be able to set it up in the patch downloader and loader scripts of the project. Patchs should be associated to a data version and will be stored in: `geocoding/dumps/$VERSION/patches`
+  
+  This method will allow us to make sure that the data that we have in a production environment is totally reproducible just by running the setup scripts and the patches.
 
   **Changes regarding functions:**
 
