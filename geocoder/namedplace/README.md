@@ -13,7 +13,7 @@ SELECT (geocode_namedplace(Array['sunapee', 'sunapeeee', 'New York City'], 'USA'
 
 # Creation steps
 1. Download the `allCountries` and `alternateNames` tables from the source
-2. In order to clean the files from characters that may provoke issues in the importation to CartoDB, please run in your terminal: `sed 's/"//' filename.txt > filename.out.txt`
+2. In order to clean the files from characters that may provoke issues when importing to CARTO, please run in your terminal: `sed 's/"//' filename.txt > filename.out.txt`
 3. Import the zipped files for `allCountries` and `alternateNames` once processed
 4. Generate the `global_cities_points_limited` and `global_cities_alternates_limited` tables
 5. Run the `sql/build_data_table.sql` script to build the `global_cities_points_limited` table
