@@ -214,7 +214,7 @@ Indexes:
 
 # Data Sources
 
-- **Natural Earth Data**: ne_10m_admin_0_countries (version 3.0) which is currently stored in Geocoding.CartoDB as ne_admin0_v3. This is stored in data/ne_10m_admin_0_countries.zip
+- **Natural Earth Data**: ne_10m_admin_0_countries (version 3.0) which is currently stored in `geocoding.carto.com` as ne_admin0_v3. This is stored in data/ne_10m_admin_0_countries.zip
   - Coverage: global
   - Geometry type: polygon
 
