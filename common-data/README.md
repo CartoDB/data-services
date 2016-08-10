@@ -21,7 +21,7 @@ Data library
 
 **Sync table**: `false`
 
-**Source URL**: http://www.naturalearthdata.com/download/50m/physical/ne_50m_rivers_lake_centerlines.zip
+**Source URL**: http://naciscdn.org/naturalearth/50m/physical/ne_50m_rivers_lake_centerlines.zip
 
 #### Ocean
 **Description**: Oceanic region.
@@ -34,7 +34,7 @@ Data library
 
 **Sync table**: `false`
 
-**Source URL**: http://www.naturalearthdata.com/download/50m/physical/ne_50m_ocean.zip
+**Source URL**: http://naciscdn.org/naturalearth/50m/physical/ne_50m_ocean.zip
 
 #### Land
 **Description**: Land region.
@@ -47,7 +47,7 @@ Data library
 
 **Sync table**: `false`
 
-**Source URL**: http://www.naturalearthdata.com/download/50m/physical/ne_50m_land.zip
+**Source URL**: http://naciscdn.org/naturalearth/50m/physical/ne_50m_land.zip
 
 #### Glaciers
 **Description**: Glaciers and recently de-glaciated areas.
@@ -60,7 +60,7 @@ Data library
 
 **Sync table**: `false`
 
-**Source URL**: http://www.naturalearthdata.com/download/50m/physical/ne_50m_glaciated_areas.zip
+**Source URL**: http://naciscdn.org/naturalearth/50m/physical/ne_50m_glaciated_areas.zip
 
 #### Reefs
 **Description**: Coral reefs and atolls.
@@ -73,7 +73,7 @@ Data library
 
 **Sync table**: `false`
 
-**Source URL**: http://www.naturalearthdata.com/download/10m/physical/ne_10m_reefs.zip
+**Source URL**: http://naciscdn.org/naturalearth/10m/physical/ne_10m_reefs.zip
 
 #### Coastlines
 **Description**: Lines around the world coasts.
@@ -86,7 +86,7 @@ Data library
 
 **Sync table**: `false`
 
-**Source URL**: http://www.naturalearthdata.com/download/110m/physical/ne_110m_coastline.zip
+**Source URL**: http://naciscdn.org/naturalearth/110m/physical/ne_110m_coastline.zip
 
 #### Lakes
 **Description**: Natural and artificial lakes.
@@ -99,7 +99,7 @@ Data library
 
 **Sync table**: `false`
 
-**Source URL**: http://www.naturalearthdata.com/download/50m/physical/ne_50m_lakes.zip
+**Source URL**: http://naciscdn.org/naturalearth/50m/physical/ne_50m_lakes.zip
 
 #### Boundaries of the US National Parks 
 **Description**: National Parks Boundaries.
@@ -220,7 +220,7 @@ Data library
 
 **Sync table**: `false`
 
-**Source URL**: http://www.naturalearthdata.com/download/50m/cultural/ne_50m_urban_areas.zip
+**Source URL**: http://naciscdn.org/naturalearth/50m/cultural/ne_50m_urban_areas.zip
 
 #### Populated places
 **Description**: Most populated places.
@@ -233,7 +233,7 @@ Data library
 
 **Sync table**: `false`
 
-**Source URL**: http://www.naturalearthdata.com/download/50m/cultural/ne_50m_populated_places.zip
+**Source URL**: http://naciscdn.org/naturalearth/50m/cultural/ne_50m_populated_places.zip
 
 #### International seaports
 **Description**: Seaports in the world.
@@ -246,7 +246,7 @@ Data library
 
 **Sync table**: `false`
 
-**Source URL**: http://www.naturalearthdata.com/download/10m/cultural/ne_10m_ports.zip
+**Source URL**: http://naciscdn.org/naturalearth/10m/cultural/ne_10m_ports.zip
 
 #### Pakistan districts
 **Description**: Geometries for districts in Pakistan.
@@ -272,7 +272,7 @@ Data library
 
 **Sync table**: `false`
 
-**Source URL**: http://www.naturalearthdata.com/download/10m/cultural/ne_10m_airports.zip
+**Source URL**: http://naciscdn.org/naturalearth/10m/cultural/ne_10m_airports.zip
 
 #### New York: Areas of interest
 **Description**: Areas of interest labels as depicted in New York: A City of Neighborhoods.
@@ -430,7 +430,7 @@ Data library
 
 **Sync table**: `true`
 
-**Source URL**: http://www.naturalearthdata.com/download/10m/cultural/ne_10m_time_zones.zip
+**Source URL**: http://naciscdn.org/naturalearth/10m/cultural/ne_10m_time_zones.zip
 
 #### Local storm reports
 **Description**: Local storm reports last 24 hours, updated every hour.
@@ -623,7 +623,7 @@ Data library
 
 **Sync table**: `false` (File is truncated in GitHub. Sync disabled to avoid errors)
 
-**Source URL**: http://www.naturalearthdata.com/download/10m/cultural/ne_10m_railroads.zip
+**Source URL**: http://naciscdn.org/naturalearth/10m/cultural/ne_10m_railroads.zip
 
 #### Roads
 **Description**: Roads in the world.
@@ -636,7 +636,7 @@ Data library
 
 **Sync table**: `false`
 
-**Source URL**: http://www.naturalearthdata.com/download/10m/cultural/ne_10m_roads.zip
+**Source URL**: http://naciscdn.org/naturalearth/10m/cultural/ne_10m_roads.zip
 
 ***
 
@@ -798,7 +798,7 @@ Data library
 
 **Sync table**: `false`
 
-**Source URL**: http://www.naturalearthdata.com/download/50m/cultural/ne_10m_admin_1_states_provinces.zip
+**Source URL**: http://naciscdn.org/naturalearth/50m/cultural/ne_10m_admin_1_states_provinces.zip
 
 
 #### Autonomous communities of Spain
@@ -886,7 +886,7 @@ Data library
 
 **Sync table**: `false` 
 
-**Source URL**: http://www.naturalearthdata.com/download/50m/cultural/ne_10m_admin_1_states_provinces.zip
+**Source URL**: http://naciscdn.org/naturalearth/50m/cultural/ne_10m_admin_1_states_provinces.zip
 
 #### World borders
 **Description**: World countries borders.
@@ -899,7 +899,7 @@ Data library
 
 **Sync table**: `false` 
 
-**Source URL**: http://www.naturalearthdata.com/download/10m/cultural/ne_100m_admin_0_countries.zip
+**Source URL**: http://naciscdn.org/naturalearth/10m/cultural/ne_100m_admin_0_countries.zip
 
 #### World borders (High definition)
 **Description**: World countries borders (High definition).
@@ -912,7 +912,7 @@ Data library
 
 **Sync table**: `false` 
 
-**Source URL**: http://www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_countries.zip
+**Source URL**: http://naciscdn.org/naturalearth/10m/cultural/ne_10m_admin_0_countries.zip
 
 
 #### New York counties
@@ -939,7 +939,7 @@ Data library
 
 **Sync table**: `false` (Custom dataset from NE 50m_admin1)
 
-**Source URL**: http://www.naturalearthdata.com/download/50m/cultural/ne_10m_admin_1_states_provinces.zip
+**Source URL**: http://naciscdn.org/naturalearth/50m/cultural/ne_10m_admin_1_states_provinces.zip
 
 #### USA counties
 **Description**: All USA counties and their information.
@@ -978,7 +978,7 @@ Data library
 
 **Sync table**: `false` 
 
-**Source URL**: http://www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_countries.zip
+**Source URL**: http://naciscdn.org/naturalearth/10m/cultural/ne_10m_admin_0_countries.zip
 
 
 #### South American countries
@@ -1034,7 +1034,7 @@ Data library
 
 **Sync table**: `false` 
 
-**Source URL**: http://www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_countries.zip
+**Source URL**: http://naciscdn.org/naturalearth/10m/cultural/ne_10m_admin_0_countries.zip
 
 #### Departments of France
 **Description**: Geometries for the 96 departments of France.
@@ -1136,7 +1136,7 @@ Data library
 
 **Sync table**: `false` 
 
-**Source URL**: http://www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_1_states_provinces.zip
+**Source URL**: http://naciscdn.org/naturalearth/10m/cultural/ne_10m_admin_1_states_provinces.zip
 
 #### California Protected Areas
 **Description**: Data about lands that are owned outright (“in fee”) and protected for open space purposes in the US state of California.
