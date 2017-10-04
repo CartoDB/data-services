@@ -186,7 +186,7 @@ Indexes:
 * geocode_admin0_polygons
 
 ```
- Schema |          Name           |    Result data type    | Argument data types |  Type  
+ Schema |          Name           |    Result data type    | Argument data types |  Type
 --------+-------------------------+------------------------+---------------------+--------
  public | geocode_admin0_polygons | SETOF geocode_admin_v1 | name text[]         | normal
 ```
@@ -194,7 +194,7 @@ Indexes:
 * admin0_synonym_lookup - Related with admin0 synonym service, see below
 
 ````
- Schema |         Name          |    Result data type     | Argument data types |  Type  
+ Schema |         Name          |    Result data type     | Argument data types |  Type
 --------+-----------------------+-------------------------+---------------------+--------
  public | admin0_synonym_lookup | SETOF synonym_lookup_v1 | name text[]         | normal
 ````
@@ -202,7 +202,7 @@ Indexes:
 * [admin0_available_services](https://github.com/CartoDB/data-services/blob/master/geocoder/available-services/sql/services.sql) - available in `geocoder/available-services`
 
 ````
- Schema |           Name            |      Result data type       | Argument data types |  Type  
+ Schema |           Name            |      Result data type       | Argument data types |  Type
 --------+---------------------------+-----------------------------+---------------------+--------
  public | admin0_available_services | SETOF available_services_v1 | name text[]         | normal
 ````
@@ -290,8 +290,10 @@ For country boundaries, we use the data provided by Natural Earth Data. The whol
 # Known issues
 
 # Historic
+* [04/10/2017]:
+  * 0.0.3: Merge Corsica with France
 * [01/12/2015]:
-  * Removed geocoder functions. Check the /extension folder instead. 
+  * Removed geocoder functions. Check the /extension folder instead.
 * [19/10/2015]:
   * Revision and usage examples addition
 * [06/10/2015]:
