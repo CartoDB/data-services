@@ -6,10 +6,10 @@
 function test_geocoding_quality_admin0() {
     # checks that the number of geometries is the expected - includes islands and regions splitted in the setup
     # scripts, and some geometries for disputed territories
-    sql 'SELECT count(*) FROM ne_admin0_v3' should 267
+    sql 'SELECT count(*) FROM ne_admin0_v3' should 266
 
     # checks the type of the geometries
-    sql "SELECT ST_GeometryType(the_geom) FROM ne_admin0_v3" should ST_MultiPolygon
+    sql "SELECT ST_GeometryType(the_geom) FROM ne_admin0_v3 GROUP BY 1" should ST_MultiPolygon
 
     # checks that the synonym table includes at least two rows per region: ISO2 code and name
     sql "WITH q AS (SELECT adm0_a3 FROM admin0_synonyms group by adm0_a3 having count(*) < 2) SELECT count(*) FROM q" should 0
@@ -98,7 +98,6 @@ function test_geocoding_quality_admin0() {
     sql "SELECT ST_Intersects(ST_GeomFromText('POLYGON((-180 -21.7111141909999,-180 -12.4752743469999,180 -12.4752743469999,180 -21.7111141909999,-180 -21.7111141909999))', 4326), ST_Centroid(the_geom)) FROM ne_admin0_v3 where adm0_a3 = 'FJI'" should true
     sql "SELECT ST_Intersects(ST_GeomFromText('POLYGON((-61.3181860019999 -52.4065227259999,-61.3181860019999 -51.0277645809999,-57.7342830069999 -51.0277645809999,-57.7342830069999 -52.4065227259999,-61.3181860019999 -52.4065227259999))', 4326), ST_Centroid(the_geom)) FROM ne_admin0_v3 where adm0_a3 = 'FLK'" should true
     sql "SELECT ST_Intersects(ST_GeomFromText('POLYGON((-54.6152921149999 2.11067332000013,-54.6152921149999 51.0875408834804,8.20030521600006 51.0875408834804,8.20030521600006 2.11067332000013,-54.6152921149999 2.11067332000013))', 4326), ST_Centroid(the_geom)) FROM ne_admin0_v3 where adm0_a3 = 'FRA'" should true
-    sql "SELECT ST_Intersects(ST_GeomFromText('POLYGON((8.54525800900012 41.365912177,8.54525800900012 43.0174014340001,9.55958092500009 43.0174014340001,9.55958092500009 41.365912177,8.54525800900012 41.365912177))', 4326), ST_Centroid(the_geom)) FROM ne_admin0_v3 where adm0_a3 = 'FRH'" should true
     sql "SELECT ST_Intersects(ST_GeomFromText('POLYGON((-7.64415442599994 61.3941104190001,-7.64415442599994 62.3989118510001,-6.2757869129999 62.3989118510001,-6.2757869129999 61.3941104190001,-7.64415442599994 61.3941104190001))', 4326), ST_Centroid(the_geom)) FROM ne_admin0_v3 where adm0_a3 = 'FRO'" should true
     sql "SELECT ST_Intersects(ST_GeomFromText('POLYGON((138.063812696 0.918158270000148,138.063812696 9.77558014500013,163.046560092 9.77558014500013,163.046560092 0.918158270000148,138.063812696 0.918158270000148))', 4326), ST_Centroid(the_geom)) FROM ne_admin0_v3 where adm0_a3 = 'FSM'" should true
     sql "SELECT ST_Intersects(ST_GeomFromText('POLYGON((8.69556725400014 -3.93685618990304,8.69556725400014 2.32249501600009,14.4989905190001 2.32249501600009,14.4989905190001 -3.93685618990304,8.69556725400014 -3.93685618990304))', 4326), ST_Centroid(the_geom)) FROM ne_admin0_v3 where adm0_a3 = 'GAB'" should true

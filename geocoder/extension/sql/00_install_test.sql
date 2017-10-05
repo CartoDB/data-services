@@ -1,6 +1,5 @@
 -- Install dependencies
 CREATE EXTENSION postgis;
-CREATE EXTENSION schema_triggers;
 CREATE EXTENSION plpythonu;
 CREATE EXTENSION cartodb;
 
