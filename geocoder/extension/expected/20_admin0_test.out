@@ -10,9 +10,9 @@ SELECT (admin0_synonym_lookup(Array['United States', 'ESP'])).*;
 SELECT (geocode_admin0_polygons(Array['Spain', 'USA', ''])).*;
    q   | geom | success 
 -------+------+---------
-       |      | f
  Spain |      | f
  USA   |      | f
+       |      | f
 (3 rows)
 
 -- Add a few synonyms
@@ -21,7 +21,7 @@ COPY admin0_synonyms (name, rank, created_at, updated_at, the_geom, the_geom_web
 SELECT (admin0_synonym_lookup(Array['United States', 'ESP'])).*;
        q       | adm0_a3 
 ---------------+---------
- ESP           | ESP
  United States | USA
+ ESP           | ESP
 (2 rows)
 

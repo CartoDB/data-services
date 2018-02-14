@@ -8,11 +8,12 @@ CREATE OR REPLACE FUNCTION geocode_admin0_polygons(name text[])
   BEGIN
   -- FOR ret IN
   RETURN QUERY
-    SELECT d.q, n.the_geom as geom, CASE WHEN s.adm0_a3 IS NULL then FALSE ELSE TRUE END AS success
-      FROM (SELECT q, lower(geocode_clean_name(q))::text x
-        FROM (SELECT unnest(name) q) g) d
-      LEFT OUTER JOIN admin0_synonyms s ON name_ = d.x
-      LEFT OUTER JOIN ne_admin0_v3 n ON s.adm0_a3 = n.adm0_a3 GROUP BY d.q, n.the_geom, s.adm0_a3;
+    SELECT q, n.the_geom as geom, CASE WHEN s.adm0_a3 IS NULL then FALSE ELSE TRUE END AS success
+    FROM unnest(name) WITH ORDINALITY q
+    LEFT OUTER JOIN admin0_synonyms s ON name_ = lower(geocode_clean_name(q))::text
+    LEFT OUTER JOIN ne_admin0_v3 n ON s.adm0_a3 = n.adm0_a3
+    GROUP BY q, n.the_geom, s.adm0_a3, q.ordinality
+    ORDER BY q.ordinality;
 END
 $$ LANGUAGE 'plpgsql' SECURITY DEFINER;
 
@@ -23,10 +24,11 @@ CREATE OR REPLACE FUNCTION admin0_synonym_lookup(name text[])
  DECLARE
     ret synonym_lookup_v1%rowtype;
  BEGIN  RETURN QUERY
-    SELECT d.q, s.adm0_a3
-      FROM (SELECT q, lower(geocode_clean_name(q))::text x
-        FROM (SELECT unnest(name) q) g) d
-      LEFT OUTER JOIN admin0_synonyms s ON name_ = d.x GROUP BY d.q, s.adm0_a3;
+    SELECT q, s.adm0_a3
+    FROM unnest(name) WITH ORDINALITY q
+    LEFT OUTER JOIN admin0_synonyms s ON name_ = lower(geocode_clean_name(q))::text
+    GROUP BY q, s.adm0_a3, q.ordinality
+    ORDER BY q.ordinality;
 END
 $$ LANGUAGE 'plpgsql' SECURITY DEFINER;
 
