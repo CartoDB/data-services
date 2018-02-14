@@ -225,7 +225,7 @@ CREATE OR REPLACE FUNCTION geocode_namedplace(places text[], admin1s text[], inp
       next AS (SELECT p.s AS q, p.a1 AS a1, (SELECT gp.the_geom FROM global_cities_points_limited gp, global_cities_alternates_limited ga WHERE lower(p.s) = ga.lowername AND ga.admin1 = p.i AND ga.geoname_id = gp.geoname_id ORDER BY preferred DESC LIMIT 1) geom FROM p WHERE p.s NOT IN (SELECT q FROM best WHERE geom IS NOT NULL))
       SELECT q, a1, inputcountry as c, geom, TRUE AS success FROM best WHERE geom IS NOT NULL
       UNION ALL
-      SELECT q, a1, inputcountry as c, geom, CASE WHEN geom IS NULL THEN FALSE ELSE TRUE END AS success FROM next 
+      SELECT q, a1, inputcountry as c, geom, CASE WHEN geom IS NULL THEN FALSE ELSE TRUE END AS success FROM next
       LOOP
       RETURN NEXT ret;
     END LOOP;
@@ -260,9 +260,18 @@ CREATE OR REPLACE FUNCTION geocode_namedplace(places text[], admin1s text[], inp
           RETURN NEXT ret;
       END LOOP;
     ELSE
-      FOR ret IN WITH clean AS (SELECT array_agg(p) p, array_agg(a) a, c FROM (SELECT p, a, c FROM (SELECT unnest(places) p, unnest(admin1s) a, unnest(inputcountry) c) z GROUP BY p, a, c) y GROUP BY c)
-        SELECT (geocode_namedplace(p, a, c)).* FROM clean LOOP
-          RETURN NEXT ret;
+      FOR ret IN WITH clean AS (
+          SELECT array_agg(p) p, array_agg(a) a, c
+          FROM (SELECT p, a, c
+                FROM (SELECT p, a, c, nest.ordinality as ord FROM unnest(places, admin1s) with ordinality nest (p, a), LATERAL unnest(inputcountry) with ordinality c) z
+                GROUP BY p, a, c, z.ord
+                ORDER BY z.ord
+              ) y
+          GROUP BY c
+        )
+        SELECT (geocode_namedplace(p, a, c)).* FROM clean
+      LOOP
+        RETURN NEXT ret;
       END LOOP;
     END IF;
   RETURN;

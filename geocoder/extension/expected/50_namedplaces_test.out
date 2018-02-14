@@ -42,8 +42,8 @@ SELECT (geocode_namedplace(Array['Portland', 'Portland', 'New York City'], Array
        q       |   a1   |  c  | geom | success 
 ---------------+--------+-----+------+---------
  New York City |        | USA |      | f
- Portland      | Oregon | USA |      | f
  Portland      | Maine  | USA |      | f
+ Portland      | Oregon | USA |      | f
 (3 rows)
 
 SELECT namedplace_guess_country(Array['granada', 'jaen', 'cordoba', 'madrid', 'valladolid']);
