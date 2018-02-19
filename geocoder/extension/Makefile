@@ -5,7 +5,9 @@ EXTVERSION = $(shell grep default_version $(EXTENSION).control | sed -e "s/defau
 
 DATA = $(EXTENSION)--$(EXTVERSION).sql
 
-REGRESS = $(notdir $(basename $(sort $(wildcard sql/*test.sql))))
+REGRESS = $(notdir $(basename $(sort $(wildcard test/sql/*test.sql))))
+TEST_DIR = test/
+REGRESS_OPTS = --inputdir='$(TEST_DIR)' --outputdir='$(TEST_DIR)' --user='postgres'
 
 # postgres build stuff
 PG_CONFIG = pg_config
@@ -13,10 +15,10 @@ PGXS := $(shell $(PG_CONFIG) --pgxs)
 include $(PGXS)
 
 
-SOURCES_DATA = $(wildcard sql/$(EXTVERSION)/*.sql)
+SOURCES_DATA = $(wildcard sql/*.sql)
 
 $(DATA): $(SOURCES_DATA)
-	rm -f $@
+	rm -f $(EXTENSION)--*.sql
 	cat $(SOURCES_DATA) >> $@
 
 all: $(DATA)
