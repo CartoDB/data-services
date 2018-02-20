@@ -3,7 +3,9 @@
 EXTENSION = cdb_geocoder
 EXTVERSION = $(shell grep default_version $(EXTENSION).control | sed -e "s/default_version[[:space:]]*=[[:space:]]*'\([^']*\)'/\1/")
 
-DATA = $(EXTENSION)--$(EXTVERSION).sql
+NEW_EXTENSION_ARTIFACT = $(EXTENSION)--$(EXTVERSION).sql
+DATA = $(NEW_EXTENSION_ARTIFACT) \
+         $(EXTENSION)--*--*.sql
 
 REGRESS = $(notdir $(basename $(sort $(wildcard test/sql/*test.sql))))
 TEST_DIR = test/
@@ -17,7 +19,7 @@ include $(PGXS)
 
 SOURCES_DATA = $(wildcard sql/*.sql)
 
-$(DATA): $(SOURCES_DATA)
+$(NEW_EXTENSION_ARTIFACT): $(SOURCES_DATA)
 	rm -f $(EXTENSION)--*.sql
 	cat $(SOURCES_DATA) >> $@
 
