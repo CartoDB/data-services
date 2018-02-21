@@ -3,9 +3,13 @@
 EXTENSION = cdb_geocoder
 EXTVERSION = $(shell grep default_version $(EXTENSION).control | sed -e "s/default_version[[:space:]]*=[[:space:]]*'\([^']*\)'/\1/")
 
-DATA = $(EXTENSION)--$(EXTVERSION).sql
+NEW_EXTENSION_ARTIFACT = $(EXTENSION)--$(EXTVERSION).sql
+DATA = $(NEW_EXTENSION_ARTIFACT) \
+         $(EXTENSION)--*--*.sql
 
-REGRESS = $(notdir $(basename $(sort $(wildcard sql/*test.sql))))
+REGRESS = $(notdir $(basename $(sort $(wildcard test/sql/*test.sql))))
+TEST_DIR = test/
+REGRESS_OPTS = --inputdir='$(TEST_DIR)' --outputdir='$(TEST_DIR)' --user='postgres'
 
 # postgres build stuff
 PG_CONFIG = pg_config
@@ -13,10 +17,10 @@ PGXS := $(shell $(PG_CONFIG) --pgxs)
 include $(PGXS)
 
 
-SOURCES_DATA = $(wildcard sql/$(EXTVERSION)/*.sql)
+SOURCES_DATA = $(wildcard sql/*.sql)
 
-$(DATA): $(SOURCES_DATA)
-	rm -f $@
+$(NEW_EXTENSION_ARTIFACT): $(SOURCES_DATA)
+	rm -f $(EXTENSION)--*.sql
 	cat $(SOURCES_DATA) >> $@
 
 all: $(DATA)
