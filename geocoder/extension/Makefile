@@ -4,8 +4,7 @@ EXTENSION = cdb_geocoder
 EXTVERSION = $(shell grep default_version $(EXTENSION).control | sed -e "s/default_version[[:space:]]*=[[:space:]]*'\([^']*\)'/\1/")
 
 NEW_EXTENSION_ARTIFACT = $(EXTENSION)--$(EXTVERSION).sql
-DATA = $(NEW_EXTENSION_ARTIFACT) \
-         $(EXTENSION)--*--*.sql
+DATA = $(NEW_EXTENSION_ARTIFACT)
 
 REGRESS = $(notdir $(basename $(sort $(wildcard test/sql/*test.sql))))
 TEST_DIR = test/
@@ -16,15 +15,16 @@ PG_CONFIG = pg_config
 PGXS := $(shell $(PG_CONFIG) --pgxs)
 include $(PGXS)
 
-
 SOURCES_DATA = $(wildcard sql/*.sql)
 
 $(NEW_EXTENSION_ARTIFACT): $(SOURCES_DATA)
-	find . -type f -regex '.*$(EXTENSION)--[0-9]\.[0-9]\.[0-9]\.sql' | xargs rm
+	rm -f $@
 	cat $(SOURCES_DATA) >> $@
 
+.PHONY: all
 all: $(DATA)
 
 # Only meant for development time, do not use once a version is released
+.PHONY: devclean
 devclean:
 	rm -f $(DATA)
