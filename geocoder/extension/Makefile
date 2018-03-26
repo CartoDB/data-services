@@ -20,7 +20,7 @@ include $(PGXS)
 SOURCES_DATA = $(wildcard sql/*.sql)
 
 $(NEW_EXTENSION_ARTIFACT): $(SOURCES_DATA)
-	rm -f $(EXTENSION)--*.sql
+	find . -type f -regex '.*$(EXTENSION)--[0-9]\.[0-9]\.[0-9]\.sql' | xargs rm
 	cat $(SOURCES_DATA) >> $@
 
 all: $(DATA)
