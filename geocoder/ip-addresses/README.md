@@ -11,11 +11,60 @@ SELECT geocode_ip(Array['1.0.16.0', '::ffff:1.0.16.0'])
 ```
 
 # Creation steps
-1. Create the `ip_address_locations` table
+1. Create the `ip_address_locations` table (see `40_ipaddr.sql` file)
 2. Obtain the file from http://geolite.maxmind.com/download/geoip/database/GeoLite2-City-CSV.zip
 3. Uncompress it and upload the `GeoLite2-City-Blocks-IPv4.csv` file
 4. Rename the uploaded table as `latest_ip_address_locations`
 5. Run the `sql/build_data_table` script to update the table
+
+# Update steps
+
+## Option A: generate a new `ip_address_locations` table at geocoder user
+
+If the geocoder database is a CARTO user, do these steps:
+
+1. Import `GeoLite2-City-Blocks-IPv4.csv` and rename it to `latest_ip_address_locations`.
+2. Import `GeoLite2-City-Blocks-IPv6.csv` and rename it to `latest_ip6_address_locations`.
+3. If you want to create a backup of the previous table, do this:
+
+    ```sql
+    CREATE TABLE ip_address_locations_backup as
+        select * from ip_address_locations;
+    ```
+
+4. Clear previous table:
+
+    ```sql
+    TRUNCATE ip_address_locations;
+    ```
+
+5. Load the new values:
+
+```sql
+set statement_timeout = '20min';
+INSERT INTO ip_address_locations (the_geom, network_start_ip) SELECT the_geom, ('::ffff:' || split_part(network, '/', 1))::inet FROM latest_ip_address_locations;
+INSERT INTO ip_address_locations (the_geom, network_start_ip) SELECT the_geom, split_part(network, '/', 1)::inet FROM latest_ip6_address_locations;
+```
+
+## Option B: load a dump of the table
+
+If the geocoder database is not a CARTO user, do these steps:
+
+1. Perform option A in any user (it can even be a staging user). If you need to create the table, check `40_ipaddr.sql`.
+2. Generate a dump of the file at that user database:
+
+    ```sql
+    \copy (select * from ip_address_locations) TO /tmp/ip_address_locations.dump;
+    ```
+
+3. Copy the file to the remote server.
+4. Perform steps A.3 and A.4.
+5. Load the new data (takes ~10 minutes):
+
+```sql
+set statement_timeout = '20min';
+\copy ip_address_locations from /tmp/ip_address_locations.dump
+```
 
 # Tables
 
