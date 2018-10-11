@@ -8,7 +8,8 @@ PATCHES_LIST="20160203_countries_bh_isocode.sql
 20160622_countries_synonym_congo.sql
 20171004_merge_corsica_and_france.sql
 20180117_hsinchu_synonyms.sql
-20180306_add_ssd_rows_for_south_sudan.sql"
+20180306_add_ssd_rows_for_south_sudan.sql
+20181011_add_synonyms_for_swaziland.sql"
 
 mkdir -p $TARGET_DIR_PATCHES
 
