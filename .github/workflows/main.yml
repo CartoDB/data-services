@@ -1,0 +1,32 @@
+name: data-services PR testing
+on: push
+jobs:
+  data-services-pg10:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Setup gcloud authentication
+        uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          service_account_key: ${{ secrets.GCS }}
+
+      - name: Pull base image
+        run: gcloud auth configure-docker && docker pull gcr.io/cartodb-on-gcp-ci-testing/cartodb-postgresql-base:10
+
+      - name: Checkout ci tools repository
+        uses: actions/checkout@v2
+        with:
+          repository: CartoDB/ci-tools
+          path: ci-tools
+          token: ${{ secrets.CARTOFANTE_PAT }}
+
+      - name: Copy ci files to root
+        run: cp ci-tools/repos/${{ github.event.repository.name }}/* .
+
+      - name: Start docker-compose services
+        run: docker-compose -f docker-compose-pg10.yaml up -d
+
+      - name: Run tests
+        run: docker-compose -f docker-compose-pg10.yaml exec -T postgres-server bash -c "cd /data-services/geocoder/extension && make clean all install installcheck"
+        timeout-minutes: 5
