@@ -1,6 +1,6 @@
 -- Install dependencies
 CREATE EXTENSION postgis;
-CREATE EXTENSION plpythonu;
+CREATE EXTENSION @@plpythonu@@;
 CREATE EXTENSION cartodb;
 
 -- Mock the quota check
