@@ -17,6 +17,7 @@ jobs:
         with:
           service_account_key: ${{ secrets.GCS }}
 
+
       - name: Pull base image
         run: gcloud auth configure-docker && docker pull gcr.io/cartodb-on-gcp-ci-testing/cartodb-postgresql-base:${{ matrix.pg_version }}
 
