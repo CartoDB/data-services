@@ -12,13 +12,14 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - name: Setup gcloud authentication
-        uses: google-github-actions/setup-gcloud@v0
-        with:
-          service_account_key: ${{ secrets.GCS }}
+      - name: Set up docker registry
+        env:
+          SA_TO_USE: ${{ secrets.GCS }}
+        run: |
+          echo "${SA_TO_USE}" | base64 -d | docker login -u _json_key --password-stdin https://gcr.io
 
       - name: Pull base image
-        run: gcloud auth configure-docker && docker pull gcr.io/cartodb-on-gcp-ci-testing/cartodb-postgresql-base:${{ matrix.pg_version }}
+        run: docker pull gcr.io/cartodb-on-gcp-ci-testing/cartodb-postgresql-base:${{ matrix.pg_version }}
 
       - name: Checkout ci tools repository
         uses: actions/checkout@v2
