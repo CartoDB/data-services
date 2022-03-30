@@ -11,7 +11,8 @@ PATCHES_LIST="20160203_countries_bh_isocode.sql
 20180306_add_ssd_rows_for_south_sudan.sql
 20181011_add_synonyms_for_swaziland.sql
 20190111_france_regions_typos.sql
-20210118_add_renamed_country_north_macedonia.sql"
+20210118_add_renamed_country_north_macedonia.sql
+20220325_france_region_haut-rhin_typo.sql"
 
 mkdir -p $TARGET_DIR_PATCHES
 
